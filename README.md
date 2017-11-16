@@ -39,46 +39,28 @@ or if they are not supplied with the command line arguments.
 
 ## Execution Flags
 
+Download the project (named in Config.ini or supplied with the ```--project``` flag)
 ```
 --get
 ```
-Download the project (named in Config.ini or supplied with the ```--project``` flag)
 
+Project to download
 ```
 --project
 ```
-Project to download
 
+Prefix of the repository to download
 ```
 --prefix
 
 ```
-Prefix of the repository to download
 
+Token to allow for the program to download the repositories
 ```
 --token
 ```
-Token to allow for the program to download the repositories
 
+Location to place downloaded repositories
 ```
 --out
 ```
-Location to place downloaded repositories
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
