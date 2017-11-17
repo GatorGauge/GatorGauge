@@ -10,7 +10,7 @@ def test_flake8():
     name_of_files = []
 
     # fill list with all python files found in all subdirectories
-    for root, dirs, files in os.walk("accelegator", topdown=False):
+    for root, dirs, files in os.walk("GatorGauge", topdown=False):
         files = glob.glob(root + "/*.py")
         name_of_files.extend(files)
 
