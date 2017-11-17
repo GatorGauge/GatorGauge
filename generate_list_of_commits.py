@@ -39,7 +39,7 @@ def print_commit(commit, decode, outstream=sys.stdout):
     :param commit: A `Commit` object
     :param outstream: A stream file to write to
     """
-    outstream.write("-" * 50 + "\n")
+    """outstream.write("-" * 50 + "\n")
     outstream.write("commit: " + commit.id.decode('ascii') + "\n")
     if len(commit.parents) > 1:
         outstream.write(
@@ -55,7 +55,8 @@ def print_commit(commit, decode, outstream=sys.stdout):
     outstream.write("Date:   " + time_str + " " + timezone_str + "\n")
     outstream.write("\n")
     outstream.write(decode(commit.message) + "\n")
-outstream.write("\n")
+outstream.write("\n") """
+
 
 	
 
