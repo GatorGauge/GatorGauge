@@ -30,6 +30,11 @@ def import_commits_as_string(file_path):
 	return commit_str
 
 def generate_list_of_commits(str_of_commits):
+	
+
+	
+
+def print_commit(commit, decode, outstream=sys.stdout):
 
 	
 
