@@ -7,6 +7,29 @@ Downloads and analyzes the information in student repositories(currently only do
 # Config.ini
 
 Default Variables. DO not place the variables inside of "".
+Since the config.ini file contains sensitive information due to the token,
+it is not supplied in this repository. So the user must create a new file
+in their local root directory called config.ini
+
+Paste the following into this new file:
+
+```
+[Token]
+; Github access token, KEEP SECRET!!!!
+TOKEN =
+[Project]
+; Project to pull
+PROJECT =
+[Prefix]
+; Prefix to look for to narrow
+PREFIX =
+[Out]
+; default: current directory
+OUT = .
+```
+
+Once done, paste the token in token section. Must specify a project but PREFIX
+is optional, and out defaults to current directory.
 
 # Token
 
