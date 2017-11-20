@@ -18,7 +18,7 @@ def import_commits_as_string(file_path):
     repo = Repo(file_path)
 
     # porcelain handles the reading of the file at file_path
-    print("Reading commit for: " + file_path)
+    print("Reading commit for: " + file_path + "\n\n")
 
     # Porcelain automatically writes to the terminal, to override this we must
     # redirect the stdout with our new outstream saved in NEW_OUTSTREAM.  
