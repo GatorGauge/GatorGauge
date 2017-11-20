@@ -30,3 +30,6 @@ def import_commits_as_string(file_path):
     commit_str = NEW_OUTSTREAM.getvalue()
     return commit_str
 
+def generate_list_of_commits(commit_str):
+
+	#TODO: Parse information from the imported commit_str
