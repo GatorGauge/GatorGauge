@@ -12,4 +12,6 @@ if __name__ == "__main__":
         quit()
     if args.get is True:
         github_clone_all.get_repositories(args.project, args.prefix, args.token, args.out)
-    print(read_markdown.read_markdown("test.md"))
+    markdown = read_markdown.read_markdown("test.md")
+    for line in markdown:
+        print(line)
