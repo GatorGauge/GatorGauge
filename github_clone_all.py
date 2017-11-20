@@ -86,7 +86,9 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
         # cd foo
         # git init
         # git pull https://<token>@github.com/username/bar.git
-
+        if os.path.isdir(repo['name']):
+            command = 'rm -r -f '+repo['name']
+            os.system(command)
         os.mkdir(repo['name'])
         os.chdir(repo['name'])
         subprocess.call(["git", "init"])
