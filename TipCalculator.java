@@ -7,6 +7,13 @@
 //
 // Purpose:
 //******************************************************
+
+/*
+Multiline comment
+for testing
+purposes
+*/
+
 import java.util.Date; // needed for printing today's date
 import java.util.Scanner; // needed for getting user input
 
