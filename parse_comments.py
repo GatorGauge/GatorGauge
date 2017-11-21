@@ -6,63 +6,43 @@
 import re
 
 
-class CommentParser:
-    FILE_SEPARATOR = "/"
+FILE_SEPARATOR = "/"
 
-    MULTILINECOMMENT_RE = r'\/\*+([\s\S]*?)\*+\/'  # new regex
-    SINGLELINECOMMENT_RE_JAVA = r'^(?:[^"/\\]|\"(?:[^\"\\]|\\.)*\"|/(?:[^/"\\]|\\.)|/\"(?:[^\"\\]|\\.)*\"|\\.)*//(.*)$'
-
-    singleline_comments = None
-    multiline_comments = None
+MULTILINECOMMENT_RE = r'\/\*+([\s\S]*?)\*+\/'  # new regex
+SINGLELINECOMMENT_RE_JAVA = r'^(?:[^"/\\]|\"(?:[^\"\\]|\\.)*\"|/(?:[^/"\\]|\\.)|/\"(?:[^\"\\]|\\.)*\"|\\.)*//(.*)$'
 
 
-    @classmethod
-    def list_singleline_java_comments(cls, java_string):
-        """Return list of singleline Java comments in the java_string."""
-        if cls.singleline_comments is not None:
-            return cls.singleline_comments
-        else:
-            pattern = re.compile(cls.SINGLELINECOMMENT_RE_JAVA, re.MULTILINE)
-            cls.singleline_comments = pattern.findall(java_string)
-            for comment in cls.singleline_comments:
-                comment = comment.strip()
-            return cls.singleline_comments
+def list_singleline_java_comments(java_string):
+    """Return list of singleline Java comments in the java_string."""
+    pattern = re.compile(SINGLELINECOMMENT_RE_JAVA, re.MULTILINE)
+    singleline_comments = pattern.findall(java_string)
+    for comment in singleline_comments:
+        comment = comment.strip()
+    return singleline_comments
 
 
-    @classmethod
-    def list_multiline_java_comments(cls, java_string):
-        """Count the number of multiline Java comments in the java_string."""
-        if cls.multiline_comments is not None:
-            return cls.multiline_comments
-        else:
-            pattern = re.compile(cls.MULTILINECOMMENT_RE, re.MULTILINE)
-            cls.multiline_comments = pattern.findall(java_string)
-            for comment in cls.multiline_comments:
-                comment = comment.strip()
-            return cls.multiline_comments
+def list_multiline_java_comments(java_string):
+    """Count the number of multiline Java comments in the java_string."""
+    pattern = re.compile(MULTILINECOMMENT_RE, re.MULTILINE)
+    multiline_comments = pattern.findall(java_string)
+    for comment in multiline_comments:
+        comment = comment.strip()
+    return multiline_comments
 
 
-    @classmethod
-    def count_singleline_java_comments(cls, java_string):
-        """Count the number of singleline Java comments in the java_string."""
-        if cls.singleline_comments is not None:
-            return len(cls.singleline_comments)
-        else:
-            pattern = re.compile(cls.SINGLELINECOMMENT_RE_JAVA, re.MULTILINE)
-            cls.singleline_comments = pattern.findall(java_string)
-            for comment in cls.singleline_comments:
-                comment = comment.strip()
-            return len(cls.singleline_comments)
+def count_singleline_java_comments(java_string):
+    """Count the number of singleline Java comments in the java_string."""
+    pattern = re.compile(SINGLELINECOMMENT_RE_JAVA, re.MULTILINE)
+    singleline_comments = pattern.findall(java_string)
+    for comment in singleline_comments:
+        comment = comment.strip()
+    return len(singleline_comments)
 
 
-    @classmethod
-    def count_multiline_java_comments(cls, java_string):
-        """Count the number of multiline Java comments in the java_string."""
-        if cls.multiline_comments is not None:
-            return len(cls.multiline_comments)
-        else:
-            pattern = re.compile(cls.MULTILINECOMMENT_RE, re.MULTILINE)
-            cls.multiline_comments = pattern.findall(java_string)
-            for comment in cls.multiline_comments:
-                comment = comment.strip()
-            return len(cls.multiline_comments)
+def count_multiline_java_comments(java_string):
+    """Count the number of multiline Java comments in the java_string."""
+    pattern = re.compile(MULTILINECOMMENT_RE, re.MULTILINE)
+    multiline_comments = pattern.findall(java_string)
+    for comment in multiline_comments:
+        comment = comment.strip()
+    return len(multiline_comments)
