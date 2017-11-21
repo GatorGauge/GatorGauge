@@ -55,7 +55,7 @@ current directory and names the repository the project name.
 To get requirements, use the command
 
 ```
-pip install - -user - r requirements.txt
+pip3 install --user -r requirements.txt
 ```
 
 # Basic Execution
