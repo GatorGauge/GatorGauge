@@ -1,5 +1,6 @@
 """ main file in the GatorGauge system """
 import sys
+import os
 # local imports
 import github_clone_all
 import parse_args
@@ -24,6 +25,11 @@ if __name__ == "__main__":
         
     if args.get is True:
         github_clone_all.get_repositories(args.project, args.prefix, args.token, args.out)
-    markdown = read_markdown.read_markdown("test.md")
+        
+    markdown = list()
+    for subdir, dirs, files in os.walk(args.out):
+        for file in files:
+            if file.endswith(".md"):
+                markdown.append(os.path.join(subdir, file))
     for line in markdown:
-        print(line)
+        print(read_markdown.read_markdown(line))
