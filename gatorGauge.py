@@ -27,10 +27,10 @@ if __name__ == "__main__":
         github_clone_all.get_repositories(args.project, args.prefix, args.token, args.out)
         
     if args.read is not "":
-        markdown = list()
+        listFiles = list()
         for subdir, dirs, files in os.walk(args.out):
             for file in files:
                 if file.endswith(args.read):
-                    markdown.append(os.path.join(subdir, file))
-        for line in markdown:
-            print(str(read_file.read_file(line)),end="\n\n")
+                    listFiles.append(os.path.join(subdir, file))
+        for File in listFiles:
+            print(*read_file.read_file(File),end="\n\n")

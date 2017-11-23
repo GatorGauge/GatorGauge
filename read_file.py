@@ -11,9 +11,10 @@ def read_file(File):
         else:
             lines = mark.read().split('\n')
     for line in lines:
-        #line = re.sub(r'(?s)(#)(.*?)(  )', '', line).strip() # annoying line, removes section headers from .md files 
+        # if File.endswith('README.md'): # formats README.md output, uncomment if needed
+            # line = re.sub(r'(?s)(#)(.*?)(  )', '', line).strip() # annoying line, removes section headers from README.md files 
         nextLine = list()                                     # (unnecessary but leaving in just in case)
         if not line == '':
             nextLine.append(line)
             content.append(nextLine)
-    return content
+    return content # list of lists
