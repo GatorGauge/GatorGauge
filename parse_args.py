@@ -1,3 +1,4 @@
+""" parse arguments inputted via command line """
 import argparse
 
 import defaults
@@ -10,6 +11,12 @@ def parse_args(args):
                             default=False,
                             help="Download the repositories.\nIf not default project or prefix, must use '--project' or '--prefix'",
                             action="store_true")
+                            
+    parser.add_argument('--list',
+                            default=".",
+                            const="all",
+                            nargs='?',
+                            help="List the files with the given extension")
                             
     parser.add_argument('--project',
                             default=defaults.PROJECT,
