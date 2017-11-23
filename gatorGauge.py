@@ -5,7 +5,7 @@ import os
 import github_clone_all
 import parse_args
 import defaults
-import read_markdown
+import read_file
 
 if __name__ == "__main__":
     args = parse_args.parse_args(sys.argv[1:])
@@ -26,11 +26,11 @@ if __name__ == "__main__":
     if args.get is True:
         github_clone_all.get_repositories(args.project, args.prefix, args.token, args.out)
         
-    if args.read is True:
+    if args.read is not "":
         markdown = list()
         for subdir, dirs, files in os.walk(args.out):
             for file in files:
-                if file.endswith("WordHide.java"):
+                if file.endswith(args.read):
                     markdown.append(os.path.join(subdir, file))
         for line in markdown:
-            print(read_markdown.read_markdown(line),end="\n\n")
+            print(str(read_file.read_file(line)),end="\n\n")

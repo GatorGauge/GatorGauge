@@ -10,9 +10,11 @@ def parse_args(args):
                             default=False,
                             help="Download the repositories.\nIf not default project or prefix, must use '--project' or '--prefix'",
                             action="store_true")
+                            
     parser.add_argument('--read',
-                            default=False,
-                            help="Read the .md files", action="store_true")
+                            default="",
+                            nargs='?',
+                            help="Read the information in a given file")
                             
     parser.add_argument('--project',
                             default=defaults.PROJECT,
