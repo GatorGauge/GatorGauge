@@ -3,7 +3,6 @@ from dulwich import porcelain
 from contextlib import redirect_stdout
 from io import StringIO
 
-
 def import_commits_as_string(file_path):
 
     # Constants
@@ -25,7 +24,8 @@ def import_commits_as_string(file_path):
     # This allows us to save the log as a string so we can manipulate it.
 
     with redirect_stdout(NEW_OUTSTREAM):
-        porcelain.log(repo)
+        porcelain.log(repo, outstream = NEW_OUTSTREAM)
 		
     commit_str = NEW_OUTSTREAM.getvalue()
+	
     return commit_str
