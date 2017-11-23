@@ -13,7 +13,6 @@ def parse_args(args):
                             
     parser.add_argument('--read',
                             default="",
-                            nargs='?',
                             help="Read the information in a given file")
                             
     parser.add_argument('--project',
