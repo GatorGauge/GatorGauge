@@ -48,7 +48,7 @@ current directory and names the repository the project name.
 
 ## Execution
 
-### requirements
+### Requirements
 
 To get requirements, use the command
 
