@@ -80,7 +80,6 @@ Prefix of the repository to download
 
 ```
 --prefix
-
 ```
 
 Token to allow for the program to download the repositories
