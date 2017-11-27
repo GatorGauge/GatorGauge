@@ -48,6 +48,10 @@ Project to download
 ```
 --project
 ```
+Read the information in the inputed file name or files with the inputed .extension
+```
+--read
+```
 
 Prefix of the repository to download
 ```
