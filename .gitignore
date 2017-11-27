@@ -1,4 +1,4 @@
 __pycache__
 *.pyc
 *.json
-config.ini
+*.ini
