@@ -17,6 +17,10 @@ def parse_args(args):
                             const="all",
                             nargs='?',
                             help="List the files with the given extension")
+
+    parser.add_argument('--read',
+                            default="",
+                            help="Read the information in a given file")
                             
     parser.add_argument('--project',
                             default=defaults.PROJECT,
