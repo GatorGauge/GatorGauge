@@ -11,6 +11,10 @@ def parse_args(args):
                             help="Download the repositories.\nIf not default project or prefix, must use '--project' or '--prefix'",
                             action="store_true")
                             
+    parser.add_argument('--read',
+                            default="",
+                            help="Read the information in a given file")
+                            
     parser.add_argument('--project',
                             default=defaults.PROJECT,
                             help='GitHub project to scan, default: ' + defaults.PROJECT)

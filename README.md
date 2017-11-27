@@ -70,6 +70,12 @@ Download the project(named in Config.ini or supplied with the ```--project``` fl
 --get
 ```
 
+Read the information in the inputed file name or files with the inputed .extension
+
+```
+--read
+```
+
 Project to download
 
 ```
