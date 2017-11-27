@@ -24,6 +24,7 @@ if __name__ == "__main__":
     # download repositories
     if args.get is True:
         github_clone_all.get_repositories(args.project, args.prefix, args.token, args.out)
+  
     # read inputed file
     if args.read is not "":
         listFiles = list()
@@ -33,3 +34,8 @@ if __name__ == "__main__":
                     listFiles.append(os.path.join(subdir, file))
         for File in listFiles:
             print(*read_file.read_file(File),end="\n\n")
+
+    if "--list" in sys.argv[1:]: # checks if --list was used in command line
+        files = file_list.list_files(args.list, args.out) # list of files returned
+        for file in files:
+            print(file)
