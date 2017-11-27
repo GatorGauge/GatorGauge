@@ -72,6 +72,12 @@ Download the project(named in Config.ini or supplied with the ```- -project``` f
 --get
 ```
 
+List all files or files with the specified .extension
+
+```
+--list
+```
+
 Project to download
 
 ```
