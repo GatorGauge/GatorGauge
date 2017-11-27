@@ -3,11 +3,13 @@ from dulwich import porcelain
 from contextlib import redirect_stdout
 from io import StringIO
 
+#function takes in a file_path, points to a given repo
 def import_commits_as_string(file_path):
 
     # Constants
     NEW_OUTSTREAM = StringIO()
 
+    # Future string of commits
     commit_str = ""
 
     # Opens repo at this file
