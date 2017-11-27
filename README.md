@@ -1,5 +1,3 @@
-(Basic README do not judge)
-
 # GatorGauge
 
 Downloads and analyzes the information in student repositories(currently only downloads).
@@ -78,6 +76,7 @@ Project to download
 --project
 ```
 Read the information in the inputed file name or files with the inputed .extension
+
 ```
 --read
 ```
