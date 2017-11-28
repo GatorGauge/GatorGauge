@@ -1,7 +1,6 @@
 
 """ Testcases for comment parsing """
-# from parse_comments import list_singleline_java_comments;
-import parse_comments
+import parse_comments as pc
 
 JAVA_SOURCE = """
 //comment_1
@@ -39,66 +38,67 @@ comment_19
 
 def test_comment_bol():
     """ comment at beginning-of-line """
-    # comments = list_singleline_java_comments(JAVA_SOURCE)
-    comments = parse_comments.list_singleline_java_comments(JAVA_SOURCE)
+    comments = pc.list_singleline_java_comments(JAVA_SOURCE)
     assert "comment_1" in comments
     assert "comment_2" in comments
 
 
-# def test_comment_space_indented_bol():
-#     """ BOL comment indented with spaces """
-#     comments = parse_comments(JAVA_SOURCE)
-#     assert "comment_3" in comments
-#     assert "comment_4" in comments
-#     assert "comment_5" in comments
-#     assert "comment_6" in comments
-#     assert "comment_7" in comments
-#     assert "comment_8" in comments
-#     assert "comment_9" in comments
+def test_comment_space_indented_bol():
+    """ BOL comment indented with spaces """
+    comments = pc.list_singleline_java_comments(JAVA_SOURCE)
+    assert "comment_3" in comments
+    assert "comment_4" in comments
+    assert "comment_5" in comments
+    assert "comment_6" in comments
+    assert "comment_7" in comments
+    assert "comment_8" in comments
+    assert "comment_9" in comments
 
 
-# def test_comment_tab_indented_bol():
-#     """ BOL comment indented with tabs """
-#     comments = parse_comments(JAVA_SOURCE)
-#     assert "comment_10_tab" in comments
+def test_comment_tab_indented_bol():
+    """ BOL comment indented with tabs """
+    comments = pc.list_singleline_java_comments(JAVA_SOURCE)
+    assert "comment_10_tab" in comments
 
 
-# def test_comment_eol():
-#     """ comment at end-of-line """
-#     comments = parse_comments(JAVA_SOURCE)
-#     assert "comment_11" in comments
-#     assert "comment_12" in comments
-#     assert "comment_13" in comments
+def test_comment_eol():
+    """ comment at end-of-line """
+    comments = pc.list_singleline_java_comments(JAVA_SOURCE)
+    assert "comment_11" in comments
+    assert "comment_12" in comments
+    assert "comment_13" in comments
 
 
-# def test_quoted_comment():
-#     """ comment within quoted string """
-#     comments = parse_comments(JAVA_SOURCE)
-#     assert "comment_14" not in comments
+def test_quoted_comment():
+    """ comment within quoted string """
+    comments = pc.list_singleline_java_comments(JAVA_SOURCE)
+    assert "comment_14" not in comments
 
 
-# def test_multiline_singleline():
-#     """ multiline comment on singleline """
-#     comments = parse_comments(JAVA_SOURCE)
-#     assert "comment_15" in comments
-#     assert "comment_16" in comments
-#     assert "comment_17" in comments
+def test_multiline_singleline():
+    """ multiline comment on singleline """
+    comments = pc.list_multiline_java_comments(JAVA_SOURCE)
+    assert "comment_15" in comments
+    assert "comment_16" in comments
+    assert "comment_17" in comments
 
 
-# def test_multiline_twoline():
-#     """ multiline comment across two lines """
-#     comments = parse_comments(JAVA_SOURCE)
-#     assert "comment_18" in comments
+def test_multiline_twoline():
+    """ multiline comment across two lines """
+    comments = pc.list_multiline_java_comments(JAVA_SOURCE)
+    assert "comment_18" in comments
 
 
-# def test_multiline_tripleline():
-#     """ multiline comment across three lines """
-#     comments = parse_comments(JAVA_SOURCE)
-#     assert "comment_19" in comments
-#     assert "comment_20" in comments
+def test_multiline_tripleline():
+    """ multiline comment across three lines """
+    comments = pc.list_multiline_java_comments(JAVA_SOURCE)
+    assert "comment_19" in comments
+    assert "comment_20" in comments
 
 
-# def test_count_comments():
-#     """ check all comments are caught """
-#     comments = parse_comments(JAVA_SOURCE)
-#     assert len(comments) == 20
+def test_count_comments():
+    """ check all comments are caught """
+    singleline_comments = pc.list_singleline_java_comments(JAVA_SOURCE)
+    multiline_comments = pc.list_multiline_java_comments(JAVA_SOURCE)
+    comments = singleline_comments + multiline_comments
+    assert len(comments) == 20
