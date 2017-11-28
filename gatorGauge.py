@@ -81,9 +81,9 @@ if __name__ == "__main__":
                 print(file)
         elif command == "help":
             if arg1 == "":
-                display.display_help()
+                print(display.display_help())
             else:
-                display.display_help_with_command(arg1)
+                print(display.display_help_with_command(arg1))
         command = str(input('>>> '))
         arg1 == ""
         arg2 == ""
