@@ -47,10 +47,11 @@ runs i
 
 
 def dictionary_create(tokens):
-    """creates the dictionary from the tokens of the commit messages"""
+    """Creates the dictionary from the tokens of the commit messages"""
     dictionary = corpora.Dictionary(tokens)
     return(dictionary))
 
+<<<<<<< HEAD
 def corp_eval(dictionary, tokens, corpus):
     """Evaluate the corpus and produce gensim visualization."""
     i = len(tokens)
@@ -92,3 +93,10 @@ def corp_eval(dictionary, tokens, corpus):
     webbrowser.open("file:///" + PATH_TO_HTML + vis_html_file_name, new=2)
     logging.info("Gensim visualization has been displayed.")
     return dictionary.dfs
+=======
+def emoji_intake():
+    """Creates visual of emojis and emoji topics"""
+    
+
+def read_commit_messages(messages, arg1, arg2):
+>>>>>>> 974353696fe8691750f161d849d60121a90d1136
