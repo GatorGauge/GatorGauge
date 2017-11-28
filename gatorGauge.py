@@ -6,7 +6,7 @@ import github_clone_all
 import defaults
 import read_file
 import file_list
-import display_help
+import display
 
 if __name__ == "__main__":
 
@@ -19,10 +19,6 @@ if __name__ == "__main__":
     rSet = frozenset(defined_responses)
 
     command = str(input('>>> '))
-    while command not in fSet:
-        print("Please enter a valid command")
-        command = str(input('>>> '))
-
     args = []
     arg1 = ""
     arg2 = ""
@@ -84,7 +80,10 @@ if __name__ == "__main__":
             for file in files:
                 print(file)
         elif command == "help":
-            print("help")
+            if arg1 == "":
+                display.display_help()
+            else:
+                display.display_help_with_command(arg1)
         command = str(input('>>> '))
         arg1 == ""
         arg2 == ""
