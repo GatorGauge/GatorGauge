@@ -1,11 +1,8 @@
 import sys
 
 import github_clone_all
-import parse_args
 import defaults
 if __name__ == "__main__":
-
-#    args = parse_args.parse_args(sys.argv[1:])
 
     defined_commands = {"get", "help", "quit"}
     fSet = frozenset(defined_commands)
@@ -38,7 +35,7 @@ if __name__ == "__main__":
             if ask_out == "Y" or ask_out == "y":
                 ask_out = str(input("Enter the destination: "))
             elif ask_out == "N" or ask_out == "n":
-                out = default.OUT
+                out = defaults.OUT
             github_clone_all.get_repositories(project, prefix, token, out)
         elif command == "help":
             print("help")
@@ -46,10 +43,3 @@ if __name__ == "__main__":
         while command not in fSet:
             print("Please enter a valid command")
             command = str(input('>>> '))
-
-#    print(args)
-#    if args.get is True and defaults.PROJECT == "" and args.project == "":
-#        print("\tERROR: '--get' requires either a default project name or a supplied '--project' flag")
-#        quit()
-#    if args.get is True:
-#        github_clone_all.get_repositories(args.project, args.prefix, args.token, args.out)
