@@ -10,7 +10,7 @@ import gensim
 import warnings
 
 def gensim_analysis(list_of_messages):
-    """Uses Gensim to analyze commit messages"""
+    """Uses Gensim to analyze github commit messages"""
         warnings.filterwarnings('ignore')
         tokens, nanNum = create_tokens(list_responses)
         if len(commit_string) == nanNum:
@@ -51,6 +51,5 @@ def dictionary_create(tokens):
     dictionary = corpora.Dictionary(tokens)
     return(dictionary)
 
-def corp_eval(dictionary, tokens, corpus):
-    i = len(tokens)
-    lis = gensim.models.
+def read_commit_messages(messages, arg1, arg2):
+    
