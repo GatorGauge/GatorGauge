@@ -6,7 +6,7 @@ had issues or triumphs within projects.
 
 ## Config.ini
 
-Default Variables. DO not place the variables inside of "".
+Default Variables. Do not place the variables inside of "".
 Since the config.ini file contains sensitive information due to the token,
 it is not supplied in this repository. So the user must create a new file
 in their local root directory called config.ini
