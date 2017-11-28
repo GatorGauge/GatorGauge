@@ -8,9 +8,9 @@ import java_parser
 
 
 FILE_SEPARATOR = "/"
-
-MULTILINECOMMENT_RE = r'\/\*+([\s\S]*?)\*+\/'  # new regex
-SINGLELINECOMMENT_RE_JAVA = r'^(?:[^"/\\]|\"(?:[^\"\\]|\\.)*\"|/(?:[^/"\\]|\\.)|/\"(?:[^\"\\]|\\.)*\"|\\.)*//(.*)$'
+MULTILINECOMMENT_RE = r'\/\*+([\s\S]*?)\*+\/'
+SINGLELINECOMMENT_RE_JAVA = \
+    r'^(?:[^"/\\]|\"(?:[^\"\\]|\\.)*\"|/(?:[^/"\\]|\\.)|/\"(?:[^\"\\]|\\.)*\"|\\.)*//(.*)$'
 
 
 def list_singleline_java_comments(java_string):
@@ -19,7 +19,7 @@ def list_singleline_java_comments(java_string):
     singleline_comments = pattern.findall(java_string)
     trimmed_comments = []
     for comment in singleline_comments:
-        trimmed_comments.append(comment.strip())
+        trimmed_comments.append(comment.strip().strip('* '))
     return trimmed_comments
 
 
@@ -29,7 +29,7 @@ def list_multiline_java_comments(java_string):
     multiline_comments = pattern.findall(java_string)
     trimmed_comments = []
     for comment in multiline_comments:
-        trimmed_comments.append(comment.strip())
+        trimmed_comments.append(comment.strip().strip('* '))
     return trimmed_comments
 
 
@@ -48,19 +48,22 @@ def count_multiline_java_comments(java_string):
 
 
 def get_ratio_of_singleline_comments_to_source_code(java_string):
-    """Get the ratio of singleline comments to the number of lines in the Java source code."""
+    """Get the ratio of singleline comments to the
+        number of lines in the Java source code."""
     total_number_of_lines = java_parser.getNumberOfLines(java_string)
     number_of_singleline_comments = count_singleline_java_comments(java_string)
     return float(number_of_singleline_comments / total_number_of_lines)
 
 
 def get_ratio_of_multiline_comments_to_source_code(java_string):
-    """Get the ratio of multiline comments to the number of lines in the Java source code."""
+    """Get the ratio of multiline comments to the
+        number of lines in the Java source code."""
     total_number_of_lines = java_parser.getNumberOfLines(java_string)
     number_of_multiline_comments = count_multiline_java_comments(java_string)
     return float(number_of_multiline_comments / total_number_of_lines)
 
 
+# FIXME: convert to testcases
 # if __name__ == "__main__":
 
 #     with open('./java/HelloWorld.java', 'r') as java_file:
