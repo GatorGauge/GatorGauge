@@ -67,17 +67,17 @@ line arguments.
 Download the project(named in Config.ini or supplied with the ```--project``` flag)
 
 ```
---get
+get
 ```
 
 List all files or files with the specified .extension
 
 ```
---list
+list
 ```
 
 Read the information in the inputed file name or files with the inputed .extension
 
 ```
---read
+read
 ```
