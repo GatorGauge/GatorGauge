@@ -37,8 +37,6 @@ def count_singleline_java_comments(java_string):
     """Count the number of singleline Java comments in the java_string."""
     pattern = re.compile(SINGLELINECOMMENT_RE_JAVA, re.MULTILINE)
     singleline_comments = pattern.findall(java_string)
-    for comment in singleline_comments:
-        comment = comment.strip()
     return len(singleline_comments)
 
 
@@ -46,8 +44,6 @@ def count_multiline_java_comments(java_string):
     """Count the number of multiline Java comments in the java_string."""
     pattern = re.compile(MULTILINECOMMENT_RE, re.MULTILINE)
     multiline_comments = pattern.findall(java_string)
-    for comment in multiline_comments:
-        comment = comment.strip()
     return len(multiline_comments)
 
 
