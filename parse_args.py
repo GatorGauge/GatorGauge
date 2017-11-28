@@ -12,13 +12,13 @@ def parse_args(args):
                             help="Download the repositories.\nIf not default project or prefix, must use '--project' or '--prefix'",
                             action="store_true")
 
-    parser.add_argument('--list',
+    parser.add_argument('--list', #lists files
                             default=".",
                             const="all",
                             nargs='?',
                             help="List the files with the given extension")
 
-    parser.add_argument('--read',
+    parser.add_argument('--read', #reads information from a file
                             default="",
                             help="Read the information in a given file")
 
