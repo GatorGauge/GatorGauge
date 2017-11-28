@@ -98,8 +98,9 @@ Location to place downloaded repositories
 
 ## Usage
 
-GatorGage analyzes Computer Science 111 - Introduction to Computer Science I - students' labs and practicals, gaining information
-on what was most difficult, how long it took, and so on. Natural language processing is used in order to create visual displays
+GatorGage analyzes Computer Science 111 - Introduction to Computer Science I - students'
+labs and practicals, gaining information on what was most difficult, how long it took,
+and so on. Natural language processing is used in order to create visual displays
 for professors and future students to gain information on the work.
 
 ## Testing
@@ -133,11 +134,13 @@ autopep8 --in-place --aggressive *.py
 
 ### Test Coverage
 
-Test coverage is being addressed by Coveralls so that when Travis-CI runs, it can evaluate the coverage of the test suite.
+Test coverage is being addressed by Coveralls so that when Travis-CI runs, it can
+evaluate the coverage of the test suite.
 
 ### Activating Travis-CI
 
-Travis can only be implamented by admin accounts. Admin users can activate Travis by creating a travis.yml in the project's root
+Travis can only be implamented by admin accounts. Admin users can activate Travis
+by creating a travis.yml in the project's root
 directory.
 
 ## Questions or Comments
