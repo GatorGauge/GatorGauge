@@ -22,11 +22,11 @@ def parse_args(args):
                             default="",
                             help="Read the information in a given file")
 
-    parser.add_argument('--project',
+    parser.add_argument('--project', #specifies a specific project within the repositories
                             default=defaults.PROJECT,
                             help='GitHub project to scan, default: ' + defaults.PROJECT)
 
-    parser.add_argument('--prefix',
+    parser.add_argument('--prefix', #finds projects with the same prefix for analysis
                             default=defaults.PREFIX,
                             help='Prefix on projects to match (default: match all projects)')
 
