@@ -8,8 +8,6 @@ had issues or triumphs within projects.
 
 ## Initial Setup
 
-## Usage
-
 ## Config.ini
 
 Default Variables. Do not place the variables inside of "".
@@ -101,3 +99,9 @@ Location to place downloaded repositories
 ```
 --out
 ```
+
+## Usage
+
+## Testing
+
+## Questions or Comments
