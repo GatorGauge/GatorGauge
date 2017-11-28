@@ -1,5 +1,4 @@
 """Define strings that will be displayed by the REPL."""
-from map_fields import FIELDS
 from colors import bold
 
 # Help display strings
@@ -39,9 +38,6 @@ LIST_ARGUMENTS_ONE = "None"
 LIST_COMMAND_TWO = "list <file>"
 LIST_DESCRIPTION_TWO = "Lists all files with file as name or type"
 LIST_ARGUMENTS_TWO = "<file>"
-
-FIELDS_LIST = list(FIELDS)
-FIELDS_LIST.sort()
 
 READ_HEADER = "read\n----"
 READ_COMMAND_ONE = "read <file_name>"
