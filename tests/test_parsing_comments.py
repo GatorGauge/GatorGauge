@@ -1,6 +1,7 @@
 
 """ Testcases for comment parsing """
-from parse_comments import list_singleline_java_comments;
+# from parse_comments import list_singleline_java_comments;
+import parse_comments
 
 JAVA_SOURCE = """
 //comment_1
@@ -38,7 +39,8 @@ comment_19
 
 def test_comment_bol():
     """ comment at beginning-of-line """
-    comments = list_singleline_java_comments(JAVA_SOURCE)
+    # comments = list_singleline_java_comments(JAVA_SOURCE)
+    comments = parse_comments.list_singleline_java_comments(JAVA_SOURCE)
     assert "comment_1" in comments
     assert "comment_2" in comments
 
