@@ -6,8 +6,12 @@ import github_clone_all
 import defaults
 import read_file
 import file_list
+import display_help
 
 if __name__ == "__main__":
+
+    print("Welcome to GatorGauge!")
+    print("Type help to see list of commands.")
 
     defined_commands = {"get", "help", "read", "list", "quit"}
     fSet = frozenset(defined_commands)
