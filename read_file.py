@@ -1,7 +1,5 @@
 """ reads through and creates a list of lists from inputted file """
 """ can be adapted to fit other group needs """
-import re
-
 
 def read_file(filePath):
     content = list()
