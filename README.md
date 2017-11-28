@@ -4,6 +4,12 @@ A tool for Professors to use to download and analyze the information in student
 repositories. This tool can be used to allow students to find when their peers
 had issues or triumphs within projects.
 
+## Installation
+
+## Initial Setup
+
+## Usage
+
 ## Config.ini
 
 Default Variables. Do not place the variables inside of "".
