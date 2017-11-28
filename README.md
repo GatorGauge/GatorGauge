@@ -8,7 +8,7 @@ had issues or triumphs within projects.
 
 Default Variables. Do not place the variables inside of "".
 Since the config.ini file contains sensitive information due to the token,
-it is not supplied in this repository. So the user must create a new file
+it is not supplied in this repository. Before running the program the user must create a new file
 in their local root directory called config.ini
 
 Paste the following into this new file:
