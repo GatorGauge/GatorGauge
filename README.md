@@ -1,6 +1,6 @@
 # GatorGauge
 
-Downloads and analyzes the information in student repositories(currently only downloads).
+Downloads and analyzes the information in student repositories.
 
 ## Config.ini
 
