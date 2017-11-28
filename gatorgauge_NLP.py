@@ -33,7 +33,7 @@ def create_tokens(list_of_messages):
 is streamed: training documents may come in sequentially, no random access required,
 runs i
         for i in i:
-            if not isinstance(i, int):
+            if not isinstance(i, int):)
                 i = i.lower()
                 if profanity.contains_profanity(i) is False:
                     if i not in stop_words:
@@ -49,7 +49,7 @@ runs i
 def dictionary_create(tokens):
     """creates the dictionary from the tokens of the commit messages"""
     dictionary = corpora.Dictionary(tokens)
-    return(dictionary)
+    return(dictionary))
 
 def corp_eval(dictionary, tokens, corpus):
     i = len(tokens)
