@@ -5,6 +5,7 @@ import os
 import github_clone_all
 import defaults
 import read_file
+import file_list
 
 if __name__ == "__main__":
 
@@ -19,8 +20,8 @@ if __name__ == "__main__":
         command = str(input('>>> '))
 
     args = []
-    arg1 == ""
-    arg2 == ""
+    arg1 = ""
+    arg2 = ""
 
     while command != "quit":
         args = command.rsplit()
@@ -84,15 +85,15 @@ if __name__ == "__main__":
         arg1 == ""
         arg2 == ""
 
-    args = parse_args.parse_args(sys.argv[1:])
-    # checks if the required information is entered
-    if args.token == "" and defaults.TOKEN == "" and args.get is True and defaults.PROJECT == "" and args.project == "":
-        print("\tERROR: A Github token is required for the system to run. Please enter one in either config.ini or in the command line with the --token flag")
-        print("\tERROR: '--get' requires either a default project name (in config.ini) or a supplied '--project' flag")
-        quit()
-    elif args.token == "" and defaults.TOKEN == "":
-        print("\tERROR: A Github token is required for the system to run. Please enter one in either config.ini or in the command line with the --token flag")
-        quit()
-    elif args.get is True and defaults.PROJECT == "" and args.project == "":
-        print("\tERROR: '--get' requires either a default project name in config.ini or supplied with the '--project' flag")
-        quit()
+#    args = parse_args.parse_args(sys.argv[1:])
+#    # checks if the required information is entered
+#    if args.token == "" and defaults.TOKEN == "" and args.get is True and defaults.PROJECT == "" and args.project == "":
+#        print("\tERROR: A Github token is required for the system to run. Please enter one in either config.ini or in the command line with the --token flag")
+#        print("\tERROR: '--get' requires either a default project name (in config.ini) or a supplied '--project' flag")
+#        quit()
+#    elif args.token == "" and defaults.TOKEN == "":
+#        print("\tERROR: A Github token is required for the system to run. Please enter one in either config.ini or in the command line with the --token flag")
+#        quit()
+#    elif args.get is True and defaults.PROJECT == "" and args.project == "":
+#        print("\tERROR: '--get' requires either a default project name in config.ini or supplied with the '--project' flag")
+#        quit()
