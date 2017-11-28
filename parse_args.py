@@ -3,7 +3,7 @@ import argparse
 
 import defaults #get defaults form defaults.py
 
-def parse_args(args):
+def parse_args(args): #creates command line arguments for easier access to repositories
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
@@ -30,11 +30,11 @@ def parse_args(args):
                             default=defaults.PREFIX,
                             help='Prefix on projects to match (default: match all projects)')
 
-    parser.add_argument('--token',
+    parser.add_argument('--token', #specifies token for a specific repository
                             default=defaults.TOKEN,
                             help='GitHub API token')
 
-    parser.add_argument('--out',
+    parser.add_argument('--out', #directory for which the repositories will be placed
                             default=defaults.OUT,
                             help='Destination directory for GitHub clones (default: current directory)')
 
