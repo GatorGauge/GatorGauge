@@ -81,27 +81,3 @@ Read the information in the inputed file name or files with the inputed .extensi
 ```
 --read
 ```
-
-Project to download
-
-```
---project
-```
-
-Prefix of the repository to download
-
-```
---prefix
-```
-
-Token to allow for the program to download the repositories
-
-```
---token
-```
-
-Location to place downloaded repositories
-
-```
---out
-```
