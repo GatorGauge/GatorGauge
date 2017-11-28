@@ -106,7 +106,10 @@ Location to place downloaded repositories
 
 ### Automatic Linting
 
-The linting automatically checks to ensure code is up to pep8 standards. If linting errors occur, run the following command to perform automatic linting. If there are errors that the tool cannot fix, the test suite will tell you where and what the errors are so that you may go to the location and fix them.
+The linting automatically checks to ensure code is up to pep8 standards. If
+linting errors occur, run the following command to perform automatic linting. If
+ there are errors that the tool cannot fix, the test suite will tell you where
+ and what the errors are so that you may go to the location and fix them.
 
 ```
 autopep8 --in-place --aggressive *.py
