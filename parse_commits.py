@@ -10,6 +10,12 @@ def number_of_commits(commit_str):
 	commit_count = len(commit_list)
 	return commit_count
 
-def parse_commits(commit_str):
+def parse_commits(commit_str, commit_count):
+
+	length_of_commit_list = commit_count
+	adj_commit_length = length_of_commit_list*3
+	commit_commitParse = commit_string.split(":",adj_commit_length)
+
+	return commit_commitParse
 
 	#TODO: parse through commits for information
