@@ -114,6 +114,8 @@ Location to place downloaded repositories
 
 ### Activating Travis-CI
 
+Travis can only be implamented by admin accounts. Admin users can activate Travis by creating a travis.yml in the project's root directory.
+
 ## Questions or Comments
 
 Any problems regarding GatorGauge can be written in the issue link at the top of the site.
