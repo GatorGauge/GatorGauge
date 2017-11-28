@@ -9,13 +9,13 @@ def list_files(Type,location):  # Type is the file type (.java, .md, etc), locat
     if Type is 'all': # if there is no input for type show all files
         for subdir, dirs, files in os.walk(location):
             for file in files:
-                if "." in file: # ignore files with no . extension
+                if "." in file: # ignore files with no '.' extension
                     if file not in file_list: # get each unique file name
                         file_list.append(file)
-    else: # show list of files of type Type
+    else: # show list of files of type 'Type'
         for subdir, dirs, files in os.walk(location):
             for file in files:
-                if file.endswith(Type): # get only files of type Type
+                if file.endswith(Type): # get only files of type 'Type'
                     if file not in file_list: # get each unique file name
                         file_list.append(file)
     return file_list
