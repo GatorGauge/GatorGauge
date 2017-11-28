@@ -56,6 +56,13 @@ def get_ratio_of_singleline_comments_to_source_code(java_string):
     return float(number_of_singleline_comments/total_number_of_lines)
 
 
+def get_ratio_of_multiline_comments_to_source_code(java_string):
+    """Get the ratio of multiline comments to the number of lines in the Java source code."""
+    total_number_of_lines = java_parser.getNumberOfLines(java_string)
+    number_of_multiline_comments = count_multiline_java_comments(java_string)
+    return float(number_of_multiline_comments/total_number_of_lines)
+
+
 if __name__ == "__main__":
 
     with open('./java/HelloWorld.java', 'r') as java_file:
@@ -67,10 +74,12 @@ if __name__ == "__main__":
         print(repr(comment))
     print("Number of singleline comments: " + str(count_singleline_java_comments(java_string)))
 
-    print("Ratio of singleline comments to total Java source code lines: " + get_ratio_of_singleline_comments_to_source_code(java_string))
+    print("Ratio of singleline comments to total Java source code lines: " + str(get_ratio_of_singleline_comments_to_source_code(java_string)))
 
     comments = list_multiline_java_comments(java_string)
     print("\nMultiline comments\n------------------")
     for comment in comments:
         print(repr(comment))
     print("Number of multiline comments: " + str(count_multiline_java_comments(java_string)))
+
+    print("Ratio of multiline comments to total Java source code lines: " + str(get_ratio_of_multiline_comments_to_source_code(java_string)))
