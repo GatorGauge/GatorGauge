@@ -2,9 +2,6 @@
 # Dan Wallach <dwallach@rice.edu>
 
 import requests
-import json
-import re
-import time
 import sys
 import os
 import subprocess
