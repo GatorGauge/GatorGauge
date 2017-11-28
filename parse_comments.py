@@ -4,6 +4,7 @@
 # https://blog.ostermiller.org/find-comment
 """Parse comments from a Java source code file."""
 import re
+import java_parser
 
 
 FILE_SEPARATOR = "/"
@@ -46,3 +47,30 @@ def count_multiline_java_comments(java_string):
     for comment in multiline_comments:
         comment = comment.strip()
     return len(multiline_comments)
+
+
+def get_ratio_of_singleline_comments_to_source_code(java_string):
+    """Get the ratio of singleline comments to the number of lines in the Java source code."""
+    total_number_of_lines = java_parser.getNumberOfLines(java_string)
+    number_of_singleline_comments = count_singleline_java_comments(java_string)
+    return float(number_of_singleline_comments/total_number_of_lines)
+
+
+if __name__ == "__main__":
+
+    with open('./java/HelloWorld.java', 'r') as java_file:
+        java_string = java_file.read()
+
+    comments = list_singleline_java_comments(java_string)
+    print("\nSingleline comments\n-------------------")
+    for comment in comments:
+        print(repr(comment))
+    print("Number of singleline comments: " + str(count_singleline_java_comments(java_string)))
+
+    print("Ratio of singleline comments to total Java source code lines: " + get_ratio_of_singleline_comments_to_source_code(java_string))
+
+    comments = list_multiline_java_comments(java_string)
+    print("\nMultiline comments\n------------------")
+    for comment in comments:
+        print(repr(comment))
+    print("Number of multiline comments: " + str(count_multiline_java_comments(java_string)))
