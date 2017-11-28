@@ -104,6 +104,16 @@ Location to place downloaded repositories
 
 ## Testing
 
+### Functions Tested
+
+### Running the Test Suite
+
+### Automatic Linting
+
+### Test Coverage
+
+### Activating Travis-CI
+
 ## Questions or Comments
 
 Any problems regarding GatorGauge can be written in the issue link at the top of the site.
