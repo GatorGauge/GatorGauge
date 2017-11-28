@@ -4,8 +4,7 @@ from colors import negative
 from colors import underline
 import logging
 import textwrap
-import display_strings
-import map_fields
+import display_help
 
 
 def display_help_with_command(command):
@@ -14,9 +13,7 @@ def display_help_with_command(command):
         "help": display_help_help,
         "get": display_get_help,
         "list": display_list_help,
-        "show": display_show_help,
-        "search": display_search_help,
-        "write": display_write_help,
+        "read": display_read_help,
         "quit": display_quit_help
     }
 
@@ -24,89 +21,64 @@ def display_help_with_command(command):
 
 
 def display_help_help():
-    command_one_tuple = (display_strings.HELP_HEADER,
-                         display_strings.HELP_COMMAND_ONE,
-                         display_strings.HELP_DESCRIPTION_ONE,
-                         display_strings.HELP_ARGUMENTS_ONE)
+    command_one_tuple = (display_help.HELP_HEADER,
+                         display_help.HELP_COMMAND_ONE,
+                         display_help.HELP_DESCRIPTION_ONE,
+                         display_help.HELP_ARGUMENTS_ONE)
     logging.debug("Command one details: " + str(command_one_tuple))
 
-    command_two_tuple = (display_strings.HELP_COMMAND_TWO,
-                         display_strings.HELP_DESCRIPTION_TWO,
-                         display_strings.HELP_ARGUMENTS_TWO)
+    command_two_tuple = (display_help.HELP_COMMAND_TWO,
+                         display_help.HELP_DESCRIPTION_TWO,
+                         display_help.HELP_ARGUMENTS_TWO)
     logging.debug("Command two details: " + str(command_two_tuple))
 
     return format_command_description(command_one_tuple, command_two_tuple)
+
+def display_get_help():
+    command_tuple = (display_help.GET_HEADER,
+                     display_help.GET_COMMAND,
+                     display_help.GET_DESCRIPTION,
+                     display_help.GET_ARGUMENTS)
+
+    logging.debug("Command one details: " + str(command_tuple))
+
+    return format_command_description(command_tuple)
 
 
 def display_list_help():
-    command_tuple = (display_strings.LIST_HEADER,
-                     display_strings.LIST_COMMAND,
-                     display_strings.LIST_DESCRIPTION,
-                     display_strings.LIST_ARGUMENTS)
+    command_one_tuple = (display_help.LIST_HEADER,
+                     display_help.LIST_COMMAND_ONE,
+                     display_help.LIST_DESCRIPTION_ONE,
+                     display_help.LIST_ARGUMENTS_ONE)
     logging.debug("Command details: " + str(command_tuple))
 
-    return format_command_description(command_tuple)
-
-
-def display_show_help():
-    command_one_tuple = (display_strings.SHOW_HEADER,
-                         display_strings.SHOW_COMMAND_ONE,
-                         display_strings.SHOW_DESCRIPTION_ONE,
-                         display_strings.SHOW_ARGUMENTS_ONE)
-    logging.debug("Command one details: " + str(command_one_tuple))
-
-    command_two_tuple = (display_strings.SHOW_COMMAND_TWO,
-                         display_strings.SHOW_DESCRIPTION_TWO,
-                         display_strings.SHOW_ARGUMENTS_TWO)
+    command_two_tuple = (display_help.LIST_COMMAND_TWO,
+                         display_help.LIST_DESCRIPTION_TWO,
+                         display_help.LIST_ARGUMENTS_TWO)
     logging.debug("Command two details: " + str(command_two_tuple))
 
     return format_command_description(command_one_tuple, command_two_tuple)
 
 
-def display_search_help():
-    command_one_tuple = (display_strings.SEARCH_HEADER,
-                         display_strings.SEARCH_COMMAND_ONE,
-                         display_strings.SEARCH_DESCRIPTION_ONE,
-                         display_strings.SEARCH_ARGUMENTS_ONE)
+def display_read_help():
+    command_one_tuple = (display_help.READ_HEADER,
+                         display_help.READ_COMMAND_ONE,
+                         display_help.READ_DESCRIPTION_ONE,
+                         display_help.READ_ARGUMENTS_ONE)
     logging.debug("Command one details: " + str(command_one_tuple))
 
-    command_two_tuple = (display_strings.SEARCH_COMMAND_TWO,
-                         display_strings.SEARCH_DESCRIPTION_TWO,
-                         display_strings.SEARCH_ARGUMENTS_TWO)
+    command_two_tuple = (display_help.READ_COMMAND_TWO,
+                         display_help.READ_DESCRIPTION_TWO,
+                         display_help.READ_ARGUMENTS_TWO)
     logging.debug("Command two details: " + str(command_two_tuple))
 
     return format_command_description(command_one_tuple, command_two_tuple)
-
-
-def display_write_help():
-    command_tuple = (display_strings.WRITE_HEADER,
-                     display_strings.WRITE_COMMAND,
-                     display_strings.WRITE_DESCRIPTION,
-                     display_strings.WRITE_ARGUMENTS)
-
-    return format_command_description(command_tuple)
-
-
-def display_gensim_help():
-    command_one_tuple = (display_strings.GENSIM_HEADER,
-                         display_strings.GENSIM_COMMAND_ONE,
-                         display_strings.GENSIM_DESCRIPTION_ONE,
-                         display_strings.GENSIM_ARGUMENTS_ONE)
-    logging.debug("Command one details: " + str(command_one_tuple))
-
-    command_two_tuple = (display_strings.GENSIM_COMMAND_TWO,
-                         display_strings.GENSIM_DESCRIPTION_TWO,
-                         display_strings.GENSIM_ARGUMENTS_TWO)
-    logging.debug("Command one details: " + str(command_two_tuple))
-
-    return format_command_description(command_one_tuple, command_two_tuple)
-
 
 def display_quit_help():
-    command_tuple = (display_strings.QUIT_HEADER,
-                     display_strings.QUIT_COMMAND,
-                     display_strings.QUIT_DESCRIPTION,
-                     display_strings.QUIT_ARGUMENTS)
+    command_tuple = (display_help.QUIT_HEADER,
+                     display_help.QUIT_COMMAND,
+                     display_help.QUIT_DESCRIPTION,
+                     display_help.QUIT_ARGUMENTS)
 
     return format_command_description(command_tuple)
 
@@ -117,16 +89,16 @@ def format_command_description(command_one_tuple, command_two_tuple=None):
     command_one = command_one_tuple[1]
     description_one = command_one_tuple[2]
     arguments_one = command_one_tuple[3]
-    command_one_string = header + "\n" + display_strings.COMMAND_LABEL + command_one + "\n" + \
-        display_strings.DESCRIPTION_LABEL + description_one + "\n" + display_strings.ARGUMENTS_LABEL + arguments_one + "\n"
+    command_one_string = header + "\n" + display_help.COMMAND_LABEL + command_one + "\n" + \
+        display_help.DESCRIPTION_LABEL + description_one + "\n" + display_help.ARGUMENTS_LABEL + arguments_one + "\n"
 
     if command_two_tuple is not None:
         logging.info("Formatting second command")
         command_two = command_two_tuple[0]
         description_two = command_two_tuple[1]
         arguments_two = command_two_tuple[2]
-        command_two_string = display_strings.COMMAND_LABEL + command_two + "\n" + display_strings.DESCRIPTION_LABEL + \
-            description_two + "\n" + display_strings.ARGUMENTS_LABEL + arguments_two + "\n"
+        command_two_string = display_help.COMMAND_LABEL + command_two + "\n" + display_help.DESCRIPTION_LABEL + \
+            description_two + "\n" + display_help.ARGUMENTS_LABEL + arguments_two + "\n"
         return command_one_string + "\n" + command_two_string
     else:
         return command_one_string
@@ -138,7 +110,7 @@ def display_help():
 
     help_string = ""
 
-    for current_index, command_tuple in enumerate(display_strings.commands_list):
+    for current_index, command_tuple in enumerate(display_help.commands_list):
         left = command_tuple[0]
         right = command_tuple[1]
         if current_index is 0:
