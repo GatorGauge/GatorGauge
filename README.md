@@ -104,12 +104,21 @@ Location to place downloaded repositories
 
 ### Running the Test Suite
 
+To run the test suite, run the following commands in the rood directory of GatorGauge:
+
+```
+pytest tests
+```
+
+Or, depending on the operating system:
+
+```
+python3 -m pytest tests
+```
+
 ### Automatic Linting
 
-The linting automatically checks to ensure code is up to pep8 standards. If
-linting errors occur, run the following command to perform automatic linting. If
- there are errors that the tool cannot fix, the test suite will tell you where
- and what the errors are so that you may go to the location and fix them.
+The linting automatically checks to ensure code is up to pep8 standards. If linting errors occur, run the following command to perform automatic linting. If there are errors that the tool cannot fix, the test suite will tell you where and what the errors are so that you may go to the location and fix them.
 
 ```
 autopep8 --in-place --aggressive *.py
@@ -117,13 +126,11 @@ autopep8 --in-place --aggressive *.py
 
 ### Test Coverage
 
-Test coverage is being addressed by Coveralls so that when Travis-CI runs, it
-can evaluate the coverage of the test suite.
+Test coverage is being addressed by Coveralls so that when Travis-CI runs, it can evaluate the coverage of the test suite.
 
 ### Activating Travis-CI
 
-Travis can only be implamented by admin accounts. Admin users can activate
-Travis by creating a travis.yml in the project's root directory.
+Travis can only be implamented by admin accounts. Admin users can activate Travis by creating a travis.yml in the project's root directory.
 
 ## Questions or Comments
 
