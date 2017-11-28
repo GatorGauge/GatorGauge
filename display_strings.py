@@ -1,4 +1,5 @@
 """Define strings that will be displayed by the REPL."""
+"""Used the format from Accelegator for this file"""
 from colors import bold
 
 # Help display strings

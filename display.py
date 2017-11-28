@@ -1,4 +1,5 @@
 """Format and return strings to display."""
+"""Used the format from Accelegator for this file"""
 from colors import bold
 from colors import negative
 from colors import underline
