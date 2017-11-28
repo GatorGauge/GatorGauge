@@ -42,11 +42,13 @@ if __name__ == "__main__":
             arg2 == args[2]
         if command == "get":
             if defaults.TOKEN == "":
-                token = str(input("GatorGauge requires a GitHub token.  Enter the token for the repo: "))
+                token = str(
+                    input("GatorGauge requires a GitHub token.  Enter the token for the repo: "))
             if defaults.PROJECT == "":
                 project = str(input("Enter the name of the project: "))
             if defaults.PREFIX == "":
-                ask_prefix = str(input("Would you like to specify a prefix? (Y/N): "))
+                ask_prefix = str(
+                    input("Would you like to specify a prefix? (Y/N): "))
                 while ask_prefix not in rSet:
                     ask_prefix = str(input("Please enter Y or N: "))
                 if ask_prefix == "Y" or ask_prefix == "y":
@@ -54,7 +56,8 @@ if __name__ == "__main__":
                 elif ask_prefix == "N" or ask_prefix == "n":
                     prefix = defaults.PREFIX
             if defaults.OUT == "":
-                ask_out = str(input("Would you like to specify the destiantion? (Y/N): "))
+                ask_out = str(
+                    input("Would you like to specify the destiantion? (Y/N): "))
                 while ask_out not in rSet:
                     ask_out = str(input("Please enter Y or N: "))
                 if ask_out == "Y" or ask_out == "y":
@@ -74,9 +77,10 @@ if __name__ == "__main__":
                     if file.endswith(arg1):
                         listFiles.append(os.path.join(subdir, file))
             for File in listFiles:
-                print(*read_file.read_file(File),end="\n\n")
+                print(*read_file.read_file(File), end="\n\n")
         elif command == "list":
-            files = file_list.list_files(command, arg1) # list of files returned
+            files = file_list.list_files(
+                command, arg1)  # list of files returned
             for file in files:
                 print(file)
         elif command == "help":

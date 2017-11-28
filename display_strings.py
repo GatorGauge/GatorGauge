@@ -7,12 +7,19 @@ commands_list = []
 
 commands_list.append((bold("Command"), bold("Description")))
 commands_list.append(("help", "List commands and their brief descriptions"))
-commands_list.append(("help <command>", "List verbose description of <command> and show valid arguments for <command>"))
-commands_list.append(("get", "Downloads repoitories from Project with specified Prefix"))
+commands_list.append(
+    ("help <command>",
+     "List verbose description of <command> and show valid arguments for <command>"))
+commands_list.append(
+    ("get", "Downloads repoitories from Project with specified Prefix"))
 commands_list.append(("list", "Lists all files"))
-commands_list.append(("list <file>", "Lists all files with file as name or type"))
-commands_list.append(("read <file_name>", "Reads the information in specified file"))
-commands_list.append(("read <file_name> <location>", "Reads the information in specified file in location"))
+commands_list.append(
+    ("list <file>", "Lists all files with file as name or type"))
+commands_list.append(
+    ("read <file_name>",
+     "Reads the information in specified file"))
+commands_list.append(("read <file_name> <location>",
+                      "Reads the information in specified file in location"))
 commands_list.append(("quit", "Exit the program"))
 
 # Help with command display strings
@@ -24,7 +31,8 @@ HELP_ARGUMENTS_ONE = "None"
 
 HELP_COMMAND_TWO = "help <command>"
 HELP_DESCRIPTION_TWO = "Show verbose description of usage and show valid arguments for <command>"
-HELP_ARGUMENTS_TWO = "<command>: Command to show description and valid arguments for.\nCan be any of the following\n\t" + "\n\t".join(COMMANDS)
+HELP_ARGUMENTS_TWO = "<command>: Command to show description and valid arguments for.\nCan be any of the following\n\t" + \
+    "\n\t".join(COMMANDS)
 
 GET_HEADER = "get\n----"
 GET_COMMAND = "get"

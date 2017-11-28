@@ -35,6 +35,7 @@ def display_help_help():
 
     return format_command_description(command_one_tuple, command_two_tuple)
 
+
 def display_get_help():
     command_tuple = (display_strings.GET_HEADER,
                      display_strings.GET_COMMAND,
@@ -48,9 +49,9 @@ def display_get_help():
 
 def display_list_help():
     command_one_tuple = (display_strings.LIST_HEADER,
-                     display_strings.LIST_COMMAND_ONE,
-                     display_strings.LIST_DESCRIPTION_ONE,
-                     display_strings.LIST_ARGUMENTS_ONE)
+                         display_strings.LIST_COMMAND_ONE,
+                         display_strings.LIST_DESCRIPTION_ONE,
+                         display_strings.LIST_ARGUMENTS_ONE)
     logging.debug("Command details: " + str(command_one_tuple))
 
     command_two_tuple = (display_strings.LIST_COMMAND_TWO,
@@ -74,6 +75,7 @@ def display_read_help():
     logging.debug("Command two details: " + str(command_two_tuple))
 
     return format_command_description(command_one_tuple, command_two_tuple)
+
 
 def display_quit_help():
     command_tuple = (display_strings.QUIT_HEADER,
@@ -111,7 +113,8 @@ def display_help():
 
     help_string = ""
 
-    for current_index, command_tuple in enumerate(display_strings.commands_list):
+    for current_index, command_tuple in enumerate(
+            display_strings.commands_list):
         left = command_tuple[0]
         right = command_tuple[1]
         if current_index is 0:
@@ -121,11 +124,13 @@ def display_help():
             right_list = (textwrap.wrap(right, width=40))
             for current_line, description_line in enumerate(right_list):
                 if current_line is 0:
-                    help_string += "{:<30s}{:<40s}".format(left, description_line) + "\n"
+                    help_string += "{:<30s}{:<40s}".format(
+                        left, description_line) + "\n"
                 else:
                     empty_space = ""
                     description_line = "\t" + description_line
-                    help_string += "{:<30s}{:<40s}".format(empty_space, description_line) + "\n"
+                    help_string += "{:<30s}{:<40s}".format(
+                        empty_space, description_line) + "\n"
 
     return help_string
 

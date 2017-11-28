@@ -18,7 +18,10 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
     from pytz import timezone
     print ("")
     print (">>>>>>>>>>>>>>")
-    print (">>>>>>>>>>>>>> Running github-clone-all: " + datetime.now(timezone("US/Central")).strftime('%Y-%m-%d %H:%M:%S %Z%z'))
+    print (
+        ">>>>>>>>>>>>>> Running github-clone-all: " +
+        datetime.now(
+            timezone("US/Central")).strftime('%Y-%m-%d %H:%M:%S %Z%z'))
     print (">>>>>>>>>>>>>>")
     print ("")
 
@@ -35,14 +38,18 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
     while True:
         sys.stdout.write('.')
         sys.stdout.flush()
-        reposPage = requests.get('https://api.github.com/orgs/' + githubProject +
-                                 '/repos?page=' + str(pageNumber) , headers = requestHeaders)
+        reposPage = requests.get(
+            'https://api.github.com/orgs/' +
+            githubProject +
+            '/repos?page=' +
+            str(pageNumber),
+            headers=requestHeaders)
         pageNumber = pageNumber + 1
 
         if reposPage.status_code != 200:
             print ("Failed to load repos from GitHub: " + str(reposPage.content))
             return
-            #exit(1)
+            # exit(1)
 
         reposPageJson = reposPage.json()
 
@@ -61,10 +68,16 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
     #
     # name: the name of the repo itself (e.g., 'comp215-week01-intro-2017-dwallach')
     #
-    # full_name: the project and repo (e.g., 'RiceComp215/comp215-week01-intro-2017-dwallach')
+    # full_name: the project and repo (e.g.,
+    # 'RiceComp215/comp215-week01-intro-2017-dwallach')
 
-    filteredRepoList = [x for x in allReposList if x['name'].startswith(githubPrefix)]
-    print (str(len(filteredRepoList))+" of "+str(len(allReposList))+" repos start with "+str(githubPrefix))
+    filteredRepoList = [
+        x for x in allReposList if x['name'].startswith(githubPrefix)]
+    print (str(len(filteredRepoList)) +
+           " of " +
+           str(len(allReposList)) +
+           " repos start with " +
+           str(githubPrefix))
 
     # before we start getting any repos, we need a directory to get them
     if outDir != ".":
@@ -72,14 +85,15 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
             os.makedirs(outDir)
         except OSError:
             # directory probably already exists
-            print ("directory "+str(outDir)+" already exists")
+            print ("directory " + str(outDir) + " already exists")
         os.chdir(outDir)
 
     # specific clone instructions here:
     # https://github.com/blog/1270-easier-builds-and-deployments-using-git-over-https-and-oauth
 
     for repo in filteredRepoList:
-        cloneUrl = 'https://'+str(githubToken)+'@github.com/'+str(repo['full_name'])+'.git'
+        cloneUrl = 'https://' + \
+            str(githubToken) + '@github.com/' + str(repo['full_name']) + '.git'
 
         # Steps to take, per docs above:
         #
@@ -88,7 +102,7 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
         # git init
         # git pull https://<token>@github.com/username/bar.git
         if os.path.isdir(repo['name']):
-            command = 'rm -r -f '+repo['name']
+            command = 'rm -r -f ' + repo['name']
             os.system(command)
         os.mkdir(repo['name'])
         os.chdir(repo['name'])
