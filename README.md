@@ -112,6 +112,8 @@ Location to place downloaded repositories
 
 ### Test Coverage
 
+Test coverage is being addressed by Coveralls so that when Travis-CI runs, it can evaluate the coverage of the test suite.
+
 ### Activating Travis-CI
 
 Travis can only be implamented by admin accounts. Admin users can activate Travis by creating a travis.yml in the project's root directory.
