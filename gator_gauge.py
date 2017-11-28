@@ -20,11 +20,11 @@ if __name__ == "__main__":
     comments = parse_comments.list_singleline_java_comments(java_string)
     print("\nSingleline comments\n-------------------")
     for comment in comments:
-        print(comment)
+        print(repr(comment))
     print("Number of singleline comments: " + str(parse_comments.count_singleline_java_comments(java_string)))
 
     comments = parse_comments.list_multiline_java_comments(java_string)
     print("\nMultiline comments\n------------------")
     for comment in comments:
-        print(comment)
+        print(repr(comment))
     print("Number of multiline comments: " + str(parse_comments.count_multiline_java_comments(java_string)))
