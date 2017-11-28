@@ -100,5 +100,5 @@ def test_count_comments():
     """ check all comments are caught """
     singleline_comments = pc.list_singleline_java_comments(JAVA_SOURCE)
     multiline_comments = pc.list_multiline_java_comments(JAVA_SOURCE)
-    comments = singleline_comments + multiline_comments
-    assert len(comments) == 20
+    assert len(singleline_comments) == 13
+    assert len(multiline_comments) == 6
