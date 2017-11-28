@@ -98,7 +98,9 @@ Location to place downloaded repositories
 
 ## Usage
 
-GatorGage analyzes Computer Science 111 - Introduction to Computer Science I - students' labs and practicals, gaining information on what was mosth difficult, how long it took, and so on. Natural language processing is usud in order to create visual displays for professors and future students to gain information on the work.
+GatorGage analyzes Computer Science 111 - Introduction to Computer Science I - students' labs and practicals, gaining information
+on what was mosth difficult, how long it took, and so on. Natural language processing is usud in order to create visual displays
+for professors and future students to gain information on the work.
 
 ## Testing
 
@@ -120,7 +122,9 @@ python3 -m pytest tests
 
 ### Automatic Linting
 
-The linting automatically checks to ensure code is up to pep8 standards. If linting errors occur, run the following command to perform automatic linting. If there are errors that the tool cannot fix, the test suite will tell you where and what the errors are so that you may go to the location and fix them.
+The linting automatically checks to ensure code is up to pep8 standards. If linting errors occur, run the following command to
+perform automatic linting. If there are errors that the tool cannot fix, the test suite will tell you where and what the errors
+are so that you may go to the location and fix them.
 
 ```
 autopep8 --in-place --aggressive *.py
@@ -132,7 +136,8 @@ Test coverage is being addressed by Coveralls so that when Travis-CI runs, it ca
 
 ### Activating Travis-CI
 
-Travis can only be implamented by admin accounts. Admin users can activate Travis by creating a travis.yml in the project's root directory.
+Travis can only be implamented by admin accounts. Admin users can activate Travis by creating a travis.yml in the project's root
+directory.
 
 ## Questions or Comments
 
