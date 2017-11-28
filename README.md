@@ -98,6 +98,8 @@ Location to place downloaded repositories
 
 ## Usage
 
+GatorGage analyzes Computer Science 111 - Introduction to Computer Science I - students' labs and practicals, gaining information on what was mosth difficult, how long it took, and so on. Natural language processing is usud in order to create visual displays for professors and future students to gain information on the work.
+
 ## Testing
 
 ### Functions Tested
@@ -130,8 +132,7 @@ Test coverage is being addressed by Coveralls so that when Travis-CI runs, it ca
 
 ### Activating Travis-CI
 
-Travis can only be implemented by admin accounts. Admin users can activate
-Travis by creating a travis.yml in the project's root directory.
+Travis can only be implamented by admin accounts. Admin users can activate Travis by creating a travis.yml in the project's root directory.
 
 ## Questions or Comments
 
