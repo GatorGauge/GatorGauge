@@ -2,3 +2,4 @@ __pycache__
 *.pyc
 *.json
 *.ini
+.DS_Store
