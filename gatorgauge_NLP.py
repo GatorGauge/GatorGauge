@@ -39,7 +39,7 @@ runs i
                     if i not in stop_words:
                         if i != 'nan':
                             temp.append(i)
-                        if i == 'nan:
+                        if i == 'nan':
                             nanNum += 1
         tokens.append(temp)
     print(tokens)
