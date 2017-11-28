@@ -105,3 +105,5 @@ Location to place downloaded repositories
 ## Testing
 
 ## Questions or Comments
+
+Any problems regarding GatorGauge can be written in the issue link at the top of the site.
