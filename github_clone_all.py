@@ -10,12 +10,12 @@ import os
 import subprocess
 
 
-def get_repositories(githubProject, githubPrefix, githubToken, outDir):  
+def get_repositories(githubProject, githubPrefix, githubToken, outDir):
     #
     # local goodies (for my cron job)
     #
     from datetime import datetime
-    from pytz import timezone  
+    from pytz import timezone
     print ("")
     print (">>>>>>>>>>>>>>")
     print (">>>>>>>>>>>>>> Running github-clone-all: " + datetime.now(timezone("US/Central")).strftime('%Y-%m-%d %H:%M:%S %Z%z'))
@@ -41,10 +41,11 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
 
         if reposPage.status_code != 200:
             print ("Failed to load repos from GitHub: " + str(reposPage.content))
-            exit(1)
+            return
+            #exit(1)
 
         reposPageJson = reposPage.json()
-        
+
         if len(reposPageJson) == 0:
             print (" Done.")
             break
