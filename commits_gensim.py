@@ -47,8 +47,12 @@ runs i
 
 
 def dictionary_create(tokens):
-    """creates the dictionary from the tokens of the commit messages"""
+    """Creates the dictionary from the tokens of the commit messages"""
     dictionary = corpora.Dictionary(tokens)
     return(dictionary))
+
+def emoji_intake():
+    """Creates visual of emojis and emoji topics"""
+    
 
 def read_commit_messages(messages, arg1, arg2):
