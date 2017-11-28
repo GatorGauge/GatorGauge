@@ -120,4 +120,4 @@ Travis can only be implamented by admin accounts. Admin users can activate Travi
 
 ## Questions or Comments
 
-Any problems regarding GatorGauge can be written in the issue link at the top of the site.
+Any problems or suggestions regarding GatorGauge can be written in the issue link at the top of the site.
