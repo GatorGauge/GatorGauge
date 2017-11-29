@@ -16,21 +16,21 @@ def getStatistics(listVar, listMeth, listClass, listLine):
     print("Standard deviation of lines: ", numpy.std(listLine))
 
 
-def collectByPerson(javaFiles,out):
-    personList = dict()
+def collectByRepo(javaFiles,out):
+    repoDict = dict()
     for f in javaFiles:
-        person = f.replace(out,"").replace("\\","/")
-        person = person.split("/")[1]
-        person = person.split("-")[len(person.split("-"))-1]
-        if person in personList:
+        currFile = f.replace(out,"").replace("\\","/")
+        repo = currFile.split("/")[1]
+        if repo in repoDict:
             continue
         files = []
         for javaFile in javaFiles:
-            if person in javaFile:
+            if repo in javaFile:
                 files.append(javaFile)
-        personList[person] = files
+        repoDict[repo] = files
 
-    return personList
+    print(repoDict)
+    return repoDict
 
 def analyze_java(out):
     variableList = []
@@ -40,7 +40,7 @@ def analyze_java(out):
 
     print("Analyzing java files:")
     java_files = file_list.list_files(".java", out, True)
-    dictionary = collectByPerson(java_files,out)
+    dictionary = collectByRepo(java_files,out)
 
     for username, files in dictionary.items():
         v = m = c = l = 0
