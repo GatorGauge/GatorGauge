@@ -2,9 +2,6 @@
 # Dan Wallach <dwallach@rice.edu>
 
 import requests
-import json
-import re
-import time
 import sys
 import os
 import subprocess
@@ -16,14 +13,15 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
     #
     from datetime import datetime
     from pytz import timezone
-    print ("")
-    print (">>>>>>>>>>>>>>")
-    print (
+
+    print("")
+    print(">>>>>>>>>>>>>>")
+    print(
         ">>>>>>>>>>>>>> Running github-clone-all: " +
         datetime.now(
             timezone("US/Central")).strftime('%Y-%m-%d %H:%M:%S %Z%z'))
-    print (">>>>>>>>>>>>>>")
-    print ("")
+    print(">>>>>>>>>>>>>>")
+    print("")
 
     requestHeaders = {
         "User-Agent": "GitHubCloneAll/1.0",
@@ -47,14 +45,14 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
         pageNumber = pageNumber + 1
 
         if reposPage.status_code != 200:
-            print ("Failed to load repos from GitHub: " + str(reposPage.content))
+            print("Failed to load repos from GitHub: " + str(reposPage.content))
             return
             # exit(1)
 
         reposPageJson = reposPage.json()
 
         if len(reposPageJson) == 0:
-            print (" Done.")
+            print(" Done.")
             break
 
         allReposList = allReposList + reposPage.json()
@@ -73,11 +71,11 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
 
     filteredRepoList = [
         x for x in allReposList if x['name'].startswith(githubPrefix)]
-    print (str(len(filteredRepoList)) +
-           " of " +
-           str(len(allReposList)) +
-           " repos start with " +
-           str(githubPrefix))
+    print(str(len(filteredRepoList)) +
+          " of " +
+          str(len(allReposList)) +
+          " repos start with " +
+          str(githubPrefix))
 
     # before we start getting any repos, we need a directory to get them
     if outDir != ".":
@@ -85,7 +83,7 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
             os.makedirs(outDir)
         except OSError:
             # directory probably already exists
-            print ("directory " + str(outDir) + " already exists")
+            print("directory " + str(outDir) + " already exists")
         os.chdir(outDir)
 
     # specific clone instructions here:
