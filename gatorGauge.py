@@ -22,6 +22,7 @@ if __name__ == "__main__":
     args = []
     arg1 = ""
     arg2 = ""
+    fileName = ""
 
     while command != "quit":
         args = command.rsplit()
@@ -33,13 +34,13 @@ if __name__ == "__main__":
         while args[0] not in fSet:
             print("Please enter a valid command")
             command = str(input('>>> '))
-            args = command.rsplit(command)
+            args = command.rsplit()
             command = args[0]
         if len(args) == 2:
             arg1 = args[1]
         elif len(args) == 3:
-            arg1 == args[1]
-            arg2 == args[2]
+            arg1 = args[1]
+            arg2 = args[2]
         if command == "get":
             if defaults.TOKEN == "":
                 token = str(
@@ -78,9 +79,10 @@ if __name__ == "__main__":
                         listFiles.append(os.path.join(subdir, file))
             for File in listFiles:
                 print(*read_file.read_file(File), end="\n\n")
+            fileName = arg1
         elif command == "list":
             files = file_list.list_files(
-                command, arg1)  # list of files returned
+                command, fileName)  # list of files returned
             for file in files:
                 print(file)
         elif command == "help":
@@ -89,8 +91,8 @@ if __name__ == "__main__":
             else:
                 print(display.display_help_with_command(arg1))
         command = str(input('>>> '))
-        arg1 == ""
-        arg2 == ""
+        arg1 = ""
+        arg2 = ""
 
 #    args = parse_args.parse_args(sys.argv[1:])
 #    # checks if the required information is entered

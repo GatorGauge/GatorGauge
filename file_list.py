@@ -11,7 +11,8 @@ def list_files(Type, location):
             "\tERROR: File location: '" +
             str(location) +
             "' does not exists")
-        quit()
+    return file_list
+        #quit()
     if Type is 'all':  # if there is no input for type show all files
         for subdir, dirs, files in os.walk(location):
             for file in files:
