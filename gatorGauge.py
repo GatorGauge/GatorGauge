@@ -73,10 +73,13 @@ if __name__ == "__main__":
             if arg2 != "":
                 out = arg2
             listFiles = list()
-            for subdir, dirs, files in os.walk(out):
+            for subdir, dirs, files in os.walk("./"+str(out)):
                 for file in files:
                     if file.endswith(arg1):
                         listFiles.append(os.path.join(subdir, file))
+            if len(listFiles) == 0:
+                print("ERROR: File "+str(arg1)+" does not exist")
+                break
             for File in listFiles:
                 print(*read_file.read_file(File), end="\n\n")
             fileName = arg1

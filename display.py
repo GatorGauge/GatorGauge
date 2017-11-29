@@ -38,9 +38,9 @@ def display_help_help():
 
 def display_get_help():
     command_tuple = (display_strings.GET_HEADER,
-                     display_strings.GET_COMMAND,
-                     display_strings.GET_DESCRIPTION,
-                     display_strings.GET_ARGUMENTS)
+                     display_strings.GET_COMMAND_ONE,
+                     display_strings.GET_DESCRIPTION_ONE,
+                     display_strings.GET_ARGUMENTS_ONE)
 
     logging.debug("Command one details: " + str(command_tuple))
 
