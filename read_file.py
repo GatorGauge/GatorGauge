@@ -2,7 +2,6 @@
 """ can be adapted to fit other group needs """
 
 
-
 def read_file(filePath):
     content = list()
     with open(filePath, 'r') as mark:

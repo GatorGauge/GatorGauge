@@ -6,7 +6,6 @@ import defaults  # get defaults form defaults.py
 # creates command line arguments for easier access to repositories
 
 
-
 def parse_args(args):
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
