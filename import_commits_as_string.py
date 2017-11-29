@@ -15,7 +15,7 @@ def import_commits_as_string(file_path):
     commit_str = ""
 
     # Opens repo at this file
-    #path = file_path
+    path = file_path
 
     # sets repo to open from file_path
     repo = Repo(file_path)
