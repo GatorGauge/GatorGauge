@@ -14,7 +14,6 @@ def get_list_of_commits(file_path):
 	for entry in walker:
 		item = str(entry.commit.message.decode())
 		item = item.replace("\n", "")
-		print(item)
 		list.append(item)
 		
 	return list
