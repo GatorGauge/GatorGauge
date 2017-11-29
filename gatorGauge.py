@@ -81,8 +81,9 @@ if __name__ == "__main__":
                 print(*read_file.read_file(File), end="\n\n")
             fileName = arg1
         elif command == "list":
-            files = file_list.list_files(
-                command, fileName)  # list of files returned
+            if arg1 is "":
+                arg1 = "all"
+            files = file_list.list_files(arg1, out)  # list of files returned
             for file in files:
                 print(file)
         elif command == "help":

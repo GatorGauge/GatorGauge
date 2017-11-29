@@ -5,16 +5,11 @@ import os
 # Type is the file type (.java, .md, etc), location: where to look at
 def list_files(Type, location):
     file_list = list()  # list of file names to return
-    if not os.path.isdir(
-            "./" + str(location)):  # check if file location exists
-        print(
-            "\tERROR: File location: '" +
-            str(location) +
-            "' does not exists")
-    return file_list
-        #quit()
-    if Type is 'all':  # if there is no input for type show all files
-        for subdir, dirs, files in os.walk(location):
+    if not os.path.isdir("./" + str(location)):  # check if file location exists
+        print("\tERROR: File location: '" +str(location) +"' does not exists")
+        return file_list
+    if Type is "all":  # if there is no input for type show all files
+        for subdir, dirs, files in os.walk("./"+str(location)):
             for file in files:
                 if "." in file:  # ignore files with no '.' extension
                     if file not in file_list:  # get each unique file name
