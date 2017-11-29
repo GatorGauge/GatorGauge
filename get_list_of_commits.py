@@ -4,7 +4,7 @@ from contextlib import redirect_stdout
 from io import StringIO
 
 #function takes in a file_path, points to a given repo
-def import_commits_as_string(file_path):
+def get_list_of_commits(file_path):
 
     # Constants
     NEW_OUTSTREAM = StringIO()
