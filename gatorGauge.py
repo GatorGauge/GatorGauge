@@ -35,7 +35,8 @@ if __name__ == "__main__":
         for File in listFiles:
             print(*read_file.read_file(File), end="\n\n")
 
-    if "--list" in sys.argv[1:]: # checks if --list was used in command line
-        files = file_list.list_files(args.list, args.out) # list of files returned
+    if "--list" in sys.argv[1:]:  # checks if --list was used in command line
+        files = file_list.list_files(
+            args.list, args.out)  # list of files returned
         for file in files:
             print(file)

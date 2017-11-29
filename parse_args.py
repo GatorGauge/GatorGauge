@@ -1,7 +1,8 @@
 """ parse arguments inputted via command line """
 import argparse
 
-import defaults #get defaults form defaults.py
+import defaults  # get defaults form defaults.py
+
 
 def parse_args(args):
     parser = argparse.ArgumentParser(
