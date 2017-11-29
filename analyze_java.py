@@ -29,7 +29,6 @@ def collectByRepo(javaFiles,out):
                 files.append(javaFile)
         repoDict[repo] = files
 
-    print(repoDict)
     return repoDict
 
 def analyze_java(out):
