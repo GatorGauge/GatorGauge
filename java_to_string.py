@@ -41,10 +41,17 @@ def remove_comments(javaString):
     from the Java source code returned by read_and_convert.
     This function outputs the entire source code as a string
     with zero whitespaces"""
-    javaString = re.sub(re.compile("(?<=/\*).*?(?=\*/)",re.DOTALL ) ,"" ,javaString) # remove multiline comments of the form (/* comment */)
-    javaString = re.sub(re.compile("//.*?\n" ) ,"" ,javaString) # remove all single line comments
-    javaString = javaString.replace("\n", "") # replace a new line with a blank character
-    javaString = javaString.replace("/**/","") # remove comment residue
+    javaString = re.sub(
+        re.compile(
+            "(?<=/\*).*?(?=\*/)",
+            re.DOTALL),
+        "",
+        javaString)  # remove multiline comments of the form (/* comment */)
+    # remove all single line comments
+    javaString = re.sub(re.compile("//.*?\n"), "", javaString)
+    # replace a new line with a blank character
+    javaString = javaString.replace("\n", "")
+    javaString = javaString.replace("/**/", "")  # remove comment residue
     return javaString
 
 

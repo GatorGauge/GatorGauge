@@ -23,9 +23,9 @@ install:
 
 script:
   - mdl README.md
-  #- pytest tests
-  #- coverage run --source tests -m py.test
-  #- coverage report
+  - pytest tests
+  - coverage run --source tests -m py.test
+  - coverage report
 
 after_success:
-  #coveralls
+  coveralls

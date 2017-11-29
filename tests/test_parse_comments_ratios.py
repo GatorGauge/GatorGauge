@@ -17,6 +17,7 @@ class HelloWorld {
 }
 """
 
+
 def test_get_ratio_of_singleline_comments_to_source_code_with_one_comment():
     actual_ratio = \
         pc.get_ratio_of_singleline_comments_to_source_code(JAVA_STRING)
