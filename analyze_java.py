@@ -19,12 +19,12 @@ def getStatistics(listVar, listMeth, listClass, listLine):
 def collectByPerson(javaFiles,out):
     personList = dict()
     for f in javaFiles:
-        person = f.replace(out,"")
+        person = f.replace(out,"").replace("\\","/")
         person = person.split("/")[1]
         person = person.split("-")[len(person.split("-"))-1]
         if person in personList:
             continue
-        files = list()
+        files = []
         for javaFile in javaFiles:
             if person in javaFile:
                 files.append(javaFile)
@@ -37,20 +37,29 @@ def analyze_java(out):
     methodList= []
     classList = []
     lineList = []
+
     print("Analyzing java files:")
-    java_files = file_list.list_files("java", out, True)
-    for java_file in java_files:
-        java_string = java_to_string.read_and_convert(java_file)
-        java_string = java_to_string.remove_comments(java_string)[:]
-        try:
-            variableList.append(p.getNumberOfVariables(java_string))
-            methodList.append(p.getNumberOfMethods(java_string))
-            classList.append(p.getNumberOfClasses(java_string))
-            lineList.append(p.getNumberOfLines(java_string))
-        except(Exception):
-            print ("error")
-    #print(variables)
-    #print(methods)
-    #print(classes)
-    #print(lines)
+    java_files = file_list.list_files(".java", out, True)
+    dictionary = collectByPerson(java_files,out)
+
+    for username, files in dictionary.items():
+        v = m = c = l = 0
+        ignore = False
+        for java_file in files:
+            java_string = java_to_string.read_and_convert(java_file)
+            java_string = java_to_string.remove_comments(java_string)[:]
+            try:
+                v = v + p.getNumberOfVariables(java_string)
+                m = m + p.getNumberOfMethods(java_string)
+                c = c + p.getNumberOfClasses(java_string)
+                l = l + p.getNumberOfLines(java_string)
+            except(Exception):
+                ignore = True
+                break
+        if not ignore:
+            variableList.append(v)
+            methodList.append(m)
+            classList.append(c)
+            lineList.append(l)
+
     getStatistics(variableList, methodList, classList, lineList)
