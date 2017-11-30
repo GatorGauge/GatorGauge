@@ -19,11 +19,13 @@ commands_list.append(("read <file_name>",
                       "Reads the information in specified file"))
 commands_list.append(("read <file_name> <location>",
                       "Reads the information in specified file in location"))
+# add gensim info
+commands_list.append(("gensim", "Performs NLP"))
 # add quit info                    
 commands_list.append(("quit", "Exit the program"))
 
 # Help with command display strings
-COMMANDS = ["help", "get", "list", "read", "analyze","quit"]
+COMMANDS = ["help", "get", "config (TODO)", "list", "read", "gensim", "quit"]
 
 # help help info
 HELP_HEADER = "help\n----"
@@ -33,14 +35,16 @@ HELP_ARGUMENTS_ONE = "None"
 
 HELP_COMMAND_TWO = "help <command>"
 HELP_DESCRIPTION_TWO = "Show verbose description of usage and show valid arguments for <command>"
-HELP_ARGUMENTS_TWO = "<command>: Command to show description and valid arguments for.\nCan be any of the following\n\t" + \
+HELP_ARGUMENTS_TWO = "<command>: Command to show description and valid arguments for.\nCan be any of the following:\n\t" + \
     "\n\t".join(COMMANDS)
 
 # get help info, preparing to add other arguments
 GET_HEADER = "get\n----"
 GET_COMMAND_ONE = "get"
-GET_DESCRIPTION_ONE = "Downloads repoitories from Project with specified Prefix"
+GET_DESCRIPTION_ONE = "Downloads repoitories from Project with specified Prefix to directory Out"
 GET_ARGUMENTS_ONE = "None"
+
+#TODO: add config command (edit Token, Project, Prefix, Out variables)
 
 # list help info
 LIST_HEADER = "list\n----"
@@ -63,7 +67,7 @@ READ_DESCRIPTION_TWO = "Reads the information in specified file in location"
 READ_ARGUMENT_TWO = "<file_name> <location>"
 
 # gensim help info (started, will finish with integration with repl)
-GENSIM_HEADER = "analyze\n----"
+GENSIM_HEADER = "gensim\n----"
 GENSIM_COMMAND_ONE = "gensim"
 GENSIM_DESCRIPTION_ONE = "Performs NLP"
 GENSIM_ARGUMENTS_ONE = "TBD"

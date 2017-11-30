@@ -5,6 +5,7 @@ from colors import negative
 from colors import underline
 import logging
 import textwrap
+# local import
 import display_strings
 
 
@@ -15,6 +16,7 @@ def display_help_with_command(command):
         "get": display_get_help,
         "list": display_list_help,
         "read": display_read_help,
+        "gensim": display_gensim_help,
         "quit": display_quit_help
     }
 
@@ -45,6 +47,9 @@ def display_get_help():
     logging.debug("Command one details: " + str(command_tuple))
 
     return format_command_description(command_tuple)
+    
+    
+#TODO: add config command (edit Token, Project, Prefix, Out variables)
 
 
 def display_list_help():
@@ -75,8 +80,18 @@ def display_read_help():
     logging.debug("Command two details: " + str(command_two_tuple))
 
     return format_command_description(command_one_tuple, command_two_tuple)
+    
 
-
+def display_gensim_help():
+    command_one_tuple = (display_strings.GENSIM_HEADER,
+                         display_strings.GENSIM_COMMAND_ONE,
+                         display_strings.GENSIM_DESCRIPTION_ONE,
+                         display_strings.GENSIM_ARGUMENTS_ONE)
+    logging.debug("Command one details: " + str(command_one_tuple))
+    
+    return format_command_description(command_one_tuple)
+    
+    
 def display_quit_help():
     command_tuple = (display_strings.QUIT_HEADER,
                      display_strings.QUIT_COMMAND,
@@ -105,7 +120,7 @@ def format_command_description(command_one_tuple, command_two_tuple=None):
         return command_one_string + "\n" + command_two_string
     else:
         return command_one_string
-
+        
 
 def display_help():
     """Return a string with a list of commands and their brief descriptions."""
