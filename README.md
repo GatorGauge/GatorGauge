@@ -58,6 +58,13 @@ To get requirements, use the command
 pip3 install --user -r requirements.txt
 ```
 
+To support sentiment analysis, also run the following commands.
+```
+python3
+>>> import nltk
+>>> nltk.download("vader_lexicon")
+```
+
 ### Basic Execution
 
 Type ```python3 gatorGauge.py```, will cause errors if there are no values in
