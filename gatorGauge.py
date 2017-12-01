@@ -26,14 +26,13 @@ if __name__ == "__main__":
     arg3 = ""
     arg4 = ""
     fileName = ""
-
+    token = defaults.TOKEN
+    project = defaults.PROJECT
+    prefix = defaults.PREFIX
+    out = defaults.OUT
     while command != "quit":
         args = command.rsplit()
         command = args[0]
-        token = defaults.TOKEN
-        project = defaults.PROJECT
-        prefix = defaults.PREFIX
-        out = defaults.OUT
         while args[0] not in fSet:
             print("Please enter a valid command")
             command = str(input('>>> '))
@@ -56,12 +55,12 @@ if __name__ == "__main__":
         if command == "get":
             # TODO: Figure out how to also take in the above values
             # as arguments when executing the get command
-            if defaults.TOKEN == "":
+            if token == "":
                 token = str(
                     input("GatorGauge requires a GitHub token.  Enter the token for the repo: "))
-            if defaults.PROJECT == "":
+            if project == "":
                 project = str(input("Enter the name of the project: "))
-            if defaults.PREFIX == "":
+            if prefix == "":
                 ask_prefix = str(
                     input("Would you like to specify a prefix? (Y/N): "))
                 while ask_prefix not in rSet:
@@ -70,7 +69,7 @@ if __name__ == "__main__":
                     prefix = str(input("Enter the prefix for the repo: "))
                 elif ask_prefix == "N" or ask_prefix == "n":
                     prefix = defaults.PREFIX
-            if defaults.OUT == "":
+            if out == "":
                 ask_out = str(
                     input("Would you like to specify the destiantion? (Y/N): "))
                 while ask_out not in rSet:
@@ -86,13 +85,14 @@ if __name__ == "__main__":
                     " that have " +
                     prefix +
                     " in their name and place in directory '" +
-                    out +
+                    out + " with token: "+token+
                     "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(project, prefix, token, out)
         # allow edit of config file from program
         elif command == "config":
-            defaults.editConfig()
+            # reset values with inputted values
+            token, project, prefix, out = defaults.editConfig()
         elif command == "list":
             if arg1 is "":
                 arg1 = "all"
