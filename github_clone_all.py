@@ -7,6 +7,7 @@ import os
 import subprocess
 import time
 
+
 def get_repositories(githubProject, githubPrefix, githubToken, outDir):
     #
     # local goodies (for my cron job)
@@ -82,9 +83,12 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
             os.makedirs(outDir)
         except OSError:
             # directory probably already exists
-            print("Directory '" + str(outDir) + "' already exists, please wait while directory is deleted\n")
+            print(
+                "Directory '" +
+                str(outDir) +
+                "' already exists, please wait while directory is deleted\n")
             # deletes outDir folder if it already exists
-            command = 'rm -r -f ./'+str(outDir)
+            command = 'rm -r -f ./' + str(outDir)
             os.system(command)
             os.makedirs(outDir)
         os.chdir(outDir)
@@ -102,17 +106,18 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
         # cd foo
         # git init
         # git pull https://<token>@github.com/username/bar.git
-        
+
         # if repositories are not placed in seperate folder
         # each one must be deleted before it can be redownloaded
         if os.path.isdir(repo['name']):
-           command = 'rm -r -f ' + repo['name']
-           os.system(command)
+            command = 'rm -r -f ' + repo['name']
+            os.system(command)
         os.mkdir(repo['name'])
         os.chdir(repo['name'])
         subprocess.call(["git", "init"])
         print(">>>>>>>>>>>>>>")
-        print(">>>>>>>>>>>>>> Downloading repository number "+str(repoNum)+" of "+str(len(filteredRepoList))+" repositories")
+        print(">>>>>>>>>>>>>> Downloading repository number " +
+              str(repoNum) + " of " + str(len(filteredRepoList)) + " repositories")
         print(">>>>>>>>>>>>>>")
         subprocess.call(["git", "pull", cloneUrl])
         os.chdir('..')

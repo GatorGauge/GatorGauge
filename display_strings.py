@@ -1,5 +1,4 @@
-"""Define strings that will be displayed by the REPL."""
-"""Used the format from Accelegator for this file"""
+"""Define strings that will be displayed by the REPL.  Used the format from Accelegator for this file"""
 from colors import bold
 
 # Help display strings
@@ -7,13 +6,16 @@ commands_list = []
 commands_list.append((bold("Command"), bold("Description")))
 # add help info
 commands_list.append(("help", "List commands and their brief descriptions"))
-commands_list.append(("help <command>",
-                      "List verbose description of <command> and show valid arguments for <command>"))
+commands_list.append(
+    ("help <command>",
+     "List verbose description of <command> and show valid arguments for <command>"))
 # add get info
-commands_list.append(("get", "Downloads repoitories from Project with specified Prefix"))
+commands_list.append(
+    ("get", "Downloads repoitories from Project with specified Prefix"))
 # add list info
 commands_list.append(("list", "Lists all files"))
-commands_list.append(("list <file>", "Lists all files with file as name or type"))
+commands_list.append(
+    ("list <file>", "Lists all files with file as name or type"))
 # add read info
 commands_list.append(("read <file_name>",
                       "Reads the information in specified file"))
@@ -21,7 +23,7 @@ commands_list.append(("read <file_name> <location>",
                       "Reads the information in specified file in location"))
 # add gensim info
 commands_list.append(("gensim", "Performs NLP"))
-# add quit info                    
+# add quit info
 commands_list.append(("quit", "Exit the program"))
 
 # Help with command display strings
@@ -44,7 +46,7 @@ GET_COMMAND_ONE = "get"
 GET_DESCRIPTION_ONE = "Downloads repoitories from Project with specified Prefix to directory Out"
 GET_ARGUMENTS_ONE = "None"
 
-#TODO: add config command (edit Token, Project, Prefix, Out variables)
+# TODO: add config command (edit Token, Project, Prefix, Out variables)
 
 # list help info
 LIST_HEADER = "list\n----"

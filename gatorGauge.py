@@ -13,14 +13,14 @@ if __name__ == "__main__":
     print("Welcome to GatorGauge!")
     print("Type help to see list of commands.")
 
-    defined_commands = {"get", "help","list", "read", "gensim", "quit"}
+    defined_commands = {"get", "help", "list", "read", "gensim", "quit"}
     fSet = frozenset(defined_commands)
     defined_responses = {"Y", "y", "N", "n"}
     rSet = frozenset(defined_responses)
 
     command = str(input('>>> '))
     args = []
-    # added 2 more args for taking in project, prefix, token, 
+    # added 2 more args for taking in project, prefix, token,
     arg1 = ""
     arg2 = ""
     arg3 = ""
@@ -54,8 +54,8 @@ if __name__ == "__main__":
             arg3 = args[3]
             arg4 = args[4]
         if command == "get":
-            #TODO: Figure out how to also take in the above values 
-            #as arguments when executing the get command 
+            # TODO: Figure out how to also take in the above values
+            # as arguments when executing the get command
             if defaults.TOKEN == "":
                 token = str(
                     input("GatorGauge requires a GitHub token.  Enter the token for the repo: "))
@@ -79,7 +79,15 @@ if __name__ == "__main__":
                     ask_out = str(input("Enter the destination: "))
                 elif ask_out == "N" or ask_out == "n":
                     out = defaults.OUT
-            ask_prefix = str(input("Download all repositories in "+project+" that have "+prefix+" in their name and place in directory '"+out+"' (Y/N): "))
+            ask_prefix = str(
+                input(
+                    "Download all repositories in " +
+                    project +
+                    " that have " +
+                    prefix +
+                    " in their name and place in directory '" +
+                    out +
+                    "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(project, prefix, token, out)
         elif command == "list":
@@ -87,9 +95,9 @@ if __name__ == "__main__":
                 arg1 = "all"
             files = file_list.list_files(arg1, out)  # list of files returned
             if len(files) is 0:
-                print("ERROR: File '"+str(arg1)+"' does not exist")
+                print("ERROR: File '" + str(arg1) + "' does not exist")
             for file in files:
-                print(file)        
+                print(file)
         elif command == "read":
             while arg1 == "":
                 print("You must enter a file name or type.")
@@ -97,12 +105,12 @@ if __name__ == "__main__":
             if arg2 != "":
                 out = arg2
             listFiles = list()
-            for subdir, dirs, files in os.walk("./"+str(out)):
+            for subdir, dirs, files in os.walk("./" + str(out)):
                 for file in files:
                     if file.endswith(arg1):
                         listFiles.append(os.path.join(subdir, file))
             if len(listFiles) == 0:
-                print("ERROR: File '"+str(arg1)+"' does not exist")
+                print("ERROR: File '" + str(arg1) + "' does not exist")
             for File in listFiles:
                 print(*read_file.read_file(File), end="\n\n")
             fileName = arg1

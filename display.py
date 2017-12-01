@@ -1,8 +1,5 @@
-"""Format and return strings to display."""
-"""Used the format from Accelegator for this file"""
+"""Format and return strings to display.  Used the format from Accelegator for this file"""
 from colors import bold
-from colors import negative
-from colors import underline
 import logging
 import textwrap
 # local import
@@ -47,9 +44,9 @@ def display_get_help():
     logging.debug("Command one details: " + str(command_tuple))
 
     return format_command_description(command_tuple)
-    
-    
-#TODO: add config command (edit Token, Project, Prefix, Out variables)
+
+
+# TODO: add config command (edit Token, Project, Prefix, Out variables)
 
 
 def display_list_help():
@@ -80,7 +77,7 @@ def display_read_help():
     logging.debug("Command two details: " + str(command_two_tuple))
 
     return format_command_description(command_one_tuple, command_two_tuple)
-    
+
 
 def display_gensim_help():
     command_one_tuple = (display_strings.GENSIM_HEADER,
@@ -88,10 +85,10 @@ def display_gensim_help():
                          display_strings.GENSIM_DESCRIPTION_ONE,
                          display_strings.GENSIM_ARGUMENTS_ONE)
     logging.debug("Command one details: " + str(command_one_tuple))
-    
+
     return format_command_description(command_one_tuple)
-    
-    
+
+
 def display_quit_help():
     command_tuple = (display_strings.QUIT_HEADER,
                      display_strings.QUIT_COMMAND,
@@ -120,7 +117,7 @@ def format_command_description(command_one_tuple, command_two_tuple=None):
         return command_one_string + "\n" + command_two_string
     else:
         return command_one_string
-        
+
 
 def display_help():
     """Return a string with a list of commands and their brief descriptions."""
