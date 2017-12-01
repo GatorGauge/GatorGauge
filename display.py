@@ -53,9 +53,9 @@ def display_config_help():
                      display_strings.CONFIG_COMMAND,
                      display_strings.CONFIG_DESCRIPTION,
                      display_strings.CONFIG_ARGUMENTS)
-                     
+
     logging.debug("Command one details: " + str(command_tuple))
-     
+
     return format_command_description(command_tuple)
 
 

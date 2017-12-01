@@ -1,5 +1,5 @@
 """ main file in the GatorGauge system """
-import sys
+#import sys
 import os
 # local imports
 import github_clone_all
@@ -85,7 +85,7 @@ if __name__ == "__main__":
                     " that have " +
                     prefix +
                     " in their name and place in directory '" +
-                    out + " with token: "+token+
+                    out + " with token: " + token +
                     "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(project, prefix, token, out)
