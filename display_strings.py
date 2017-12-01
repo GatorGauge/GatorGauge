@@ -12,6 +12,8 @@ commands_list.append(
 # add get info
 commands_list.append(
     ("get", "Downloads repoitories from Project with specified Prefix"))
+# add config info
+commands_list.append(("config", "Edit the values in the config file"))
 # add list info
 commands_list.append(("list", "Lists all files"))
 commands_list.append(
@@ -46,7 +48,11 @@ GET_COMMAND_ONE = "get"
 GET_DESCRIPTION_ONE = "Downloads repoitories from Project with specified Prefix to directory Out"
 GET_ARGUMENTS_ONE = "None"
 
-# TODO: add config command (edit Token, Project, Prefix, Out variables)
+#TODO: add config command (edit Token, Project, Prefix, Out variables)
+CONFIG_HEADER = "config\n----"
+CONFIG_COMMAND = "config"
+CONFIG_DESCRIPTION = "Edit the values in the config file"
+CONFIG_ARGUMENTS = "None"
 
 # list help info
 LIST_HEADER = "list\n----"

@@ -13,7 +13,7 @@ if __name__ == "__main__":
     print("Welcome to GatorGauge!")
     print("Type help to see list of commands.")
 
-    defined_commands = {"get", "help", "list", "read", "gensim", "quit"}
+    defined_commands = {"help", "get", "config", "list", "read", "gensim", "quit"}
     fSet = frozenset(defined_commands)
     defined_responses = {"Y", "y", "N", "n"}
     rSet = frozenset(defined_responses)
@@ -90,6 +90,9 @@ if __name__ == "__main__":
                     "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(project, prefix, token, out)
+        # allow edit of config file from program
+        elif command == "config":
+            defaults.editConfig()
         elif command == "list":
             if arg1 is "":
                 arg1 = "all"

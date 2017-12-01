@@ -11,6 +11,7 @@ def display_help_with_command(command):
     command_functions = {
         "help": display_help_help,
         "get": display_get_help,
+        "config": display_config_help,
         "list": display_list_help,
         "read": display_read_help,
         "gensim": display_gensim_help,
@@ -46,7 +47,16 @@ def display_get_help():
     return format_command_description(command_tuple)
 
 
-# TODO: add config command (edit Token, Project, Prefix, Out variables)
+#TODO: add config command (edit Token, Project, Prefix, Out variables)
+def display_config_help():
+    command_tuple = (display_strings.CONFIG_HEADER,
+                     display_strings.CONFIG_COMMAND,
+                     display_strings.CONFIG_DESCRIPTION,
+                     display_strings.CONFIG_ARGUMENTS)
+                     
+    logging.debug("Command one details: " + str(command_tuple))
+     
+    return format_command_description(command_tuple)
 
 
 def display_list_help():
