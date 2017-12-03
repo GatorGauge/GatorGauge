@@ -17,7 +17,11 @@ commands_list.append(("config", "Edit the values in the config file"))
 # add list info
 commands_list.append(("list", "Lists all files"))
 commands_list.append(
-    ("list <file>", "Lists all files with file as name or type"))
+    ("list <file type>", "Lists all files with the inputted file type"))
+commands_list.append(
+    ("list <directory>", "Lists all files in the inputted directory"))
+commands_list.append(
+    ("list <file type> <directory>", "Lists all files with the inputted file type in the inputted directory"))
 # add read info
 commands_list.append(("read <file_name>",
                       "Reads the information in specified file"))
@@ -29,7 +33,7 @@ commands_list.append(("gensim", "Performs NLP"))
 commands_list.append(("quit", "Exit the program"))
 
 # Help with command display strings
-COMMANDS = ["help", "get", "config (TODO)", "list", "read", "gensim", "quit"]
+COMMANDS = ["help", "get", "config", "list", "read", "gensim", "quit"]
 
 # help help info
 HELP_HEADER = "help\n----"
@@ -45,10 +49,10 @@ HELP_ARGUMENTS_TWO = "<command>: Command to show description and valid arguments
 # get help info, preparing to add other arguments
 GET_HEADER = "get\n----"
 GET_COMMAND_ONE = "get"
-GET_DESCRIPTION_ONE = "Downloads repoitories from Project with specified Prefix to directory Out"
+GET_DESCRIPTION_ONE = "Downloads repositories from Project with specified Prefix to directory Out"
 GET_ARGUMENTS_ONE = "None"
 
-#TODO: add config command (edit Token, Project, Prefix, Out variables)
+# config help info
 CONFIG_HEADER = "config\n----"
 CONFIG_COMMAND = "config"
 CONFIG_DESCRIPTION = "Edit the values in the config file"
@@ -60,9 +64,17 @@ LIST_COMMAND_ONE = "list"
 LIST_DESCRIPTION_ONE = "List all files"
 LIST_ARGUMENTS_ONE = "None"
 
-LIST_COMMAND_TWO = "list <file>"
-LIST_DESCRIPTION_TWO = "Lists all files with file as name or type"
-LIST_ARGUMENTS_TWO = "<file>"
+LIST_COMMAND_TWO = "list <file type>"
+LIST_DESCRIPTION_TWO = "Lists all files with the inputted file type"
+LIST_ARGUMENTS_TWO = "<file type>"
+
+LIST_COMMAND_THREE = "list <directory>"
+LIST_DESCRIPTION_THREE = "Lists all files in the inputed directory"
+LIST_ARGUMENTS_THREE = "<directory>"
+
+LIST_COMMAND_FOUR = "list <file type> <directory>"
+LIST_DESCRIPTION_FOUR = "Lists all files with the inputted file type in the inputted directory"
+LIST_ARGUMENTS_FOUR = "<file type> <directory>"
 
 # read help info
 READ_HEADER = "read\n----"

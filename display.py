@@ -70,8 +70,18 @@ def display_list_help():
                          display_strings.LIST_DESCRIPTION_TWO,
                          display_strings.LIST_ARGUMENTS_TWO)
     logging.debug("Command two details: " + str(command_two_tuple))
+    
+    command_three_tuple = (display_strings.LIST_COMMAND_THREE,
+                         display_strings.LIST_DESCRIPTION_THREE,
+                         display_strings.LIST_ARGUMENTS_THREE)
+    logging.debug("Command two details: " + str(command_three_tuple))
+    
+    command_four_tuple = (display_strings.LIST_COMMAND_FOUR,
+                         display_strings.LIST_DESCRIPTION_FOUR,
+                         display_strings.LIST_ARGUMENTS_FOUR)
+    logging.debug("Command two details: " + str(command_four_tuple))
 
-    return format_command_description(command_one_tuple, command_two_tuple)
+    return format_command_description(command_one_tuple, command_two_tuple, command_three_tuple, command_four_tuple)
 
 
 def display_read_help():
@@ -108,7 +118,7 @@ def display_quit_help():
     return format_command_description(command_tuple)
 
 
-def format_command_description(command_one_tuple, command_two_tuple=None):
+def format_command_description(command_one_tuple, command_two_tuple=None, command_three_tuple=None, command_four_tuple=None):
     logging.info("Formatting first command")
     header = bold(command_one_tuple[0])
     command_one = command_one_tuple[1]
@@ -124,7 +134,28 @@ def format_command_description(command_one_tuple, command_two_tuple=None):
         arguments_two = command_two_tuple[2]
         command_two_string = display_strings.COMMAND_LABEL + command_two + "\n" + display_strings.DESCRIPTION_LABEL + \
             description_two + "\n" + display_strings.ARGUMENTS_LABEL + arguments_two + "\n"
-        return command_one_string + "\n" + command_two_string
+        if command_three_tuple is None:
+            return command_one_string + "\n" + command_two_string
+    
+    if command_three_tuple is not None:
+        logging.info("Formatting third command")
+        command_three = command_three_tuple[0]
+        description_three = command_three_tuple[1]
+        arguments_three = command_three_tuple[2]
+        command_three_string = display_strings.COMMAND_LABEL + command_three + "\n" + display_strings.DESCRIPTION_LABEL + \
+            description_three + "\n" + display_strings.ARGUMENTS_LABEL + arguments_three + "\n"
+        if command_four_tuple is None:
+            return command_one_string + "\n" + command_two_string + "\n" + command_three_string
+        
+    if command_four_tuple is not None:
+        logging.info("Formatting fourth command")
+        command_four = command_four_tuple[0]
+        description_four = command_four_tuple[1]
+        arguments_four = command_four_tuple[2]
+        command_four_string = display_strings.COMMAND_LABEL + command_four + "\n" + display_strings.DESCRIPTION_LABEL + \
+            description_four + "\n" + display_strings.ARGUMENTS_LABEL + arguments_four + "\n"
+        
+        return command_one_string + "\n" + command_two_string + "\n" + command_three_string + "\n" + command_four_string
     else:
         return command_one_string
 

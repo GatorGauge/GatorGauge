@@ -19,7 +19,7 @@ def list_files(Type, location):
                     if file not in file_list:  # get each unique file name
                         file_list.append(file)
     else:  # show list of files of type 'Type'
-        for subdir, dirs, files in os.walk(location):
+        for subdir, dirs, files in os.walk("./" + str(location)):
             for file in files:
                 if file.endswith(Type):  # get only files of type 'Type'
                     if file not in file_list:  # get each unique file name

@@ -24,7 +24,6 @@ if __name__ == "__main__":
     arg1 = ""
     arg2 = ""
     arg3 = ""
-    arg4 = ""
     fileName = ""
     token = defaults.TOKEN
     project = defaults.PROJECT
@@ -53,8 +52,6 @@ if __name__ == "__main__":
             arg3 = args[3]
             arg4 = args[4]
         if command == "get":
-            # TODO: Figure out how to also take in the above values
-            # as arguments when executing the get command
             if token == "":
                 token = str(
                     input("GatorGauge requires a GitHub token.  Enter the token for the repo: "))
@@ -85,18 +82,28 @@ if __name__ == "__main__":
                     " that have " +
                     prefix +
                     " in their name and place in directory '" +
-                    out + " with token: " + token +
+                    out + "' with token: " + token +
                     "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(project, prefix, token, out)
+            token = defaults.TOKEN
+            project = defaults.PROJECT
+            prefix = defaults.PREFIX
+            out = defaults.OUT
         # allow edit of config file from program
         elif command == "config":
             # reset values with inputted values
             token, project, prefix, out = defaults.editConfig()
         elif command == "list":
             if arg1 is "":
-                arg1 = "all"
-            files = file_list.list_files(arg1, out)  # list of files returned
+                fileType = "all"
+            elif not "." in arg1 and arg1 is not "":
+                out = arg1
+                fileType = "all"
+            elif arg2 is not None and arg1 is not "":
+                fileType = arg1
+                out = arg2
+            files = file_list.list_files(fileType, out)  # list of files returned
             if len(files) is 0:
                 print("ERROR: File '" + str(arg1) + "' does not exist")
             for file in files:
@@ -126,7 +133,6 @@ if __name__ == "__main__":
         arg1 = ""
         arg2 = ""
         arg3 = ""
-        arg4 = ""
 # Error messages from old version of gatorGauge
 #    args = parse_args.parse_args(sys.argv[1:])
 #    # checks if the required information is entered
