@@ -11,29 +11,21 @@ commands_list.append(
      "List verbose description of <command> and show valid arguments for <command>"))
 # add get info
 commands_list.append(
-    ("get", "Downloads repoitories from Project with specified Prefix"))
+    ("get", "Downloads repositories from Project with specified Prefix to directory Out"))
 # add config info
 commands_list.append(("config", "Edit the values in the config file"))
 # add list info
 commands_list.append(("list", "Lists all files"))
 commands_list.append(
-    ("list <file type>", "Lists all files with the inputted file type"))
+    ("list <repo name>", "Lists all files in the inputted repository"))
+# add analyze info
 commands_list.append(
-    ("list <directory>", "Lists all files in the inputted directory"))
-commands_list.append(
-    ("list <file type> <directory>", "Lists all files with the inputted file type in the inputted directory"))
-# add read info
-commands_list.append(("read <file_name>",
-                      "Reads the information in specified file"))
-commands_list.append(("read <file_name> <location>",
-                      "Reads the information in specified file in location"))
-# add gensim info
-commands_list.append(("gensim", "Performs NLP"))
+    ("analyze <target>", "Performs analysis for specified target ('source','comments','commits','reflection')"))
 # add quit info
 commands_list.append(("quit", "Exit the program"))
 
 # Help with command display strings
-COMMANDS = ["help", "get", "config", "list", "read", "gensim", "quit"]
+COMMANDS = ["help", "get", "config", "list", "analyze", "quit"]
 
 # help help info
 HELP_HEADER = "help\n----"
@@ -61,36 +53,18 @@ CONFIG_ARGUMENTS = "None"
 # list help info
 LIST_HEADER = "list\n----"
 LIST_COMMAND_ONE = "list"
-LIST_DESCRIPTION_ONE = "List all files"
+LIST_DESCRIPTION_ONE = "List all repositories"
 LIST_ARGUMENTS_ONE = "None"
 
-LIST_COMMAND_TWO = "list <file type>"
-LIST_DESCRIPTION_TWO = "Lists all files with the inputted file type"
-LIST_ARGUMENTS_TWO = "<file type>"
-
-LIST_COMMAND_THREE = "list <directory>"
-LIST_DESCRIPTION_THREE = "Lists all files in the inputed directory"
-LIST_ARGUMENTS_THREE = "<directory>"
-
-LIST_COMMAND_FOUR = "list <file type> <directory>"
-LIST_DESCRIPTION_FOUR = "Lists all files with the inputted file type in the inputted directory"
-LIST_ARGUMENTS_FOUR = "<file type> <directory>"
-
-# read help info
-READ_HEADER = "read\n----"
-READ_COMMAND_ONE = "read <file_name>"
-READ_DESCRIPTION_ONE = "Reads the information in specified file"
-READ_ARGUMENTS_ONE = "<file_name>"
-
-READ_COMMAND_TWO = "read <file_name> <location>"
-READ_DESCRIPTION_TWO = "Reads the information in specified file in location"
-READ_ARGUMENT_TWO = "<file_name> <location>"
+LIST_COMMAND_TWO = "list <repo name>"
+LIST_DESCRIPTION_TWO = "Lists all files in the given repository"
+LIST_ARGUMENTS_TWO = "<repo name>"
 
 # gensim help info (started, will finish with integration with repl)
-GENSIM_HEADER = "gensim\n----"
-GENSIM_COMMAND_ONE = "gensim"
-GENSIM_DESCRIPTION_ONE = "Performs NLP"
-GENSIM_ARGUMENTS_ONE = "TBD"
+ANALYZE_HEADER = "analyze\n----"
+ANALYZE_COMMAND_ONE = "analyze <target>"
+ANALYZE_DESCRIPTION_ONE = "Performs analysis for specified target ('Source','comments','commits','reflection')"
+ANALYZE_ARGUMENTS_ONE = "<target>"
 
 # quit help info
 QUIT_HEADER = "quit\n----"

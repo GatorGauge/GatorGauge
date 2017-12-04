@@ -13,8 +13,7 @@ def display_help_with_command(command):
         "get": display_get_help,
         "config": display_config_help,
         "list": display_list_help,
-        "read": display_read_help,
-        "gensim": display_gensim_help,
+        "analyze": display_analyze_help,
         "quit": display_quit_help
     }
 
@@ -69,40 +68,15 @@ def display_list_help():
                          display_strings.LIST_DESCRIPTION_TWO,
                          display_strings.LIST_ARGUMENTS_TWO)
     logging.debug("Command two details: " + str(command_two_tuple))
-    
-    command_three_tuple = (display_strings.LIST_COMMAND_THREE,
-                         display_strings.LIST_DESCRIPTION_THREE,
-                         display_strings.LIST_ARGUMENTS_THREE)
-    logging.debug("Command two details: " + str(command_three_tuple))
-    
-    command_four_tuple = (display_strings.LIST_COMMAND_FOUR,
-                         display_strings.LIST_DESCRIPTION_FOUR,
-                         display_strings.LIST_ARGUMENTS_FOUR)
-    logging.debug("Command two details: " + str(command_four_tuple))
 
     return format_command_description(command_one_tuple, command_two_tuple, command_three_tuple, command_four_tuple)
 
 
-def display_read_help():
-    command_one_tuple = (display_strings.READ_HEADER,
-                         display_strings.READ_COMMAND_ONE,
-                         display_strings.READ_DESCRIPTION_ONE,
-                         display_strings.READ_ARGUMENTS_ONE)
-    logging.debug("Command one details: " + str(command_one_tuple))
-
-    command_two_tuple = (display_strings.READ_COMMAND_TWO,
-                         display_strings.READ_DESCRIPTION_TWO,
-                         display_strings.READ_ARGUMENTS_TWO)
-    logging.debug("Command two details: " + str(command_two_tuple))
-
-    return format_command_description(command_one_tuple, command_two_tuple)
-
-
-def display_gensim_help():
-    command_one_tuple = (display_strings.GENSIM_HEADER,
-                         display_strings.GENSIM_COMMAND_ONE,
-                         display_strings.GENSIM_DESCRIPTION_ONE,
-                         display_strings.GENSIM_ARGUMENTS_ONE)
+def display_analyze_help():
+    command_one_tuple = (display_strings.ANALYZE_HEADER,
+                         display_strings.ANALYZE_COMMAND_ONE,
+                         display_strings.ANALYZE_DESCRIPTION_ONE,
+                         display_strings.ANALYZE_ARGUMENTS_ONE)
     logging.debug("Command one details: " + str(command_one_tuple))
 
     return format_command_description(command_one_tuple)
@@ -133,28 +107,7 @@ def format_command_description(command_one_tuple, command_two_tuple=None, comman
         arguments_two = command_two_tuple[2]
         command_two_string = display_strings.COMMAND_LABEL + command_two + "\n" + display_strings.DESCRIPTION_LABEL + \
             description_two + "\n" + display_strings.ARGUMENTS_LABEL + arguments_two + "\n"
-        if command_three_tuple is None:
-            return command_one_string + "\n" + command_two_string
-    
-    if command_three_tuple is not None:
-        logging.info("Formatting third command")
-        command_three = command_three_tuple[0]
-        description_three = command_three_tuple[1]
-        arguments_three = command_three_tuple[2]
-        command_three_string = display_strings.COMMAND_LABEL + command_three + "\n" + display_strings.DESCRIPTION_LABEL + \
-            description_three + "\n" + display_strings.ARGUMENTS_LABEL + arguments_three + "\n"
-        if command_four_tuple is None:
-            return command_one_string + "\n" + command_two_string + "\n" + command_three_string
-        
-    if command_four_tuple is not None:
-        logging.info("Formatting fourth command")
-        command_four = command_four_tuple[0]
-        description_four = command_four_tuple[1]
-        arguments_four = command_four_tuple[2]
-        command_four_string = display_strings.COMMAND_LABEL + command_four + "\n" + display_strings.DESCRIPTION_LABEL + \
-            description_four + "\n" + display_strings.ARGUMENTS_LABEL + arguments_four + "\n"
-        
-        return command_one_string + "\n" + command_two_string + "\n" + command_three_string + "\n" + command_four_string
+        return command_one_string + "\n" + command_two_string
     else:
         return command_one_string
 

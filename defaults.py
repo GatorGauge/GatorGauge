@@ -1,10 +1,10 @@
 import configparser
 
-config = configparser.ConfigParser()
+config = configparser.ConfigParser(allow_no_value=True)
 config.read("config.ini")
 TOKEN = config.get('Token', 'TOKEN')
 PROJECT = config.get('Project', 'PROJECT')
-PREFIX = config.get('Prefix', 'PREFIX')
+KEYWORDS = config.get('Keywords', 'KEYWORDS')
 OUT = config.get('Out', 'OUT')
 
 
@@ -21,11 +21,11 @@ def editConfig():
     else:
         project = PROJECT
 
-    ask_prefix = str(input("Current Prefix: '"+str(PREFIX)+"'\nWould you like to edit the Prefix?\n(Y/N): "))
+    ask_prefix = str(input("Current Prefix: '"+str(KEYWORDS)+"'\nWould you like to edit the Prefix?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
         prefix = ask_prefix = str(input("Enter new Prefix: "))
     else:
-        prefix = PREFIX
+        keywords = KEYWORDS
 
     ask_prefix = str(input("Current Out: '"+str(OUT)+"'\nWould you like to edit the Out directory?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
@@ -35,10 +35,15 @@ def editConfig():
 
     ask_prefix = str(input("Would you like to save these changes in config.ini? (Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
-        config.set('Token', 'TOKEN', token)
+        config.set('Token', '; Github access token KEEP SECRET!!!!')
+        config.set('Token','TOKEN', token)
+        config.set('Project', '; Project to pull')
         config.set('Project', 'PROJECT', project)
-        config.set('Prefix', 'PREFIX', prefix)
+        config.set('Keywords', '; keyword list, filters down repositories exclusively')
+        config.set('Keywords', 'KEYWORDS', keywords)
+        config.set('Out', '; default: current directory')
         config.set('Out', 'OUT', out)
+
         with open('./config.ini', 'w') as configFile:
             config.write(configFile)
-    return token, project, prefix, out
+    return token, project, keywords, out

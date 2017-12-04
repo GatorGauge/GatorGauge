@@ -7,8 +7,8 @@ import os
 import subprocess
 import time
 
-
-def get_repositories(githubProject, githubPrefix, githubToken, outDir):
+#TODO: make keywords a list of keywords to search for in the name of the github repositories
+def get_repositories(githubProject, keywords, githubToken, outDir):
     #
     # local goodies (for my cron job)
     #
@@ -70,12 +70,12 @@ def get_repositories(githubProject, githubPrefix, githubToken, outDir):
     # 'RiceComp215/comp215-week01-intro-2017-dwallach')
 
     filteredRepoList = [
-        x for x in allReposList if x['name'].startswith(githubPrefix)]
+        x for x in allReposList if x['name'].startswith(keywords)]
     print(str(len(filteredRepoList)) +
           " of " +
           str(len(allReposList)) +
           " repos start with " +
-          str(githubPrefix))
+          str(keywords))
     time.sleep(2)
     # before we start getting any repos, we need a directory to get them
     if outDir != ".":
