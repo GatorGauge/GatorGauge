@@ -61,7 +61,7 @@ def editConfig():
             'Keywords',
             '; keyword list, filters down repositories exclusively')
         config.set('Keywords', 'KEYWORDS', keywords)
-        config.set('Out', '; default: current directory')
+        config.set('Out', '; default: repos/')
         config.set('Out', 'OUT', out)
 
         with open('./config.ini', 'w') as configFile:

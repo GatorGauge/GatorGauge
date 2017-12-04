@@ -15,17 +15,20 @@ Paste the following into this new file:
 
 ```
 [Token]
-; Github access token, KEEP SECRET!!!!
-TOKEN =
+token =
+; github access token keep secret!!!!
+
 [Project]
-; Project to pull
-PROJECT =
-[Prefix]
-; Prefix to look for to narrow
-PREFIX =
+project =
+; project to pull
+
+[Keywords]
+keywords =
+; keyword list, filters down repositories exclusively
+
 [Out]
-; default: current directory
-OUT = .
+out = repos
+; default: repos/
 ```
 
 Once done, paste the token in token section. Must specify a project but PREFIX
@@ -39,9 +42,10 @@ Github token allows the program to pull the repositories.
 
 Name of the project to be pulled down.
 
-### Prefix
+### Keywords
 
-Gets every repository in the project that starts with the prefix.
+Keywords used to filter for only repositories with the keywords in the name of
+the repository.
 
 ### Out
 
@@ -58,36 +62,44 @@ To get requirements, use the command
 pip3 install --user -r requirements.txt
 ```
 
-### Basic Execution
+### Execution
 
-Type ```python3 gatorGauge.py```, will cause errors if there are no values in
-config.ini for Token and Project or if they are not supplied with the command
-line arguments.
+Type ```python3 gatorGauge.py```
 
-### Execution Flags
+### commands
 
-Download the project(named in Config.ini or supplied with the ```--project``` flag)
+Download the project(named in Config.ini or given with the config command)
 
 ```
 get
 ```
 
-List all files or files with the specified .extension
+Edit the values in the config file or temporarily change the config values
+
+```
+config
+```
+
+List all repositories if no arguments are given or all files in a given repository
 
 ```
 list
 ```
+```
+list <repo name>
+```
 
-Read the information in the inputed file name or files with the inputed .extension
+Perform sentiment analysis and gensim on the given target (source, comments, commits,
+reflection)
 
 ```
-read
+analyze <target>
 ```
 
 ## Usage
 
 GatorGage analyzes Computer Science 111 - Introduction to Computer Science I -
-students' labs and practicals, gaining information on what was most difficult
+students' labs and practicals, gaining information on what was most difficult,
 how long it took, and so on. Natural language processing is used in order to
 create visual displays for professors and future students to gain information
 on the work.
