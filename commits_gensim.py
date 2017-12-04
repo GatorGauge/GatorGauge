@@ -94,9 +94,9 @@ def corp_eval(dictionary, tokens, corpus):
     logging.info("Gensim visualization has been displayed.")
     return dictionary.dfs
 =======
-def emoji_intake():
+def emoji_intake(emojiData):
     """Creates visual of emojis and emoji topics"""
-    
+
 
 def read_commit_messages(messages, arg1, arg2):
 >>>>>>> 974353696fe8691750f161d849d60121a90d1136

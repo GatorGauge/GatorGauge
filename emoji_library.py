@@ -33,6 +33,6 @@ def emoji_counter(commit_str):
     emoticon10 = re.finditer(ru'[:smiling_imp:]', s)
     smilingImp = sum(1 for _ in commit_str)
 
-    emojiData = [smileFace, rageFace, confusedFace, thumbsdown, hourglass, sobFace, neutralFace, sunglassesFace, raisedHands, smilingImp ]
+    emojiData = ["smileFace", "rageFace", "confusedFace", "thumbsdown", "hourglass", "sobFace", "neutralFace", "sunglassesFace", "raisedHands", "smilingImp" ]
 
     return emojiData
