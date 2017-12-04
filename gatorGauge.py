@@ -46,13 +46,8 @@ if __name__ == "__main__":
             arg1 = args[1]
             arg2 = args[2]
             arg3 = args[3]
-        elif len(args) == 5:
-            arg1 = args[1]
-            arg2 = args[2]
-            arg3 = args[3]
-            arg4 = args[4]
         if command == "get":
-            if token == "":
+            """if token == "":
                 token = str(
                     input("GatorGauge requires a GitHub token.  Enter the token for the repo: "))
             if project == "":
@@ -74,7 +69,9 @@ if __name__ == "__main__":
                 if ask_out == "Y" or ask_out == "y":
                     ask_out = str(input("Enter the destination: "))
                 elif ask_out == "N" or ask_out == "n":
-                    out = defaults.OUT
+                    out = defaults.OUT"""
+            if token is "" or project is "":
+                token, project, prefix, out = defaults.editConfig()
             ask_prefix = str(
                 input(
                     "Download all repositories in " +
@@ -123,7 +120,6 @@ if __name__ == "__main__":
                 print("ERROR: File '" + str(arg1) + "' does not exist")
             for File in listFiles:
                 print(*read_file.read_file(File), end="\n\n")
-            fileName = arg1
         elif command == "help":
             if arg1 == "":
                 print(display.display_help())

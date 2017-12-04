@@ -47,7 +47,6 @@ def display_get_help():
     return format_command_description(command_tuple)
 
 
-#TODO: add config command (edit Token, Project, Prefix, Out variables)
 def display_config_help():
     command_tuple = (display_strings.CONFIG_HEADER,
                      display_strings.CONFIG_COMMAND,
