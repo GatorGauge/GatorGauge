@@ -52,8 +52,10 @@ if __name__ == "__main__":
                     out + "' with token: " + token +
                     "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
-                github_clone_all.get_repositories(project, keywords, token, out)
-            # reset values back to values in config after being used (or not used)
+                github_clone_all.get_repositories(
+                    project, keywords, token, out)
+            # reset values back to values in config after being used (or not
+            # used)
             token = defaults.TOKEN
             project = defaults.PROJECT
             keywords = str(defaults.KEYWORDS).split(',')

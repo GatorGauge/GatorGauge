@@ -69,7 +69,8 @@ def display_list_help():
                          display_strings.LIST_ARGUMENTS_TWO)
     logging.debug("Command two details: " + str(command_two_tuple))
 
-    return format_command_description(command_one_tuple, command_two_tuple, command_three_tuple, command_four_tuple)
+    return format_command_description(
+        command_one_tuple, command_two_tuple, command_three_tuple, command_four_tuple)
 
 
 def display_analyze_help():
@@ -91,14 +92,16 @@ def display_quit_help():
     return format_command_description(command_tuple)
 
 
-def format_command_description(command_one_tuple, command_two_tuple=None, command_three_tuple=None, command_four_tuple=None):
+def format_command_description(
+        command_one_tuple, command_two_tuple=None, command_three_tuple=None, command_four_tuple=None):
     logging.info("Formatting first command")
     header = bold(command_one_tuple[0])
     command_one = command_one_tuple[1]
     description_one = command_one_tuple[2]
     arguments_one = command_one_tuple[3]
     command_one_string = header + "\n" + display_strings.COMMAND_LABEL + command_one + "\n" + \
-        display_strings.DESCRIPTION_LABEL + description_one + "\n" + display_strings.ARGUMENTS_LABEL + arguments_one + "\n"
+        display_strings.DESCRIPTION_LABEL + description_one + "\n" + \
+        display_strings.ARGUMENTS_LABEL + arguments_one + "\n"
 
     if command_two_tuple is not None:
         logging.info("Formatting second command")

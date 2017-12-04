@@ -1,6 +1,7 @@
-""" reads through and creates a list of lists from inputted file """
-""" can be adapted to fit other group needs """
+""" reads through and creates a list of lists from inputted file
+    can be adapted to fit other group needs """
 import re
+
 
 def read_file(filePath):
     with open(filePath, 'r') as mark:
@@ -11,6 +12,7 @@ def read_file(filePath):
             # removes newline characters and breaks up file into sentences for
             # NLP analysis
             content = mark.read()
-            content = re.sub('[^a-zA-Z0-9\n\.]', ' ', content) # removes special characters
+            # removes special characters
+            content = re.sub('[^a-zA-Z0-9\n\.]', ' ', content)
             content.split('. ')
     return content  # list of lists

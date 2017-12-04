@@ -7,7 +7,10 @@ import os
 import subprocess
 import time
 
-#TODO: make keywords a list of keywords to search for in the name of the github repositories
+# TODO: make keywords a list of keywords to search for in the name of the
+# github repositories
+
+
 def get_repositories(githubProject, keywords, githubToken, outDir):
     #
     # local goodies (for my cron job)
