@@ -3,7 +3,7 @@
 import re
 
 
-def read_file(filePath):
+def get_reflection(filePath):
     with open(filePath, 'r') as mark:
         # to add additional file types just use the .endswith() function to specifiy the file type
         # then add in how the file should be broken up into a list with the .split() function or
@@ -13,6 +13,6 @@ def read_file(filePath):
             # NLP analysis
             content = mark.read()
             # removes special characters
-            content = re.sub('[^a-zA-Z0-9\n\.]', ' ', content)
+            content = re.sub('[^a-zA-Z0-9\*\^\(\)\'\-\n\.]', ' ', content)
             content.split('. ')
     return content  # list of lists

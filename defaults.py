@@ -2,10 +2,10 @@ import configparser
 
 config = configparser.ConfigParser(allow_no_value=True)
 config.read("config.ini")
-TOKEN = config.get('Token', 'TOKEN')
-PROJECT = config.get('Project', 'PROJECT')
-KEYWORDS = config.get('Keywords', 'KEYWORDS')
-OUT = config.get('Out', 'OUT')
+TOKEN = config.get('Token', 'token')
+PROJECT = config.get('Project', 'project')
+KEYWORDS = config.get('Keywords', 'keywords')
+OUT = config.get('Out', 'out')
 
 
 def editConfig():
@@ -51,7 +51,7 @@ def editConfig():
         out = OUT
 
     ask_prefix = str(
-        input("Would you like to save these changes in config.ini? (Y/N): "))
+        input("Would you like to save these changes in config.ini?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
         config.set('Token', '; Github access token KEEP SECRET!!!!')
         config.set('Token', 'TOKEN', token)

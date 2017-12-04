@@ -16,6 +16,7 @@ if __name__ == "__main__":
 
     defined_commands = {"help", "get", "config", "list", "analyze", "quit"}
     fSet = frozenset(defined_commands)
+    specifiers = ('source','comments','commits','reflection')
 
     command = str(input('>>> '))
     args = []
@@ -35,6 +36,8 @@ if __name__ == "__main__":
             command = str(input('>>> '))
             args = command.rsplit()
             command = args[0]
+            if command == "quit":
+                quit()
         if len(args) == 2:
             arg1 = args[1]
         elif len(args) == 3:
@@ -73,24 +76,29 @@ if __name__ == "__main__":
             for r in repo:
                 print(r)
         elif command == "analyze":
-            while arg1 == "":
-                print("You must enter a file name or type.")
-                arg1 = str(input('File name or type: '))
-            if arg2 != "":
-                out = arg2
-            listFiles = list()
-            for subdir, dirs, files in os.walk("./" + str(out)):
-                for file in files:
-                    if file.endswith(arg1):
-                        listFiles.append(os.path.join(subdir, file))
-            if len(listFiles) == 0:
-                print("ERROR: File '" + str(arg1) + "' does not exist")
-            responses = list()
-            for File in listFiles:
-                response = get_reflection.read_file(File)
-                responses.append(response)
-            for res in responses:
-                print(res)
+            while arg1 not in specifiers:
+                print("You must enter a specifier "+str(specifiers)+".")
+                arg1 = str(input('Specifier: '))
+            if arg1 == "source":
+                print("SOURCE")
+            elif arg1 == "comments":
+                print("COMMENTS")
+            elif arg1 == "commits":
+                print("COMMITS")
+            elif arg1 == "reflection":
+                listFiles = list()
+                for subdir, dirs, files in os.walk("./" + str(out)):
+                    for file in files:
+                        if file.endswith("reflection.md"):
+                            listFiles.append(os.path.join(subdir, file))
+                if len(listFiles) == 0:
+                    print("ERROR: File 'reflection.md' does not exist")
+                responses = list()
+                for File in listFiles:
+                    response = get_reflection.get_reflection(File)
+                    responses.append(response)
+                for res in responses:
+                    print(res)
         elif command == "help":
             if arg1 == "":
                 print(display.display_help())

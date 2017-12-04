@@ -63,7 +63,7 @@ LIST_ARGUMENTS_TWO = "<repo name>"
 # gensim help info (started, will finish with integration with repl)
 ANALYZE_HEADER = "analyze\n----"
 ANALYZE_COMMAND_ONE = "analyze <target>"
-ANALYZE_DESCRIPTION_ONE = "Performs analysis for specified target ('Source','comments','commits','reflection')"
+ANALYZE_DESCRIPTION_ONE = "Performs analysis for specified target ('source','comments','commits','reflection')"
 ANALYZE_ARGUMENTS_ONE = "<target>"
 
 # quit help info
