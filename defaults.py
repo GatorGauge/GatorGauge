@@ -21,9 +21,9 @@ def editConfig():
     else:
         project = PROJECT
 
-    ask_prefix = str(input("Current Prefix: '"+str(KEYWORDS)+"'\nWould you like to edit the Prefix?\n(Y/N): "))
+    ask_prefix = str(input("Current Prefix: '"+str(KEYWORDS)+"'\nWould you like to edit the Keywords?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
-        prefix = ask_prefix = str(input("Enter new Prefix: "))
+        keywords = ask_prefix = str(input("Enter new Keywords (seperated by ','): "))
     else:
         keywords = KEYWORDS
 
@@ -46,4 +46,4 @@ def editConfig():
 
         with open('./config.ini', 'w') as configFile:
             config.write(configFile)
-    return token, project, keywords, out
+    return token, project, str(keywords).split(','), out

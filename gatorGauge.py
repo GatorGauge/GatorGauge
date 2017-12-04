@@ -15,8 +15,6 @@ if __name__ == "__main__":
 
     defined_commands = {"help", "get", "config", "list", "analyze", "quit"}
     fSet = frozenset(defined_commands)
-    defined_responses = {"Y", "y", "N", "n"}
-    rSet = frozenset(defined_responses)
 
     command = str(input('>>> '))
     args = []
@@ -26,7 +24,7 @@ if __name__ == "__main__":
     fileName = ""
     token = defaults.TOKEN
     project = defaults.PROJECT
-    keywords = defaults.KEYWORDS
+    keywords = str(defaults.KEYWORDS).split(',')
     out = defaults.OUT
     while command != "quit":
         args = command.rsplit()
@@ -55,14 +53,15 @@ if __name__ == "__main__":
                     "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(project, keywords, token, out)
+            # reset values back to values in config after being used (or not used)
             token = defaults.TOKEN
             project = defaults.PROJECT
-            keywords = defaults.KEYWORDS
+            keywords = str(defaults.KEYWORDS).split(',')
             out = defaults.OUT
-        # allow edit of config file from program
+        # allows user to edit the config file from program
         elif command == "config":
             # reset values with inputted values
-            token, project, prefix, out = defaults.editConfig()
+            token, project, keywords, out = defaults.editConfig()
         elif command == "list":
             rep = "all"
             if arg1 is not "":
