@@ -31,8 +31,9 @@ out = repos
 ; default: repos/
 ```
 
-Once done, paste the token in token section. Must specify a project but PREFIX
-is optional, and out defaults to current directory.
+Once done, paste the token in Token section. Must specify a project but keywords
+is optional, and out defaults to a directory named 'repos' which will be created
+upon running the get command.
 
 ### Token
 
@@ -50,13 +51,13 @@ the repository.
 ### Out
 
 Folder to place all of the downloaded repositories inside of. Defaults to
-current directory and names the repository the project name.
+a directory named 'repos' which will be created upon running the get command.
 
 ## Execution
 
 ### Requirements
 
-To get requirements, use the command
+To get requirements, use the command:
 
 ```
 pip3 install --user -r requirements.txt
@@ -64,23 +65,23 @@ pip3 install --user -r requirements.txt
 
 ### Execution
 
-Type ```python3 gatorGauge.py```
+Type ```python3 gatorGauge.py``` into the terminal
 
 ### commands
 
-Download the project(named in Config.ini or given with the config command)
+Download the project(named in Config.ini or given with the config command).
 
 ```
 get
 ```
 
-Edit the values in the config file or temporarily change the config values
+Edit the values in the config file or temporarily change the config values.
 
 ```
 config
 ```
 
-List all repositories if no arguments are given or all files in a given repository
+List all repositories if no arguments are given or all files in a given repository.
 
 ```
 list
@@ -90,12 +91,16 @@ list <repo name>
 ```
 
 Perform sentiment analysis and gensim on the given target (source, comments, commits,
-reflection)
+reflection).
 
 ```
 analyze <target>
 ```
 
+Quit the program.
+```
+quit
+```
 ## Usage
 
 GatorGage analyzes Computer Science 111 - Introduction to Computer Science I -
