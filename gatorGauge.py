@@ -7,6 +7,7 @@ import defaults
 import get_reflection
 import file_list
 import display
+import get_reflection
 
 if __name__ == "__main__":
 
@@ -47,7 +48,7 @@ if __name__ == "__main__":
                     "Download all repositories in " +
                     project +
                     " that have " +
-                    keywords +
+                    str(keywords) +
                     " in their name and place in directory '" +
                     out + "' with token: " + token +
                     "' (Y/N): "))
@@ -68,7 +69,7 @@ if __name__ == "__main__":
             rep = "all"
             if arg1 is not "":
                 rep = arg1
-            repo = file_list.list_files(rep)  # list of files returned
+            repo = file_list.list_files(rep,out)  # list of files returned
             for r in repo:
                 print(r)
         elif command == "analyze":
@@ -84,8 +85,12 @@ if __name__ == "__main__":
                         listFiles.append(os.path.join(subdir, file))
             if len(listFiles) == 0:
                 print("ERROR: File '" + str(arg1) + "' does not exist")
+            responses = list()
             for File in listFiles:
-                print(read_file.read_file(File), end="\n\n")
+                response = get_reflection.read_file(File)
+                responses.append(response)
+            for res in responses:
+                print(res)
         elif command == "help":
             if arg1 == "":
                 print(display.display_help())

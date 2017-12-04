@@ -1,14 +1,10 @@
-""" list all of the files in the location or specified file type """
+""" list all of the repositories in Out or all of the files in a given repository """
 import os
 
-from defaults import OUT
-# Type is the file type (.java, .md, etc), location: where to look at
-
-
-def list_files(repo):
+def list_files(repo,out):
     repo_list = list()  # list of file names to return
     if repo is not "all" and not os.path.isdir(
-            "./" + str(OUT) + "/" + str(repo)):  # check if file location exists
+            "./" + str(out) + "/" + str(repo)):  # check if file location exists
         print(
             "\tERROR: Repository: '" +
             str(repo) +
@@ -16,9 +12,9 @@ def list_files(repo):
         return
     if repo is "all":
         # list of all directories inside of Out folder
-        repo_list = os.listdir("./" + str(OUT))
+        repo_list = os.listdir(str(out))
     else:
-        for subdir, dirs, files in os.walk("./" + str(OUT) + "/" + str(repo)):
+        for subdir, dirs, files in os.walk("./" + str(out) + "/" + str(repo)):
             for file in files:
                 if "." in file:  # ignore files with no '.' extension
                     if file not in repo_list:  # get each unique file name
