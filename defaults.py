@@ -4,7 +4,7 @@ import os
 config = configparser.ConfigParser(allow_no_value=True)
 if os.path.exists("./config.ini"):
     config.read("config.ini")
-    TOKEN = config.get('Token', 'token')
+    #TOKEN = config.get('Token', 'token')
     PROJECT = config.get('Project', 'project')
     KEYWORDS = config.get('Keywords', 'keywords')
     OUT = config.get('Out', 'out')
@@ -13,9 +13,9 @@ if os.path.exists("./config.ini"):
 
 
 def newConfig():
-    config.add_section('Token')
-    config.set('Token', '; Github access token KEEP SECRET!!!!')
-    config.set('Token', 'TOKEN', "")
+    #config.add_section('Token')
+    #config.set('Token', '; Github access token KEEP SECRET!!!!')
+    #config.set('Token', 'TOKEN', "")
     config.add_section('Project')
     config.set('Project', '; Project to pull')
     config.set('Project', 'PROJECT', "")
@@ -35,15 +35,15 @@ def newConfig():
 
 
 def editConfig():
-    ask_prefix = str(
-        input(
-            "Current Token: '" +
-            str(TOKEN) +
-            "'\nWould you like to edit the Token?\n(Y/N): "))
-    if ask_prefix is "Y" or ask_prefix is "y":
-        token = ask_prefix = str(input("Enter new Token: "))
-    else:
-        token = TOKEN
+    #ask_prefix = str(
+    #    input(
+    #        "Current Token: '" +
+    #        str(TOKEN) +
+    #        "'\nWould you like to edit the Token?\n(Y/N): "))
+    #if ask_prefix is "Y" or ask_prefix is "y":
+    #    token = ask_prefix = str(input("Enter new Token: "))
+    #else:
+    #    token = TOKEN
 
     ask_prefix = str(
         input(
@@ -80,8 +80,8 @@ def editConfig():
         input("Would you like to save these changes in config.ini?\n(Y/N): "))
 
     if ask_prefix is "Y" or ask_prefix is "y":
-        config.set('Token', '; Github access token KEEP SECRET!!!!')
-        config.set('Token', 'TOKEN', token)
+        #config.set('Token', '; Github access token KEEP SECRET!!!!')
+        #config.set('Token', 'TOKEN', token)
         config.set('Project', '; Project to pull')
         config.set('Project', 'PROJECT', project)
         config.set(
@@ -93,4 +93,4 @@ def editConfig():
 
         with open('./config.ini', 'w') as configFile:
             config.write(configFile)
-    return token, project, str(keywords).split(','), out
+    return project, str(keywords).split(','), out

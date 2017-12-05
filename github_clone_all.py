@@ -11,7 +11,7 @@ import time
 # github repositories
 
 
-def get_repositories(githubProject, keywords, githubToken, outDir):
+def get_repositories(githubToken, githubProject, keywords, outDir):
     #
     # local goodies (for my cron job)
     #

@@ -1,5 +1,5 @@
 """ main file in the GatorGauge system """
-#import sys
+import sys
 import os
 # local imports
 import github_clone_all
@@ -8,10 +8,15 @@ import get_reflection
 import file_list
 import display
 import get_reflection
+import parse_args
 
 if __name__ == "__main__":
     print("Welcome to GatorGauge!")
     print("Type help to see list of commands.")
+    args = parse_args.parse_args(sys.argv[1:])
+    token = args.token
+    while token == "":
+        token = str(input("Please enter a valid token: "))
     # if there is no config.ini file, create one
     if not os.path.exists("./config.ini"):
         defaults.newConfig()
@@ -26,7 +31,6 @@ if __name__ == "__main__":
     arg1 = ""
     arg2 = ""
     fileName = ""
-    token = defaults.TOKEN
     project = defaults.PROJECT
     keywords = str(defaults.KEYWORDS).split(',')
     out = defaults.OUT
@@ -46,8 +50,8 @@ if __name__ == "__main__":
             arg1 = args[1]
             arg2 = args[2]
         if command == "get":
-            while token is "" or project is "":
-                token, project, keywords, out = defaults.editConfig()
+            while project is "":
+                project, keywords, out = defaults.editConfig()
             ask_prefix = str(
                 input(
                     "Download all repositories in " +
@@ -58,20 +62,18 @@ if __name__ == "__main__":
                     out + "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(
-                    project, keywords, token, out)
+                    token, project, keywords, out)
         # allows user to edit the config file from program
         elif command == "config":
             # reset values with inputted values
             if arg1 == "edit":
-                token, project, keywords, out = defaults.editConfig()
+                project, keywords, out = defaults.editConfig()
             elif arg1 == "reset":
                 print("Config values reset")
-                token = defaults.TOKEN
                 project = defaults.PROJECT
                 keywords = str(defaults.KEYWORDS).split(',')
                 out = defaults.OUT
             else:
-                print("Token: " + str(token))
                 print("Project: " + str(project))
                 print("Keywords: " + str(keywords))
                 print("Out: " + str(out))
@@ -79,7 +81,7 @@ if __name__ == "__main__":
             rep = "all"
             if arg1 is not "":
                 rep = arg1
-            repo = file_list.list_files(rep, out)  # list of files returned
+            repo = file_list.list_files(rep, out)  # list of repositories or files in specified repository returned
             for r in repo:
                 print(r)
         elif command == "analyze":
