@@ -55,8 +55,7 @@ if __name__ == "__main__":
                     " that have " +
                     str(keywords) +
                     " in their name and place in directory '" +
-                    out + "' with token: " + token +
-                    "' (Y/N): "))
+                    out + "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(
                     project, keywords, token, out)
