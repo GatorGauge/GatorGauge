@@ -17,10 +17,6 @@ any repositories. These values can be edited from the command line with the comm
 config edit
 ```
 
-### Token
-
-Github token allows the program to pull the repositories.
-
 ### Project
 
 Name of the project to be pulled down.
@@ -47,7 +43,9 @@ pip3 install --user -r requirements.txt
 
 ### Run GatorGage
 
-Type ```python3 gatorGauge.py``` into the terminal
+Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
+token entered into the command line after --token. A token must be entered each
+time the program is started for security reasons.
 
 ### Commands
 
