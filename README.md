@@ -188,7 +188,9 @@ autopep8 --in-place --aggressive *.py
 ### Test Coverage
 
 Test coverage is being addressed by Coveralls so that when Travis-CI runs, it can
-evaluate the coverage of the test suite.
+evaluate the coverage of the test suite. When testing Gensim, the weight of the
+topics of related words could not be tested. This is because randomness it built
+into Gensim and thus the answers would not be consistant.
 
 ### Activating Travis-CI
 
