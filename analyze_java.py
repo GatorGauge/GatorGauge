@@ -1,5 +1,5 @@
 import file_list
-import java_to_string
+import java_to_string as j
 import java_parser as p
 import numpy
 
@@ -16,49 +16,42 @@ def getStatistics(listVar, listMeth, listClass, listLine):
     print("Standard deviation of lines: ", numpy.std(listLine))
 
 
-def collectByRepo(javaFiles,out):
+def get_java_strings(out):
+    java_files = file_list.list_files(".java", out, True)
+    print(java_files)
     repoDict = dict()
-    for f in javaFiles:
+    for f in java_files:
+        # The second replace is so that code doesn't break on windows
         currFile = f.replace(out,"").replace("\\","/")
         repo = currFile.split("/")[1]
         if repo in repoDict:
             continue
         files = []
-        for javaFile in javaFiles:
+        for javaFile in java_files:
             if repo in javaFile:
                 files.append(javaFile)
         repoDict[repo] = files
 
-    return repoDict
+    java_strings = []
 
-def analyze_java(out):
+    for key, values in repoDict.items():
+        java_string = []
+        for value in values:
+            java_string.append(j.read_and_convert(value))
+        java_strings.append(' '.join(java_string))
+
+    return java_strings
+
+def analyze_java(java_strings):
     variableList = []
     methodList= []
     classList = []
     lineList = []
 
-    print("Analyzing java files:")
-    java_files = file_list.list_files(".java", out, True)
-    dictionary = collectByRepo(java_files,out)
-
-    for username, files in dictionary.items():
-        v = m = c = l = 0
-        ignore = False
-        for java_file in files:
-            java_string = java_to_string.read_and_convert(java_file)
-            java_string = java_to_string.remove_comments(java_string)[:]
-            try:
-                v = v + p.getNumberOfVariables(java_string)
-                m = m + p.getNumberOfMethods(java_string)
-                c = c + p.getNumberOfClasses(java_string)
-                l = l + p.getNumberOfLines(java_string)
-            except(Exception):
-                ignore = True
-                break
-        if not ignore:
-            variableList.append(v)
-            methodList.append(m)
-            classList.append(c)
-            lineList.append(l)
+    for java_string in java_strings:
+        variableList.append(p.getNumberOfVariables(java_string))
+        methodList.append(p.getNumberOfMethods(java_string))
+        classList.append(p.getNumberOfClasses(java_string))
+        lineList.append(p.getNumberOfLines(java_string))
 
     getStatistics(variableList, methodList, classList, lineList)
