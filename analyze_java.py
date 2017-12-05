@@ -1,19 +1,16 @@
 import file_list
 import java_to_string as j
 import java_parser as p
-import numpy
+import numpy as np
 
 
-def getStatistics(listVar, listMeth, listClass, listLine):
-    print("Average number of variables: ", numpy.mean(listVar))
-    print("Average number of methods: ", numpy.mean(listMeth))
-    print("Average number of classes: ",numpy.mean(listClass))
-    print("Average number of lines: ", numpy.mean(listLine))
-
-    print("Standard deviation of variables: ", numpy.std(listVar))
-    print("Standard deviation of methods: ", numpy.std(listMeth))
-    print("Standard deviation of classes: ", numpy.std(listClass))
-    print("Standard deviation of lines: ", numpy.std(listLine))
+def getStatistics(numericalList):
+    q75, q25 = np.percentile(numericalList, [75,25])
+    iqr = q75 - q25
+    statString = "min: " + str(np.min(numericalList)) + " max: " \
+        + str(np.max(numericalList)) + " mean: " + str(np.mean(numericalList)) \
+        + " StdDev: " + str(np.std(numericalList)) + " iqr: " + str(iqr)
+    return statString
 
 
 def get_java_strings(out):
