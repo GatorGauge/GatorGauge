@@ -1,3 +1,5 @@
+#command to run this from the test folder is python3 -m pytest test_java_parser.py
+
 
 import java_parser
 import javalang
@@ -37,6 +39,7 @@ def test_getNumberOfClasses():
     correctString = 2
     assert actualString == correctString
 
+
 def test_getNumberOfLines():
     """ Test if the function gets the correct number of lines in a javaString"""
     javaString = '''
@@ -59,34 +62,20 @@ def test_getNumberOfLines():
     correctString = 14
     assert actualString == correctString
 
+
 def test_getNumberofVariables():
     """ Test if the function gets the correct number of variables in a javaString """
     javaString = "public class testVars { public static void main(String[] args) {int x=3; int y=4;}}"
 
-    actualString = java_parser.getNumberofVariables(javaString)
+    actualString = java_parser.getNumberOfVariables(javaString)
     correctString = 2
     assert actualString == correctString
 
-# def test_getNumberofMethods():
-#     """ Test if the function gets the correct number of methods in a javaString """
-#         javaString = '''
-#             public class Factorial
-#         {
-#         public static void main(String[] args)
-#         {	final int NUM_FACTS = 100;
-#             for(int i = 0; i < NUM_FACTS; i++)
-#                 System.out.println( i + "! is " + factorial(i));
-#         }
-#
-#         public static int factorial(int n)
-#         {	int result = 1;
-#             for(int i = 2; i <= n; i++)
-#                 result *= i;
-#             return result;
-#         }
-#         '''
-#
-#         actualString = java_parser.getNumberofMethods(javaString)
-#
-#         print(actualString)
-#         assert = False
+
+def test_getNumberofMethods():
+    """ Test if the function gets the correct number of methods in a javaString """
+    javaString = "public class testVars { public static void main(String[] args) {int x=3; int y=4;}}"
+
+    actualString = java_parser.getNumberOfMethods(javaString)
+    correctString = 1
+    assert actualString == correctString
