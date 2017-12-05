@@ -6,9 +6,9 @@ had issues or triumphs within projects.
 
 ## Installation
 
-Edurate is a python 3 program and, therefore, uses
+GatorGauge is a python 3 program and, therefore, uses
 [pip](https://pip.pypa.io/en/stable/installing/) for installation. Type the
-three following commands before running the program.
+following commands before running the program:
 
 ```
 pip3 install --upgrade pip
@@ -17,13 +17,6 @@ pip3 install --upgrade pip
 ```
 pip3 install -r requirements.txt
 ```
-
-Then, create a Google Sheet and a Google Form in Google Drive. In the form
-create questions that allows your students to provide information about how
-they feel about the teaching and the class. After you have received one
-submission from the Form, go to the response tab and click the green icon with
-the white cross through it. This will allow you to link the Sheet to the Form.
-You can create a new Sheet or link said Sheet to a pre-existing form.
 
 ## Initial Setup
 
