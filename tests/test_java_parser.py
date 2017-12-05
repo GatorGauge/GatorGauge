@@ -2,10 +2,8 @@
 import java_parser
 import javalang
 
-
 def test_getNumberOfClasses():
-    """ test if the function gets the gets the number of
-    classes"""
+    """ test if the function gets the correct number of classes"""
     javaString = '''
         class Computer {
       Computer() {
@@ -40,7 +38,7 @@ def test_getNumberOfClasses():
     assert actualString == correctString
 
 def test_getNumberOfLines():
-    """ Test if the function gets the number of lines in a javaString"""
+    """ Test if the function gets the correct number of lines in a javaString"""
     javaString = '''
         public class Factorial
     {
@@ -60,3 +58,35 @@ def test_getNumberOfLines():
     actualString = java_parser.getNumberOfLines(javaString)
     correctString = 14
     assert actualString == correctString
+
+def test_getNumberofVariables():
+    """ Test if the function gets the correct number of variables in a javaString """
+    javaString = "public class testVars { public static void main(String[] args) {int x=3; int y=4;}}"
+
+    actualString = java_parser.getNumberofVariables(javaString)
+    correctString = 2
+    assert actualString == correctString
+
+# def test_getNumberofMethods():
+#     """ Test if the function gets the correct number of methods in a javaString """
+#         javaString = '''
+#             public class Factorial
+#         {
+#         public static void main(String[] args)
+#         {	final int NUM_FACTS = 100;
+#             for(int i = 0; i < NUM_FACTS; i++)
+#                 System.out.println( i + "! is " + factorial(i));
+#         }
+#
+#         public static int factorial(int n)
+#         {	int result = 1;
+#             for(int i = 2; i <= n; i++)
+#                 result *= i;
+#             return result;
+#         }
+#         '''
+#
+#         actualString = java_parser.getNumberofMethods(javaString)
+#
+#         print(actualString)
+#         assert = False
