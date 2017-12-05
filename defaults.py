@@ -8,7 +8,7 @@ if os.path.exists("./config.ini"):
     KEYWORDS = config.get('Keywords', 'keywords')
     OUT = config.get('Out', 'out')
 
-# creates a blank config file if one does not exist
+""" Creates a blank config file if one does not exist. """
 
 
 def new_config():
@@ -27,7 +27,7 @@ def new_config():
     with open('./config.ini', 'w') as config_file:
         config.write(config_file)
 
-# allows user to edit each value in the config file
+""" Allows user to edit each value in the config file. """
 
 
 def edit_config():
