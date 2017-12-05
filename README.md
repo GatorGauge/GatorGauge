@@ -126,7 +126,9 @@ Location to place downloaded repositories
 
 ## Usage
 
-GatorGauge analyzes Computer Science students' labs and practicals. Natural language processing is used in order to create visual displays for professors and future students to gain information on the work.
+GatorGauge analyzes Computer Science students' labs and practicals. Natural
+language processing is used in order to create visual displays for professors
+and future students to gain information on the work.
 
 ### Process
 
@@ -136,8 +138,13 @@ logs as follows.
 
 #### Comments
 
-GatorGauge will, across all downloaded repositories, analyze and return to the viewer a refined list for each single-line and multi-line comments for all program files in the given repository, as well as count an average number of single-line and multi-line comments per file. It will also calculate the average ratios between lines of each and lines of source code.
-Finally, comments analysis will provide Gensim sentiment analysis for single-line comments and topic analysis for multi-line comments.
+GatorGauge will, across all downloaded repositories, analyze and return to the
+viewer a refined list for each single-line and multi-line comments for all
+program files in the given repository, as well as count an average number of
+single-line and multi-line comments per file. It will also calculate the average
+ratios between lines of each and lines of source code.
+Finally, comments analysis will provide Gensim sentiment analysis for
+single-line comments and topic analysis for multi-line comments.
 
 #### Code
 
