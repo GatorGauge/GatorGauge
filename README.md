@@ -131,9 +131,9 @@ students to gain information on the work.
 
 ### Process
 
-GatorGauge should retrieve the entirety of a specified repository's commit logs, as
-well as all current files, and then analyze the comments, code, and commit logs as
-follows.
+GatorGauge should retrieve the entirety of a specified repository's commit logs,
+as well as all current files, and then analyze the comments, code, and commit
+logs as follows.
 
 #### Comments
 
@@ -143,7 +143,8 @@ lines of each and lines of source code.
 
 #### Code
 
-GatorGauge will calculate the average number of and standard deviation of each of:
+GatorGauge will calculate the average number of and standard deviation of each
+of:
 
 Variables
 Methods
@@ -152,8 +153,9 @@ Lines
 
 #### Commit Logs
 
-GatorGauge reads in all commits as text and returns Gensim and LDA analysis for how
-often words are repeated and how generally positive and/or negative the phrasings are.
+GatorGauge reads in all commits as text and returns Gensim and LDA analysis for
+how often words are repeated and how generally positive and/or negative the
+phrasings are.
 
 ## Testing
 
@@ -161,7 +163,8 @@ often words are repeated and how generally positive and/or negative the phrasing
 
 ### Running the Test Suite
 
-To run the test suite, run the following commands in the rood directory of GatorGauge:
+To run the test suite, run the following commands in the rood directory of
+GatorGauge:
 
 ```
 pytest tests
