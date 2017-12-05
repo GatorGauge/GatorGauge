@@ -10,6 +10,8 @@ if os.path.exists("./config.ini"):
     OUT = config.get('Out', 'out')
 
 # creates a blank config file if one does not exist
+
+
 def newConfig():
     config.add_section('Token')
     config.set('Token', '; Github access token KEEP SECRET!!!!')
@@ -27,9 +29,11 @@ def newConfig():
     config.set('Out', 'OUT', "repos/")
 
     with open('./config.ini', 'w') as configFile:
-            config.write(configFile)
+        config.write(configFile)
 
-# allows user to edit each value in the config file    
+# allows user to edit each value in the config file
+
+
 def editConfig():
     ask_prefix = str(
         input(
@@ -71,7 +75,7 @@ def editConfig():
         out = ask_prefix = str(input("Enter new Out directory: "))
     else:
         out = OUT
-    
+
     ask_prefix = str(
         input("Would you like to save these changes in config.ini?\n(Y/N): "))
 

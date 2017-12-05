@@ -15,7 +15,6 @@ any repositories. These values can be edited from the command line with the comm
 ```
 config edit
 ```
-.
 
 ### Token
 

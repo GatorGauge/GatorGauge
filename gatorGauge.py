@@ -18,7 +18,7 @@ if __name__ == "__main__":
         defaults.editConfig()
     defined_commands = {"help", "get", "config", "list", "analyze", "quit"}
     fSet = frozenset(defined_commands)
-    specifiers = ('source','comments','commits','reflection')
+    specifiers = ('source', 'comments', 'commits', 'reflection')
 
     command = str(input('>>> '))
     args = []
@@ -72,20 +72,20 @@ if __name__ == "__main__":
                 keywords = str(defaults.KEYWORDS).split(',')
                 out = defaults.OUT
             else:
-                print("Token: "+str(token))
-                print("Project: "+str(project))
-                print("Keywords: "+str(keywords))
-                print("Out: "+str(out))
+                print("Token: " + str(token))
+                print("Project: " + str(project))
+                print("Keywords: " + str(keywords))
+                print("Out: " + str(out))
         elif command == "list":
             rep = "all"
             if arg1 is not "":
                 rep = arg1
-            repo = file_list.list_files(rep,out)  # list of files returned
+            repo = file_list.list_files(rep, out)  # list of files returned
             for r in repo:
                 print(r)
         elif command == "analyze":
             while arg1 not in specifiers:
-                print("You must enter a specifier "+str(specifiers)+".")
+                print("You must enter a specifier " + str(specifiers) + ".")
                 arg1 = str(input('Specifier: '))
             if arg1 == "source":
                 print("SOURCE")

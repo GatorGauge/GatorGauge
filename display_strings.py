@@ -14,7 +14,9 @@ commands_list.append(
     ("get", "Downloads repositories from Project with specified Prefix to directory Out"))
 # add config info
 commands_list.append(("config", "Print the values in the config file"))
-commands_list.append(("config <option>", "Edit or reset the values in the config file"))
+commands_list.append(
+    ("config <option>",
+     "Edit or reset the values in the config file"))
 # add list info
 commands_list.append(("list", "Lists all files"))
 commands_list.append(

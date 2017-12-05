@@ -57,9 +57,9 @@ def display_config_help():
     command_two_tuple = (display_strings.CONFIG_COMMAND_TWO,
                          display_strings.CONFIG_DESCRIPTION_TWO,
                          display_strings.CONFIG_ARGUMENTS_TWO)
-                        
+
     logging.debug("Command one details: " + str(command_two_tuple))
-    
+
     return format_command_description(command_one_tuple, command_two_tuple)
 
 
