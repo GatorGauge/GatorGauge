@@ -23,6 +23,10 @@ install:
 
 script:
   - mdl README.md
+  - python
+  - import nltk
+  - nltk.download("vader_lexicon")
+  - quit()
   - pytest tests
   - coverage run --source tests -m py.test
   - coverage report
