@@ -20,11 +20,11 @@ class HelloWorld {
 
 def test_get_ratio_of_singleline_comments_to_source_code_with_one_comment():
     actual_ratio = \
-        pc.get_ratio_of_singleline_comments_to_source_code(JAVA_STRING)
+        pc.ratio_of_singleline_comments(JAVA_STRING)
     assert actual_ratio == 0.2
 
 
 def test_get_ratio_of_multiline_comments_to_source_code_with_two_comments():
     actual_ratio = \
-        pc.get_ratio_of_multiline_comments_to_source_code(JAVA_STRING)
+        pc.ratio_of_multiline_comments(JAVA_STRING)
     assert actual_ratio == 0.4
