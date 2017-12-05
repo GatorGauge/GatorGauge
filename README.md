@@ -1,8 +1,7 @@
 # GatorGauge
 
-A tool for Professors to use to download and analyze the information in student
-repositories. This tool can be used to allow students to find when their peers
-had issues or triumphs within projects.
+GatorGauge is a tool made for professors to gasily gain information on labs and practicals completed by their classes. GatorGauge enables professors to download and analyze the information in student
+repositories in order to gain knowlende on how long the projects took, the average number of commits, and where students had the most difficulty. This tool can be used by future students as well, allowing them to gain the same information about the course work.
 
 ## Installation
 
@@ -20,8 +19,8 @@ pip3 install -r requirements.txt
 
 ## Initial Setup
 
-Ensure that you have installed gspread and oauth2client installed in the root
-directory of the repository.  In the terminal use the command:
+Ensure that you have installed gspread and oauth2client is installed in the root
+directory of the repository. In the terminal use the command:
 
 ```shell
 python3 -m pip install --user gspread oauth2client
@@ -121,9 +120,7 @@ Location to place downloaded repositories
 
 ## Usage
 
-GatorGage analyzes Computer Science 111 - Introduction to Computer Science I -
-students' labs and practicals, gaining information on what was most difficult
-how long it took, and so on. Natural language processing is used in order to
+GatorGage analyzes Computer Science students' labs and practicals. Natural language processing is used in order to
 create visual displays for professors and future students to gain information
 on the work.
 
