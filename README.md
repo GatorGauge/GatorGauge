@@ -54,49 +54,21 @@ Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
 token entered into the command line after --token. A token must be entered each
 time the program is started for security reasons.
 
-### Commands
+#### REPL commands
 
-Download the project(named in Config.ini or given with the config command).
+`get` downloads the project (named in Config.ini or given with the config command).
 
-```
-get
-```
-
-Print the values in the config file or temporarily change the config values or if
+`config` prints the values in the config file or temporarily change the config values or if
 the second config command is used the user can either edit the values in the config
 file or reset the values back to their original state assuming the user does not
 save the values after using config edit.
 
-```
-config
-```
+`list` and `list <repo name>` lists all repositories if no arguments are given or all files in the given repository.
 
-```
-config <option>
-```
-
-List all repositories if no arguments are given or all files in a given repository.
-
-```
-list
-```
-
-```
-list <repo name>
-```
-
-Perform sentiment analysis and gensim on the given target (source, comments, commits,
+`analyze <target>` performs sentiment analysis and gensim on the given target (source, comments, commits,
 reflection).
 
-```
-analyze <target>
-```
-
-Quit the program.
-
-```
-quit
-```
+`quit` quits the program.
 
 ## Usage
 
