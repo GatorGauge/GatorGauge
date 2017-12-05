@@ -1,6 +1,7 @@
 /**
 * A class to print out "Hello, world!"
 * Another line
+*@user, a tag for removal
 */
 class HelloWorld {
     /**

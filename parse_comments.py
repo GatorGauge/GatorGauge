@@ -6,11 +6,15 @@
 import re
 import java_parser
 
-
 FILE_SEPARATOR = "/"
 MULTILINECOMMENT_RE = r'\/\*+([\s\S]*?)\*+\/'
 SINGLELINECOMMENT_RE_JAVA = \
     r'^(?:[^"/\\]|\"(?:[^\"\\]|\\.)*\"|/(?:[^/"\\]|\\.)|/\"(?:[^\"\\]|\\.)*\"|\\.)*//(.*)$'
+
+def nix_javadoc_tags(java_string):
+    """Removes javadoc tags such as @author from the source comments"""
+    post_nix = re.sub('.@.*? ','', java_string)
+    return post_nix
 
 
 def list_singleline_java_comments(java_string):
@@ -67,6 +71,10 @@ if __name__ == "__main__":
 
     with open('./java/HelloWorld.java', 'r') as java_file:
         JAVA_STRING = java_file.read()
+    comment = nix_javadoc_tags(JAVA_STRING)
+    print("\nComments w/out Javadoc tags\n-------------------")
+    print(repr(comment))
+    str(nix_javadoc_tags(JAVA_STRING))
 
     COMMENTS = list_singleline_java_comments(JAVA_STRING)
     print("\nSingleline comments\n-------------------")
