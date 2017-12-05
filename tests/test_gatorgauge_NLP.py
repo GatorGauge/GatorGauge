@@ -2,7 +2,7 @@ import gensim
 import pytest
 import refl_gensim
 
-'''tests the NLP/gensim'''
+"""tests the NLP/gensim"""
 
 def test_create_tokens_none_repeat():
     list_responses = [['I am testing'], ['this is a test'], ['make my tokens']]
