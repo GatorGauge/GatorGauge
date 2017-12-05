@@ -4,9 +4,9 @@ GatorGauge is a tool made for professors to easily gain information on
 abs and practicals completed by their classes. GatorGauge enables professors
 to download and analyze the information in student repositories in order to
 gain knowledge on how long the projects took, the average number of commits,
-where students had the most difficulty. GatorGauge analyzes README files, 
-commits, source code and source code comments. This tool can be used by 
-future students as well, allowing them to gain the same information about 
+where students had the most difficulty. GatorGauge analyzes README files,
+commits, source code and source code comments. This tool can be used by
+future students as well, allowing them to gain the same information about
 the course work.
 
 ## Installation
@@ -126,9 +126,7 @@ Location to place downloaded repositories
 
 ## Usage
 
-GatorGauge analyzes Computer Science students' labs and practicals. Natural language
-processing is used in order to create visual displays for professors and future
-students to gain information on the work.
+GatorGauge analyzes Computer Science students' labs and practicals. Natural language processing is used in order to create visual displays for professors and future students to gain information on the work.
 
 ### Process
 
@@ -138,9 +136,8 @@ logs as follows.
 
 #### Comments
 
-GatorGauge will analyze and return to the viewer a refined list for each single-line
-and multi-line comments, as well as count them and calculate the ratios between
-lines of each and lines of source code.
+GatorGauge will, across all downloaded repositories, analyze and return to the viewer a refined list for each single-line and multi-line comments for all program files in the given repository, as well as count an average number of single-line and multi-line comments per file. It will also calculate the average ratios between lines of each and lines of source code.
+Finally, comments analysis will provide Gensim sentiment analysis for single-line comments and topic analysis for multi-line comments.
 
 #### Code
 
