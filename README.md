@@ -8,51 +8,34 @@ had issues or triumphs within projects.
 
 Default Variables. Do not place the variables inside of "".
 Since the config.ini file contains sensitive information due to the token,
-it is not supplied in this repository. Before running the program the user must
-create a new file in their local root directory called config.ini
-
-Paste the following into this new file:
+it is not supplied in this repository. However, the program will automatically
+create one for you upon first execution and prompt you to fill in the values.
+Token and Project must receive valid inputs in order for the program to download
+any repositories. These values can be edited from the command line with the command:
 
 ```
-[Token]
-; Github access token, KEEP SECRET!!!!
-TOKEN =
-[Project]
-; Project to pull
-PROJECT =
-[Prefix]
-; Prefix to look for to narrow
-PREFIX =
-[Out]
-; default: current directory
-OUT = .
+config edit
 ```
-
-Once done, paste the token in token section. Must specify a project but PREFIX
-is optional, and out defaults to current directory.
-
-### Token
-
-Github token allows the program to pull the repositories.
 
 ### Project
 
 Name of the project to be pulled down.
 
-### Prefix
+### Keywords
 
-Gets every repository in the project that starts with the prefix.
+Keywords used to filter for only repositories with the keywords in the name of
+the repository.
 
 ### Out
 
 Folder to place all of the downloaded repositories inside of. Defaults to
-current directory and names the repository the project name.
+a directory named 'repos' which will be created upon running the get command.
 
 ## Execution
 
 ### Requirements
 
-To get requirements, use the command
+To get requirements, use the command:
 
 ```
 pip3 install --user -r requirements.txt
@@ -65,60 +48,60 @@ python3
 >>> nltk.download("vader_lexicon")
 ```
 
-### Basic Execution
+### Run GatorGage
 
-Type ```python3 gatorGauge.py```, will cause errors if there are no values in
-config.ini for Token and Project or if they are not supplied with the command
-line arguments.
+Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
+token entered into the command line after --token. A token must be entered each
+time the program is started for security reasons.
 
-### Execution Flags
+### Commands
 
-Download the project(named in Config.ini or supplied with the ```--project``` flag)
-
-```
---get
-```
-
-List all files or files with the specified .extension
+Download the project(named in Config.ini or given with the config command).
 
 ```
---list
+get
 ```
 
-Read the information in the inputed file name or files with the inputed .extension
+Print the values in the config file or temporarily change the config values or if
+the second config command is used the user can either edit the values in the config
+file or reset the values back to their original state assuming the user does not
+save the values after using config edit.
 
 ```
---read
+config
 ```
 
-Project to download
-
 ```
---project
+config <option>
 ```
 
-Prefix of the repository to download
+List all repositories if no arguments are given or all files in a given repository.
 
 ```
---prefix
+list
 ```
 
-Token to allow for the program to download the repositories
-
 ```
---token
+list <repo name>
 ```
 
-Location to place downloaded repositories
+Perform sentiment analysis and gensim on the given target (source, comments, commits,
+reflection).
 
 ```
---out
+analyze <target>
+```
+
+Quit the program.
+
+```
+quit
 ```
 
 ## Usage
 
 GatorGage analyzes Computer Science 111 - Introduction to Computer Science I -
-students' labs and practicals, gaining information on what was most difficult
+students' labs and practicals, gaining information on what was most difficult,
 how long it took, and so on. Natural language processing is used in order to
 create visual displays for professors and future students to gain information
 on the work.
