@@ -1,9 +1,9 @@
 # GatorGauge
 
-GatorGauge is a tool made for professors to gasily gain information on 
+GatorGauge is a tool made for professors to easily gain information on
 abs and practicals completed by their classes. GatorGauge enables professors
 to download and analyze the information in student repositories in order to
-gain knowlende on how long the projects took, the average number of commits, 
+gain knowledge on how long the projects took, the average number of commits,
 where students had the most difficulty. This tool can be used by future
 students as well, allowing them to gain the same information about the course
 work.
