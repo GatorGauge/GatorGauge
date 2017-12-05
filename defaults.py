@@ -8,10 +8,9 @@ if os.path.exists("./config.ini"):
     KEYWORDS = config.get('Keywords', 'keywords')
     OUT = config.get('Out', 'out')
 
-""" Creates a blank config file if one does not exist. """
-
 
 def new_config():
+    """Create a blank config file if one does not exist. """
     config.add_section('Project')
     config.set('Project', '; Project to pull')
     config.set('Project', 'PROJECT', "")
@@ -27,11 +26,9 @@ def new_config():
     with open('./config.ini', 'w') as config_file:
         config.write(config_file)
 
-""" Allows user to edit each value in the config file. """
-
-
+        
 def edit_config():
-
+    """Allow user to edit each value in the config file."""
     ask_prefix = str(
         input(
             "Current Project: '" +
