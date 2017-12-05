@@ -7,6 +7,8 @@ def emoji_counter():
     emoticon1 = enumerate(re.findall(":smile:"))
     smileFace = sum(1 for _ in teststr)
 
+    
+
     emoticon2 = re.finditer(ru[:rage:], s)
     rageFace = sum(1 for _ in teststr)
 
