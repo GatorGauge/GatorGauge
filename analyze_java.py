@@ -2,7 +2,7 @@ import file_list
 import java_to_string as j
 import java_parser as p
 import numpy as np
-
+import statistics
 
 def getStatistics(numericalList):
     q75, q25 = np.percentile(numericalList, [75,25])
@@ -44,11 +44,14 @@ def analyze_java(java_strings):
     methodList= []
     classList = []
     lineList = []
-
+    list_list = []
     for java_string in java_strings:
         variableList.append(p.getNumberOfVariables(java_string))
         methodList.append(p.getNumberOfMethods(java_string))
         classList.append(p.getNumberOfClasses(java_string))
         lineList.append(p.getNumberOfLines(java_string))
-
-    getStatistics(variableList, methodList, classList, lineList)
+    list_list.append(variableList)
+    list_list.append(methodList)
+    list_list.append(classList)
+    list_list.append(lineList)
+    statistics.printStatistics(list_list)
