@@ -1,6 +1,7 @@
 """ parse arguments inputted via command line """
 import argparse
 
+
 def parse_args(args):
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)

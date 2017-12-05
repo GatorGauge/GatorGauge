@@ -81,7 +81,8 @@ if __name__ == "__main__":
             rep = "all"
             if arg1 is not "":
                 rep = arg1
-            repo = file_list.list_files(rep, out)  # list of repositories or files in specified repository returned
+            # list of repositories or files in specified repository returned
+            repo = file_list.list_files(rep, out)
             for r in repo:
                 print(r)
         elif command == "analyze":
