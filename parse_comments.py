@@ -47,7 +47,7 @@ def count_multiline_java_comments(java_string):
     return len(multiline_comments)
 
 
-def get_ratio_of_singleline_comments_to_source_code(java_string):
+def ratio_of_singleline_comments(java_string):
     """Get the ratio of singleline comments to the
         number of lines in the Java source code."""
     total_number_of_lines = java_parser.getNumberOfLines(java_string)
@@ -55,7 +55,7 @@ def get_ratio_of_singleline_comments_to_source_code(java_string):
     return float(number_of_singleline_comments / total_number_of_lines)
 
 
-def get_ratio_of_multiline_comments_to_source_code(java_string):
+def ratio_of_multiline_comments(java_string):
     """Get the ratio of multiline comments to the
         number of lines in the Java source code."""
     total_number_of_lines = java_parser.getNumberOfLines(java_string)
