@@ -60,7 +60,7 @@ is optional, and out defaults to current directory.
 
 ### Token
 
-Github token allows the program to pull the repositories.
+GitHub token allows the program to pull the repositories.
 
 ### Project
 
@@ -125,9 +125,35 @@ Location to place downloaded repositories
 
 ## Usage
 
-GatorGage analyzes Computer Science students' labs and practicals. Natural language
+GatorGauge analyzes Computer Science students' labs and practicals. Natural language
 processing is used in order to create visual displays for professors and future
 students to gain information on the work.
+
+### Process
+
+GatorGauge should retrieve the entirety of a specified repository's commit logs, as
+well as all current files, and then analyze the comments, code, and commit logs as
+follows.
+
+#### Comments
+
+GatorGauge will analyze and return to the viewer a refined list for each single-line
+and multi-line comments, as well as count them and calculate the ratios between
+lines of each and lines of source code.
+
+#### Code
+
+GatorGauge will calculate the average number of and standard deviation of each of:
+
+Variables
+Methods
+Classes
+Lines
+
+#### Commit Logs
+
+GatorGauge reads in all commits as text and returns Gensim and LDA analysis for how
+often words are repeated and how generally positive and/or negative the phrasings are.
 
 ## Testing
 
