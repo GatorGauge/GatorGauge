@@ -12,6 +12,7 @@ it is not supplied in this repository. However, the program will automatically
 create one for you upon first execution and prompt you to fill in the values.
 Token and Project must receive valid inputs in order for the program to download
 any repositories. These values can be edited from the command line with the command:
+
 ```
 config edit
 ```
@@ -44,11 +45,11 @@ To get requirements, use the command:
 pip3 install --user -r requirements.txt
 ```
 
-### Execution
+### Run GatorGage
 
 Type ```python3 gatorGauge.py``` into the terminal
 
-### commands
+### Commands
 
 Download the project(named in Config.ini or given with the config command).
 
@@ -64,6 +65,7 @@ save the values after using config edit.
 ```
 config
 ```
+
 ```
 config <option>
 ```
@@ -73,6 +75,7 @@ List all repositories if no arguments are given or all files in a given reposito
 ```
 list
 ```
+
 ```
 list <repo name>
 ```
@@ -85,9 +88,11 @@ analyze <target>
 ```
 
 Quit the program.
+
 ```
 quit
 ```
+
 ## Usage
 
 GatorGage analyzes Computer Science 111 - Introduction to Computer Science I -
