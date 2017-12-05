@@ -76,7 +76,7 @@ def display_list_help():
     logging.debug("Command two details: " + str(command_two_tuple))
 
     return format_command_description(
-        command_one_tuple, command_two_tuple, command_three_tuple, command_four_tuple)
+        command_one_tuple, command_two_tuple)
 
 
 def display_analyze_help():
