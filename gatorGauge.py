@@ -19,8 +19,8 @@ if __name__ == "__main__":
         token = str(input("Please enter a valid token: "))
     # if there is no config.ini file, create one
     if not os.path.exists("./config.ini"):
-        defaults.newConfig()
-        defaults.editConfig()
+        defaults.new_config()
+        defaults.edit_config()
     defined_commands = {"help", "get", "config", "list", "analyze", "quit"}
     fSet = frozenset(defined_commands)
     specifiers = ('source', 'comments', 'commits', 'reflection')
@@ -51,7 +51,7 @@ if __name__ == "__main__":
             arg2 = args[2]
         if command == "get":
             while project is "":
-                project, keywords, out = defaults.editConfig()
+                project, keywords, out = defaults.edit_config()
             ask_prefix = str(
                 input(
                     "Download all repositories in " +
@@ -67,7 +67,7 @@ if __name__ == "__main__":
         elif command == "config":
             # reset values with inputted values
             if arg1 == "edit":
-                project, keywords, out = defaults.editConfig()
+                project, keywords, out = defaults.edit_config()
             elif arg1 == "reset":
                 print("Config values reset")
                 project = defaults.PROJECT
