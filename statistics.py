@@ -7,6 +7,6 @@ def getStatistics(numericalList):
         + " StdDev: " + str(np.std(numericalList)) + " iqr: " + str(iqr)
     return statString
 
-def printStatistics(listOfLists):
-    for f in listOfLists:
-        print(getStatistics(f))
+def printStatistics(dictionary):
+    for key, values in dictionary.items():
+        print(key+"\n"+getStatistics(values))
