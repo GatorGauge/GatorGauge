@@ -13,7 +13,7 @@ if os.path.exists("./config.ini"):
 
 
 def newConfig():
-    #config.add_section('Token')
+    # config.add_section('Token')
     #config.set('Token', '; Github access token KEEP SECRET!!!!')
     #config.set('Token', 'TOKEN', "")
     config.add_section('Project')
@@ -35,14 +35,14 @@ def newConfig():
 
 
 def editConfig():
-    #ask_prefix = str(
+    # ask_prefix = str(
     #    input(
     #        "Current Token: '" +
     #        str(TOKEN) +
     #        "'\nWould you like to edit the Token?\n(Y/N): "))
-    #if ask_prefix is "Y" or ask_prefix is "y":
+    # if ask_prefix is "Y" or ask_prefix is "y":
     #    token = ask_prefix = str(input("Enter new Token: "))
-    #else:
+    # else:
     #    token = TOKEN
 
     ask_prefix = str(
