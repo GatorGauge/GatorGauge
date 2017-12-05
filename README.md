@@ -42,6 +42,7 @@ pip3 install --user -r requirements.txt
 ```
 
 To support sentiment analysis, also run the following commands.
+
 ```
 python3
 >>> import nltk
@@ -58,15 +59,16 @@ time the program is started for security reasons.
 
 `get` downloads the project (named in Config.ini or given with the config command).
 
-`config` prints the values in the config file or temporarily change the config values or if
-the second config command is used the user can either edit the values in the config
-file or reset the values back to their original state assuming the user does not
-save the values after using config edit.
+`config` prints the values in the config file or temporarily change the config
+values or if the second config command is used the user can either edit the
+values in the config file or reset the values back to their original state
+assuming the user does not save the values after using config edit.
 
-`list` and `list <repo name>` lists all repositories if no arguments are given or all files in the given repository.
+`list` and `list <repo name>` lists all repositories if no arguments are given
+or all files in the given repository.
 
-`analyze <target>` performs sentiment analysis and gensim on the given target (source, comments, commits,
-reflection).
+`analyze <target>` performs sentiment analysis and gensim on the given target
+(source, comments, commits, reflection).
 
 `quit` quits the program.
 
