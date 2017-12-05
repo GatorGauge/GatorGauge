@@ -47,14 +47,20 @@ def display_get_help():
 
 
 def display_config_help():
-    command_tuple = (display_strings.CONFIG_HEADER,
-                     display_strings.CONFIG_COMMAND,
-                     display_strings.CONFIG_DESCRIPTION,
-                     display_strings.CONFIG_ARGUMENTS)
+    command_one_tuple = (display_strings.CONFIG_HEADER,
+                         display_strings.CONFIG_COMMAND_ONE,
+                         display_strings.CONFIG_DESCRIPTION_ONE,
+                         display_strings.CONFIG_ARGUMENTS_ONE)
 
-    logging.debug("Command one details: " + str(command_tuple))
+    logging.debug("Command one details: " + str(command_one_tuple))
 
-    return format_command_description(command_tuple)
+    command_two_tuple = (display_strings.CONFIG_COMMAND_TWO,
+                         display_strings.CONFIG_DESCRIPTION_TWO,
+                         display_strings.CONFIG_ARGUMENTS_TWO)
+                        
+    logging.debug("Command one details: " + str(command_two_tuple))
+    
+    return format_command_description(command_one_tuple, command_two_tuple)
 
 
 def display_list_help():

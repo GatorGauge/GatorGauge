@@ -8,32 +8,14 @@ had issues or triumphs within projects.
 
 Default Variables. Do not place the variables inside of "".
 Since the config.ini file contains sensitive information due to the token,
-it is not supplied in this repository. Before running the program the user must
-create a new file in their local root directory called config.ini
-
-Paste the following into this new file:
-
+it is not supplied in this repository. However, the program will automatically
+create one for you upon first execution and prompt you to fill in the values.
+Token and Project must receive valid inputs in order for the program to download
+any repositories. These values can be edited from the command line with the command:
 ```
-[Token]
-token =
-; github access token keep secret!!!!
-
-[Project]
-project =
-; project to pull
-
-[Keywords]
-keywords =
-; keyword list, filters down repositories exclusively
-
-[Out]
-out = repos
-; default: repos/
+config edit
 ```
-
-Once done, paste the token in Token section. Must specify a project but keywords
-is optional, and out defaults to a directory named 'repos' which will be created
-upon running the get command.
+.
 
 ### Token
 
@@ -75,10 +57,16 @@ Download the project(named in Config.ini or given with the config command).
 get
 ```
 
-Edit the values in the config file or temporarily change the config values.
+Print the values in the config file or temporarily change the config values or if
+the second config command is used the user can either edit the values in the config
+file or reset the values back to their original state assuming the user does not
+save the values after using config edit.
 
 ```
 config
+```
+```
+config <option>
 ```
 
 List all repositories if no arguments are given or all files in a given repository.

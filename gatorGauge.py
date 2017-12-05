@@ -10,10 +10,12 @@ import display
 import get_reflection
 
 if __name__ == "__main__":
-
     print("Welcome to GatorGauge!")
     print("Type help to see list of commands.")
-
+    # if there is no config.ini file, create one
+    if not os.path.exists("./config.ini"):
+        defaults.newConfig()
+        defaults.editConfig()
     defined_commands = {"help", "get", "config", "list", "analyze", "quit"}
     fSet = frozenset(defined_commands)
     specifiers = ('source','comments','commits','reflection')
@@ -44,7 +46,7 @@ if __name__ == "__main__":
             arg1 = args[1]
             arg2 = args[2]
         if command == "get":
-            if token is "" or project is "":
+            while token is "" or project is "":
                 token, project, keywords, out = defaults.editConfig()
             ask_prefix = str(
                 input(
@@ -58,16 +60,22 @@ if __name__ == "__main__":
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(
                     project, keywords, token, out)
-            # reset values back to values in config after being used (or not
-            # used)
-            token = defaults.TOKEN
-            project = defaults.PROJECT
-            keywords = str(defaults.KEYWORDS).split(',')
-            out = defaults.OUT
         # allows user to edit the config file from program
         elif command == "config":
             # reset values with inputted values
-            token, project, keywords, out = defaults.editConfig()
+            if arg1 == "edit":
+                token, project, keywords, out = defaults.editConfig()
+            elif arg1 == "reset":
+                print("Config values reset")
+                token = defaults.TOKEN
+                project = defaults.PROJECT
+                keywords = str(defaults.KEYWORDS).split(',')
+                out = defaults.OUT
+            else:
+                print("Token: "+str(token))
+                print("Project: "+str(project))
+                print("Keywords: "+str(keywords))
+                print("Out: "+str(out))
         elif command == "list":
             rep = "all"
             if arg1 is not "":

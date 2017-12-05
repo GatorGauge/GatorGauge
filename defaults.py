@@ -1,13 +1,35 @@
 import configparser
+import os
 
 config = configparser.ConfigParser(allow_no_value=True)
-config.read("config.ini")
-TOKEN = config.get('Token', 'token')
-PROJECT = config.get('Project', 'project')
-KEYWORDS = config.get('Keywords', 'keywords')
-OUT = config.get('Out', 'out')
+if os.path.exists("./config.ini"):
+    config.read("config.ini")
+    TOKEN = config.get('Token', 'token')
+    PROJECT = config.get('Project', 'project')
+    KEYWORDS = config.get('Keywords', 'keywords')
+    OUT = config.get('Out', 'out')
 
+# creates a blank config file if one does not exist
+def newConfig():
+    config.add_section('Token')
+    config.set('Token', '; Github access token KEEP SECRET!!!!')
+    config.set('Token', 'TOKEN', "")
+    config.add_section('Project')
+    config.set('Project', '; Project to pull')
+    config.set('Project', 'PROJECT', "")
+    config.add_section('Keywords')
+    config.set(
+        'Keywords',
+        '; keyword list, filters down repositories exclusively')
+    config.set('Keywords', 'KEYWORDS', "")
+    config.add_section('Out')
+    config.set('Out', '; default: repos/')
+    config.set('Out', 'OUT', "repos/")
 
+    with open('./config.ini', 'w') as configFile:
+            config.write(configFile)
+
+# allows user to edit each value in the config file    
 def editConfig():
     ask_prefix = str(
         input(
@@ -49,9 +71,10 @@ def editConfig():
         out = ask_prefix = str(input("Enter new Out directory: "))
     else:
         out = OUT
-
+    
     ask_prefix = str(
         input("Would you like to save these changes in config.ini?\n(Y/N): "))
+
     if ask_prefix is "Y" or ask_prefix is "y":
         config.set('Token', '; Github access token KEEP SECRET!!!!')
         config.set('Token', 'TOKEN', token)

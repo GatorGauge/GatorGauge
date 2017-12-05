@@ -13,7 +13,8 @@ commands_list.append(
 commands_list.append(
     ("get", "Downloads repositories from Project with specified Prefix to directory Out"))
 # add config info
-commands_list.append(("config", "Edit the values in the config file"))
+commands_list.append(("config", "Print the values in the config file"))
+commands_list.append(("config <option>", "Edit or reset the values in the config file"))
 # add list info
 commands_list.append(("list", "Lists all files"))
 commands_list.append(
@@ -46,9 +47,13 @@ GET_ARGUMENTS_ONE = "None"
 
 # config help info
 CONFIG_HEADER = "config\n----"
-CONFIG_COMMAND = "config"
-CONFIG_DESCRIPTION = "Edit the values in the config file"
-CONFIG_ARGUMENTS = "None"
+CONFIG_COMMAND_ONE = "config"
+CONFIG_DESCRIPTION_ONE = "show the values in the config file"
+CONFIG_ARGUMENTS_ONE = "None"
+
+CONFIG_COMMAND_TWO = "config edit"
+CONFIG_DESCRIPTION_TWO = "Edit or reset the values in the config file"
+CONFIG_ARGUMENTS_TWO = "<option>"
 
 # list help info
 LIST_HEADER = "list\n----"
