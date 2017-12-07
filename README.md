@@ -1,120 +1,148 @@
 # GatorGauge
 
-A tool for Professors to use to download and analyze the information in student
-repositories. This tool can be used to allow students to find when their peers
-had issues or triumphs within projects.
+GatorGauge is a tool made for professors to easily gain information on
+abs and practicals completed by their classes. GatorGauge enables professors
+to download and analyze the information in student repositories in order to
+gain knowledge on how long the projects took, the average number of commits,
+where students had the most difficulty. GatorGauge analyzes README files,
+commits, source code and source code comments. This tool can be used by
+future students as well, allowing them to gain the same information about
+the course work.
+
+## Installation
+
+GatorGauge is a python 3 program and, therefore, uses
+[pip](https://pip.pypa.io/en/stable/installing/) for installation. Type the
+following commands before running the program:
+
+```
+pip3 install --upgrade pip
+```
+
+```
+pip3 install -r requirements.txt
+```
+
+## Initial Setup
+
+Ensure that you have installed gspread and oauth2client is installed in the root
+directory of the repository. In the terminal use the command:
+
+```shell
+python3 -m pip install --user gspread oauth2client
+```
 
 ## Config.ini
 
 Default Variables. Do not place the variables inside of "".
 Since the config.ini file contains sensitive information due to the token,
-it is not supplied in this repository. Before running the program the user must
-create a new file in their local root directory called config.ini
-
-Paste the following into this new file:
+it is not supplied in this repository. However, the program will automatically
+create one for you upon first execution and prompt you to fill in the values.
+Token and Project must receive valid inputs in order for the program to download
+any repositories. These values can be edited from the command line with the command:
 
 ```
-[Token]
-; Github access token, KEEP SECRET!!!!
-TOKEN =
-[Project]
-; Project to pull
-PROJECT =
-[Prefix]
-; Prefix to look for to narrow
-PREFIX =
-[Out]
-; default: current directory
-OUT = .
+config edit
 ```
-
-Once done, paste the token in token section. Must specify a project but PREFIX
-is optional, and out defaults to current directory.
 
 ### Token
 
-Github token allows the program to pull the repositories.
+GitHub token allows the program to pull the repositories.
+Once done, paste the token in token section. Must specify a project but PREFIX
+is optional, and out defaults to current directory.
 
 ### Project
 
 Name of the project to be pulled down.
 
-### Prefix
+### Keywords
 
-Gets every repository in the project that starts with the prefix.
+Keywords used to filter for only repositories with the keywords in the name of
+the repository.
 
 ### Out
 
 Folder to place all of the downloaded repositories inside of. Defaults to
-current directory and names the repository the project name.
+a directory named 'repos' which will be created upon running the get command.
 
 ## Execution
 
 ### Requirements
 
-To get requirements, use the command
+To get requirements, use the command:
 
 ```
 pip3 install --user -r requirements.txt
 ```
 
-### Basic Execution
-
-Type ```python3 gatorGauge.py```, will cause errors if there are no values in
-config.ini for Token and Project or if they are not supplied with the command
-line arguments.
-
-### Execution Flags
-
-Download the project(named in Config.ini or supplied with the ```--project``` flag)
+To support sentiment analysis, also run the following commands.
 
 ```
---get
+python3
+>>> import nltk
+>>> nltk.download("vader_lexicon")
 ```
 
-List all files or files with the specified .extension
+### Run GatorGage
 
-```
---list
-```
+Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
+token entered into the command line after --token. A token must be entered each
+time the program is started for security reasons.
 
-Read the information in the inputed file name or files with the inputed .extension
+#### REPL commands
 
-```
---read
-```
+`get` downloads the project (named in Config.ini or given with the config command).
 
-Project to download
+`config` prints the values in the config file or temporarily change the config
+values or if the second config command is used the user can either edit the
+values in the config file or reset the values back to their original state
+assuming the user does not save the values after using config edit.
 
-```
---project
-```
+`list` and `list <repo name>` lists all repositories if no arguments are given
+or all files in the given repository.
 
-Prefix of the repository to download
+`analyze <target>` performs sentiment analysis and gensim on the given target
+(source, comments, commits, reflection).
 
-```
---prefix
-```
-
-Token to allow for the program to download the repositories
-
-```
---token
-```
-
-Location to place downloaded repositories
-
-```
---out
-```
+`quit` quits the program.
 
 ## Usage
 
-GatorGage analyzes Computer Science 111 - Introduction to Computer Science I -
-students' labs and practicals, gaining information on what was most difficult
-how long it took, and so on. Natural language processing is used in order to
-create visual displays for professors and future students to gain information
-on the work.
+GatorGauge analyzes Computer Science students' labs and practicals. Natural
+language processing is used in order to create visual displays for professors
+and future students to gain information on the work.
+
+### Process
+
+GatorGauge should retrieve the entirety of a specified repository's commit logs,
+as well as all current files, and then analyze the comments, code, and commit
+logs as follows.
+
+#### Comments
+
+GatorGauge will, across all downloaded repositories, analyze and return to the
+viewer a refined list for each single-line and multi-line comments for all
+program files in the given repository, as well as count an average number of
+single-line and multi-line comments per file. It will also calculate the average
+ratios between lines of each and lines of source code.
+Finally, comments analysis will provide Gensim sentiment analysis for
+single-line comments and topic analysis for multi-line comments.
+
+#### Code
+
+GatorGauge will calculate the average number of and standard deviation of each
+of:
+
+Variables
+Methods
+Classes
+Lines
+
+#### Commit Logs
+
+GatorGauge reads in all commits as text and returns Gensim and LDA analysis for
+how often words are repeated and how generally positive and/or negative the
+phrasings are.
 
 ## Testing
 
@@ -122,7 +150,8 @@ on the work.
 
 ### Running the Test Suite
 
-To run the test suite, run the following commands in the rood directory of GatorGauge:
+To run the test suite, run the following commands in the rood directory of
+GatorGauge:
 
 ```
 pytest tests
@@ -148,7 +177,9 @@ autopep8 --in-place --aggressive *.py
 ### Test Coverage
 
 Test coverage is being addressed by Coveralls so that when Travis-CI runs, it can
-evaluate the coverage of the test suite.
+evaluate the coverage of the test suite. When testing Gensim, the weight of the
+topics of related words could not be tested. This is because randomness it built
+into Gensim and thus the answers would not be consistant.
 
 ### Activating Travis-CI
 
