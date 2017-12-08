@@ -6,7 +6,7 @@ import shutil
 
 """Removes the SampleRepo if one exists"""
 """This is so setup() wont add double to commits to the repo"""
-shutil.rmtree("SampleRepo")
+shutil.rmtree(path="SampleRepo", ignore_errors=True)
 
 def setup():
     file_path = Path("SampleRepo")
