@@ -7,7 +7,7 @@ def get_list_of_commits(file_path):
     :param repo: Path to repository
     """
 
-    list = []
+    commit_list = []
 
     with porcelain.open_repo_closing(file_path) as r:
         walker = r.get_walker(reverse=True)
@@ -15,6 +15,6 @@ def get_list_of_commits(file_path):
     for entry in walker:
         item = str(entry.commit.message.decode())
         item = item.replace("\n", "")
-        list.append(item)
+        commit_list.append(item)
 
-    return list
+    return commit_list

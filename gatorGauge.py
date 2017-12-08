@@ -4,12 +4,10 @@ import os
 # local imports
 import github_clone_all
 import defaults
-import get_reflection
 import file_list
 import display
-import get_reflection
 import parse_args
-import analyze_sentiment
+import analyze
 
 if __name__ == "__main__":
     print("Welcome to GatorGauge!")
@@ -28,7 +26,6 @@ if __name__ == "__main__":
 
     command = str(input('>>> '))
     args = []
-    # added 2 more args for taking in project, prefix, token,
     arg1 = ""
     arg2 = ""
     fileName = ""
@@ -91,27 +88,13 @@ if __name__ == "__main__":
                 print("You must enter a specifier " + str(specifiers) + ".")
                 arg1 = str(input('Specifier: '))
             if arg1 == "source":
-                print("SOURCE")
+                analyze.analyze_source()
             elif arg1 == "comments":
-                print("COMMENTS")
+                analyze.analyze_comments()
             elif arg1 == "commits":
-                print("COMMITS")
+                analyze.analyze_commits(out)
             elif arg1 == "reflection":
-                listFiles = list()
-                for subdir, dirs, files in os.walk("./" + str(out)):
-                    for file in files:
-                        if file.endswith("reflection.md"):
-                            listFiles.append(os.path.join(subdir, file))
-                if len(listFiles) == 0:
-                    print("ERROR: File 'reflection.md' does not exist")
-                responses = list()
-                for File in listFiles:
-                    response = get_reflection.get_reflection(File)
-                    # perform and print sentiment analysis
-                    print(analyze_sentiment.get_sentence_sentiment(response))
-                    responses.append(response)
-                # for res in responses:
-                    # print(res)
+                analyze.analyze_reflection(out)
         elif command == "help":
             if arg1 == "":
                 print(display.display_help())
