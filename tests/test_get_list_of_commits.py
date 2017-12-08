@@ -4,18 +4,22 @@ from pathlib import Path
 from os import mkdir
 import shutil
 
+
 """Removes the SampleRepo if one exists"""
 """This is so setup() wont add double to commits to the repo"""
-shutil.rmtree(path="SampleRepo", ignore_errors=True)
+
 
 def setup():
-    file_path = Path("SampleRepo")
+    """Sets up the program for testing"""
+    path = Path("SampleRepo")
+    repo_path = "SampleRepo"
 
-    if not (file_path.is_dir()):
-        mkdir("SampleRepo")
-        repo = Repo.init("SampleRepo")
-
-    repo = Repo("SampleRepo")
+    if path.is_dir():
+        shutil.rmtree(path="SampleRepo", ignore_errors=True)
+		
+    mkdir(repo_path)
+    repo = Repo.init(repo_path)
+    repo = Repo(repo_path)
     repo.do_commit(b"Initial commit")
     repo.do_commit(b"ayy lmao")
     repo.do_commit(b"added lab3")
