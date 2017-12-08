@@ -9,6 +9,7 @@ import file_list
 import display
 import get_reflection
 import parse_args
+import analyze_sentiment
 
 if __name__ == "__main__":
     print("Welcome to GatorGauge!")
@@ -106,9 +107,11 @@ if __name__ == "__main__":
                 responses = list()
                 for File in listFiles:
                     response = get_reflection.get_reflection(File)
+                    # perform and print sentiment analysis
+                    print(analyze_sentiment.get_sentence_sentiment(response))
                     responses.append(response)
-                for res in responses:
-                    print(res)
+                # for res in responses:
+                    # print(res)
         elif command == "help":
             if arg1 == "":
                 print(display.display_help())

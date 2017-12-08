@@ -7,6 +7,10 @@ if os.path.exists("./config.ini"):
     PROJECT = config.get('Project', 'project')
     KEYWORDS = config.get('Keywords', 'keywords')
     OUT = config.get('Out', 'out')
+else:
+    PROJECT = ""
+    KEYWORDS = ""
+    OUT = ""
 
 
 def new_config():
@@ -26,7 +30,7 @@ def new_config():
     with open('./config.ini', 'w') as config_file:
         config.write(config_file)
 
-        
+
 def edit_config():
     """Allow user to edit each value in the config file."""
     ask_prefix = str(

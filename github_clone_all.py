@@ -72,8 +72,8 @@ def get_repositories(githubToken, githubProject, keywords, outDir):
     # full_name: the project and repo (e.g.,
     # 'RiceComp215/comp215-week01-intro-2017-dwallach')
 
-    filteredRepoList = [
-        x for x in allReposList if all(key in x['name'] for key in keywords)]  # attempt to check for all keywords in name
+    filteredRepoList = [x for x in allReposList if all(
+        key in x['name'] for key in keywords)]  # attempt to check for all keywords in name
     print(str(len(filteredRepoList)) +
           " of " +
           str(len(allReposList)) +

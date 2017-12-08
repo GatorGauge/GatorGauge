@@ -8,8 +8,7 @@ def test_list_files():
     expected_folder_list = ['testFolder1', 'testFolder2', 'testFolder3']
     expected_folder_size = 3
     assert len(folder_list) == expected_folder_size
-    assert folder_list == expected_folder_list
-
+    assert all(folder in folder_list for folder in expected_folder_list)
 
 def test_list_files_one():
     repo = "testFolder1"
