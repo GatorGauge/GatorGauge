@@ -4,7 +4,7 @@ from dulwich import porcelain
 def get_list_of_commits(file_path):
     """Write a list of commit messages.
 
-    :param repo: Path to repository
+    :param file_path: Path to repository
     """
 
     list = []
@@ -18,3 +18,4 @@ def get_list_of_commits(file_path):
         list.append(item)
 
     return list
+	
