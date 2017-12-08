@@ -1,9 +1,8 @@
 import analyze_sentiment
-
-COMPOUND_KEY = "compound"
-NEGATIVE_KEY = "neg"
-NEUTRAL_KEY = "neu"
-POSITIVE_KEY = "pos"
+from analyze_sentiment import COMPOUND_KEY
+from analyze_sentiment import NEGATIVE_KEY
+from analyze_sentiment import NEUTRAL_KEY
+from analyze_sentiment import POSITIVE_KEY
 
 
 def test_get_sentence_sentiment_for_expected_keys():
