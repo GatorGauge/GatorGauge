@@ -2,18 +2,22 @@
 # References:
 # https://stackoverflow.com/questions/15423658/regular-expression-for-single-line-comments
 # https://blog.ostermiller.org/find-comment
+
+
 """Parse comments from a Java source code file."""
 import re
 import java_parser
+
 
 FILE_SEPARATOR = "/"
 MULTILINECOMMENT_RE = r'\/\*+([\s\S]*?)\*+\/'
 SINGLELINECOMMENT_RE_JAVA = \
     r'^(?:[^"/\\]|\"(?:[^\"\\]|\\.)*\"|/(?:[^/"\\]|\\.)|/\"(?:[^\"\\]|\\.)*\"|\\.)*//(.*)$'
 
+
 def nix_javadoc_tags(java_string):
     """Removes javadoc tags such as @author from the source comments"""
-    post_nix = re.sub('.@.*? ','', java_string)
+    post_nix = re.sub('.@.*? ', ' ', java_string)
     return post_nix
 
 
@@ -71,6 +75,7 @@ if __name__ == "__main__":
 
     with open('./java/HelloWorld.java', 'r') as java_file:
         JAVA_STRING = java_file.read()
+
     comment = nix_javadoc_tags(JAVA_STRING)
     print("\nComments w/out Javadoc tags\n-------------------")
     print(repr(comment))
