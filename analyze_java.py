@@ -3,10 +3,11 @@ import java_to_string as j
 import java_parser as p
 import numpy as np
 import statistics
+import os
 
 
 def get_java_strings(out):
-    java_files = file_list.list_files(".java", out, True)
+    java_files = get_file_paths(".java", out)
     repoDict = dict()
     for f in java_files:
         # The second replace is so that code doesn't break on windows
@@ -37,12 +38,28 @@ def analyze_java(java_strings):
     lineList = []
     list_list = dict()
     for java_string in java_strings:
-        variableList.append(p.getNumberOfVariables(java_string))
-        methodList.append(p.getNumberOfMethods(java_string))
-        classList.append(p.getNumberOfClasses(java_string))
-        lineList.append(p.getNumberOfLines(java_string))
+        java_string = j.remove_comments(java_string)
+        try:
+            variableList.append(p.getNumberOfVariables(java_string))
+            methodList.append(p.getNumberOfMethods(java_string))
+            classList.append(p.getNumberOfClasses(java_string))
+            lineList.append(p.getNumberOfLines(java_string))
+        except(Exception):
+            pass
     list_list["variables"] = variableList
     list_list["methods"] = methodList
     list_list["classes"] = classList
     list_list["lines"] = lineList
     statistics.printStatistics(list_list)
+
+
+def get_file_paths(Type,location):
+    file_list = list()
+    for subdir, dirs, files in os.walk(location):
+        for file in files:
+            file = subdir+"/"+file
+            if file.endswith(Type):
+                file_list.append(file)
+    return file_list
+
+#analyze_java(get_java_strings("."))
