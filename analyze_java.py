@@ -1,7 +1,5 @@
-import file_list
 import java_to_string as j
 import java_parser as p
-import numpy as np
 import statistics
 import os
 
@@ -11,7 +9,7 @@ def get_java_strings(out):
     repoDict = dict()
     for f in java_files:
         # The second replace is so that code doesn't break on windows
-        currFile = f.replace(out,"").replace("\\","/")
+        currFile = f.replace(out, "").replace("\\", "/")
         repo = currFile.split("/")[1]
         if repo in repoDict:
             continue
@@ -31,9 +29,10 @@ def get_java_strings(out):
 
     return java_strings
 
+
 def analyze_java(java_strings):
     variableList = []
-    methodList= []
+    methodList = []
     classList = []
     lineList = []
     list_list = dict()
@@ -53,13 +52,13 @@ def analyze_java(java_strings):
     statistics.printStatistics(list_list)
 
 
-def get_file_paths(Type,location):
-    file_list = list()
+def get_file_paths(Type, location):
+    list_of_files = list()
     for subdir, dirs, files in os.walk(location):
         for file in files:
-            file = subdir+"/"+file
+            file = subdir + "/" + file
             if file.endswith(Type):
-                file_list.append(file)
-    return file_list
+                list_of_files.append(file)
+    return list_of_files
 
 #analyze_java(get_java_strings("."))
