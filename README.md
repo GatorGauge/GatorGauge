@@ -21,7 +21,16 @@ pip3 install --upgrade pip
 ```
 
 ```
-pip3 install -r requirements.txt
+pip3 install --user -r requirements.txt
+
+```
+
+To support sentiment analysis, also run the following commands.
+
+```
+python3
+>>> import nltk
+>>> nltk.download("vader_lexicon")
 ```
 
 ## Config.ini
@@ -80,45 +89,28 @@ Save changes (y/n) --> should be yes for first run
 
 Download the project(named in Config.ini or given with the config command).
 
-```
-get
-```
+### Run GatorGage
 
-Print the values in the config file or temporarily change the config values or if
-the second config command is used the user can either edit the values in the config
-file or reset the values back to their original state assuming the user does not
-save the values after using config edit.
+Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
+token entered into the command line after --token. A token must be entered each
+time the program is started for security reasons.
 
-```
-config
-```
+#### REPL commands
 
-```
-config <option>
-```
+`get` downloads the project (named in Config.ini or given with the config command).
 
-List all repositories if no arguments are given or all files in a given repository.
+`config` prints the values in the config file or temporarily change the config
+values or if the second config command is used the user can either edit the
+values in the config file or reset the values back to their original state
+assuming the user does not save the values after using config edit.
 
-```
-list
-```
+`list` and `list <repo name>` lists all repositories if no arguments are given
+or all files in the given repository.
 
-```
-list <repo name>
-```
+`analyze <target>` performs sentiment analysis and gensim on the given target
+(source, comments, commits, reflection).
 
-Perform sentiment analysis and gensim on the given target (source, comments, commits,
-reflection).
-
-```
-analyze <target>
-```
-
-Quit the program.
-
-```
-quit
-```
+`quit` quits the program.
 
 ## Usage
 
