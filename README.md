@@ -27,11 +27,10 @@ pip3 install -r requirements.txt
 ## Config.ini
 
 Default Variables. Do not place the variables inside of "".
-Since the config.ini file contains sensitive information due to the token,
-it is not supplied in this repository. However, the program will automatically
-create one for you upon first execution and prompt you to fill in the values.
-Token and Project must receive valid inputs in order for the program to download
-any repositories. These values can be edited from the command line with the command:
+The program will automatically create one for you upon first execution
+and prompt you to fill in the values.Project must receive valid
+inputs in order for the program to download any repositories. This
+values can be edited from the command line with the command:
 
 ```
 config edit
