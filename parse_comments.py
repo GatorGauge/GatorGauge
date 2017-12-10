@@ -52,6 +52,13 @@ def list_javadoc_comments(java_string):
     return trimmed_comments
 
 
+def get_all_comments(java_string):
+    """Return tuple of all comments in the java_string. """
+    return (list_singleline_java_comments(java_string),
+            list_multiline_java_comments(java_string),
+            list_javadoc_comments(java_string))
+
+
 def count_singleline_java_comments(java_string):
     """Count the number of singleline Java comments in the java_string."""
     pattern = re.compile(SINGLELINE_COMMENT_RE_JAVA, re.MULTILINE)
