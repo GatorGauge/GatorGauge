@@ -59,21 +59,16 @@ def analyze_comments():
           str(parse_comments.count_multiline_java_comments(JAVA_STRING)))
 
     print("Ratio of multiline comments to total Java source code lines: " +
-<<<<<<< HEAD
-str(parse_comments.get_ratio_of_multiline_comments_to_source_code(JAVA_STRING)))
-    print("Sentiment analysis on single-line comments:")
-    print(analyze_sentiment.get_avg_sentiment(parse_comments.list_singleline_java_comments(JAVA_STRING)))
-    print("Sentiment analysis on multi-line comments:")
-    print(analyze_sentiment.get_avg_sentiment(parse_comments.list_multiline_java_comments(JAVA_STRING)))
-
-    #TODO: topic analysis on Java Docstrings
-=======
           str(parse_comments.get_ratio_of_multiline_comments_to_source_code(JAVA_STRING)))
+    print("Sentiment analysis on single-line comments:")
+    print(analyze_sentiment.get_avg_sentiment(
+        parse_comments.list_singleline_java_comments(JAVA_STRING)))
+    print("Sentiment analysis on multi-line comments:")
+    print(analyze_sentiment.get_avg_sentiment(
+        parse_comments.list_multiline_java_comments(JAVA_STRING)))
 
-    # TODO: sentiment analysis on single and multiline
     # TODO: topic analysis on Java Docstrings
 
->>>>>>> 9ca73926eb8f6969b314c1c20c049b98f7390dde
 
 def analyze_commits(out):
     """ analyze commits """

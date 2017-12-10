@@ -10,15 +10,21 @@ PROJECT = ""
 KEYWORDS = ""
 OUT = "repos/"
 
+
 def get_project():
     PROJECT = config.get('Project', 'project')
     return PROJECT
+
+
 def get_keywords():
     KEYWORDS = config.get('Keywords', 'keywords')
     return KEYWORDS
+
+
 def get_out():
     OUT = config.get('Out', 'out')
     return OUT
+
 
 def new_config():
     """Create a blank config file if one does not exist. """
