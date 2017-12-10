@@ -74,7 +74,7 @@ token entered into the command line after --token. A token must be entered each
 time the program is started for security reasons.
 
 When users first run the program these questions will be asked: 
-* Enter project name? (y/n) ->- y
+* Enter project name? (y/n) --> y
 * Enter project name
 * Enter keywords (y/n) --> optional, but if key words are entered separate  with
 a comma.
