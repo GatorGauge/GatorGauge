@@ -74,10 +74,12 @@ token entered into the command line after --token. A token must be entered each
 time the program is started for security reasons.
 
 When users first run the program these questions will be asked: 
-Enter project name? (y/n) ->- y
-Enter project name
-Enter keywords (y/n) --> optional, but if key words are entered separate  with
+* Enter project name? (y/n) ->- y
+* Enter project name
+* Enter keywords (y/n) --> optional, but if key words are entered separate  with
 a comma.
+* Enter our directory? (y/n), directory where everything will get downloaded it.
+* Enter new directory name (repos is the default)
 
 
 
