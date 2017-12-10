@@ -67,14 +67,6 @@ a directory named 'repos' which will be created upon running the get command.
 
 ## Execution
 
-### Requirements
-
-To get requirements, use the command:
-
-```
-pip3 install --user -r requirements.txt
-```
-
 ### Run GatorGage
 
 Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
