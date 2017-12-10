@@ -74,14 +74,15 @@ time the program is started for security reasons.
 
 When users first run the program these questions will be asked if a new config
 file is generated: 
-* Enter project name? (y/n)
-* Enter the project name
-* Enter keywords (y/n) --> optional, but if key words are entered separate with
+```
+Enter project name? (y/n)
+  If yes, enter the project name
+Enter keywords (y/n) --> optional, but if key words are entered separate with
 a comma.
-* Enter out directory? (y/n), directory where everything will get downloaded to.
-* Enter new directory name (repos is the default)
-* Save changes (y/n) --> should be yes for first run
-
+Enter out directory? (y/n), directory where everything will get downloaded to.
+  Enter new directory name (repos is the default)
+Save changes (y/n) --> should be yes for first run
+```
 ### Commands
 
 Download the project(named in Config.ini or given with the config command).
