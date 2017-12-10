@@ -66,14 +66,14 @@ file is generated:
 Enter project name? (y/n)
 
   If yes, enter the project name
-  
+ 
 Enter keywords (y/n) --> optional, but if key words are entered separate with
 a comma.
 
 Enter out directory? (y/n), directory where everything will get downloaded to.
 
   Enter new directory name (repos is the default)
-  
+ 
 Save changes (y/n) --> should be yes for first run
 ```
 
