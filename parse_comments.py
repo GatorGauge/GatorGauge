@@ -69,4 +69,3 @@ def get_ratio_of_multiline_comments_to_source_code(java_string):
     total_number_of_lines = java_parser.getNumberOfLines(java_string)
     number_of_multiline_comments = count_multiline_java_comments(java_string)
     return float(number_of_multiline_comments / total_number_of_lines)
-

@@ -84,6 +84,7 @@ def edit_config_keywords():
         keywords = KEYWORDS
     return keywords
 
+
 def edit_config_directory():
     ask_prefix = str(
         input(
@@ -102,6 +103,7 @@ def edit_config_directory():
     else:
         out = OUT
     return out
+
 
 def save_config_changes(project, keywords, out):
     if config.has_section('Setup'):

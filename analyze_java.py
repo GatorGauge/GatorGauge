@@ -3,6 +3,7 @@ import java_parser as p
 import statistics
 import os
 
+
 def analyze_java(java_strings):
     variableList = []
     methodList = []
@@ -34,4 +35,4 @@ def get_file_paths(Type, location):
                 list_of_files.append(file)
     return list_of_files
 
-#analyze_java(get_java_strings("."))
+# analyze_java(get_java_strings("."))
