@@ -88,6 +88,7 @@ Enter out directory? (y/n), directory where everything will get downloaded to.
   
 Save changes (y/n) --> should be yes for first run
 ```
+
 ### Commands
 
 Download the project(named in Config.ini or given with the config command).
