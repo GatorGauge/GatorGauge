@@ -17,7 +17,9 @@ following commands before running the program:
 
 ```
 pip3 install --upgrade pip
+
 ```
+
 ```
 pip3 install -r requirements.txt
 ```
