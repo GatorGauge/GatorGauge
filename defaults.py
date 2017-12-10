@@ -34,7 +34,7 @@ def new_config():
         config.write(config_file)
 
 
-def edit_config():
+def edit_config_project():
     """Allow user to edit each value in the config file."""
     ask_prefix = str(
         input(
@@ -52,7 +52,10 @@ def edit_config():
         project = ask_prefix = str(input("Enter new Project name: "))
     else:
         project = PROJECT
+    return project
 
+
+def edit_config_keywords():
     ask_prefix = str(
         input(
             "Current Prefix: '" +
@@ -70,7 +73,9 @@ def edit_config():
             input("Enter new Keywords (seperated by ','): "))
     else:
         keywords = KEYWORDS
+    return str(keywords).split(',')
 
+def edit_config_directory():
     ask_prefix = str(
         input(
             "Current Out: '" +
@@ -87,7 +92,9 @@ def edit_config():
         out = ask_prefix = str(input("Enter new Out directory: "))
     else:
         out = OUT
+    return out
 
+def edit_config_changes():
     ask_prefix = str(
         input("Would you like to save these changes in config.ini?\n(Y/N): "))
     while ask_prefix not in fSet:
@@ -106,4 +113,3 @@ def edit_config():
 
         with open('./config.ini', 'w') as config_file:
             config.write(config_file)
-    return project, str(keywords).split(','), out

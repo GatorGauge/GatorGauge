@@ -51,7 +51,11 @@ if __name__ == "__main__":
             arg2 = args[2]
         if command == "get":
             while project is "":
-                project, keywords, out = defaults.edit_config()
+                print("You must enter a project name.")
+                project = defaults.edit_config_project()
+            keywords = defaults.edit_config_keywords()
+            out = defaults.edit_config_directory()
+            defaults.edit_config_changes()
             ask_prefix = str(
                 input(
                     "Download all repositories in " +
