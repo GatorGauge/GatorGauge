@@ -73,15 +73,14 @@ token entered into the command line after --token. A token must be entered each
 time the program is started for security reasons.
 
 When users first run the program these questions will be asked if a new config
-file needs to be made (quegstions will only be added once): 
-* Enter project name? (y/n) --> y
-* Enter project name
-* Enter keywords (y/n) --> optional, but if key words are entered separate  with
+file is generated: 
+* Enter project name? (y/n)
+* Enter the project name
+* Enter keywords (y/n) --> optional, but if key words are entered separate with
 a comma.
-* Enter our directory? (y/n), directory where everything will get downloaded it.
+* Enter out directory? (y/n), directory where everything will get downloaded to.
 * Enter new directory name (repos is the default)
-* Save changes (y/n) --> y
-
+* Save changes (y/n) --> should be yes for first run
 
 ### Commands
 
