@@ -66,6 +66,13 @@ def count_multiline_java_comments(java_string):
     return len(multiline_comments)
 
 
+def count_javadoc_java_comments(java_string):
+    """Count the number of javadoc Java comments in the java_string."""
+    pattern = re.compile(JAVADOC_COMMENT_RE, re.MULTILINE)
+    javadoc_comments = pattern.findall(java_string)
+    return len(javadoc_comments)
+
+
 def ratio_of_singleline_comments(java_string):
     """Get the ratio of singleline comments to the
         number of lines in the Java source code."""
@@ -80,3 +87,11 @@ def ratio_of_multiline_comments(java_string):
     total_number_of_lines = java_parser.getNumberOfLines(java_string)
     number_of_multiline_comments = count_multiline_java_comments(java_string)
     return float(number_of_multiline_comments / total_number_of_lines)
+
+
+def ratio_of_javadoc_comments(java_string):
+    """Get the ratio of javadoc comments to the
+        number of lines in the Java source code."""
+    total_number_of_lines = java_parser.getNumberOfLines(java_string)
+    number_of_javadoc_comments = count_javadoc_java_comments(java_string)
+    return float(number_of_javadoc_comments / total_number_of_lines)

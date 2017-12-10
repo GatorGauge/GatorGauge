@@ -9,7 +9,7 @@ JAVA_STRING = """/**
 *@blahfenshtele, another tag for removal
 */
 class HelloWorld {
-    /**
+    /*
     * Prints out "Hello, world!"
     */
     public static void main(String args[]) {
@@ -31,7 +31,14 @@ def test_ratio_multiline_comments():
     """ verify ratio of multiline comments to source """
     actual_ratio = \
         pc.ratio_of_multiline_comments(JAVA_STRING)
-    assert actual_ratio == 0.4
+    assert actual_ratio == 0.2
+
+
+def test_ratio_javadoc_comments():
+    """ verify ratio of javadoc comments to source """
+    actual_ratio = \
+        pc.ratio_of_javadoc_comments(JAVA_STRING)
+    assert actual_ratio == 0.2
 
 
 def test_javadoc_tag_nixed_comments():
