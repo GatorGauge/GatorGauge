@@ -33,6 +33,10 @@ comment_19
 /*
  * comment_20
  */
+
+/**
+ * javadoc
+ */
 """
 
 
@@ -102,3 +106,10 @@ def test_count_comments():
     multiline_comments = pc.list_multiline_java_comments(JAVA_SOURCE)
     assert len(singleline_comments) == 13
     assert len(multiline_comments) == 6
+
+
+def test_javadoc_comments():
+    """ check that javadoc comments are caught """
+    assert "javadoc" not in pc.list_multiline_java_comments(JAVA_SOURCE)
+    assert "javadoc" not in pc.list_singleline_java_comments(JAVA_SOURCE)
+    assert "javadoc" in pc.list_javadoc_comments(JAVA_SOURCE)
