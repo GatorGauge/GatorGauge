@@ -70,36 +70,3 @@ def get_ratio_of_multiline_comments_to_source_code(java_string):
     number_of_multiline_comments = count_multiline_java_comments(java_string)
     return float(number_of_multiline_comments / total_number_of_lines)
 
-
-<<<<<<< HEAD
-=======
-if __name__ == "__main__":
-
-    with open('./java/HelloWorld.java', 'r') as java_file:
-        JAVA_STRING = java_file.read()
-
-    comment = nix_javadoc_tags(JAVA_STRING)
-    print("\nComments w/out Javadoc tags\n-------------------")
-    print(repr(comment))
-    str(nix_javadoc_tags(JAVA_STRING))
-
-    COMMENTS = list_singleline_java_comments(JAVA_STRING)
-    print("\nSingleline comments\n-------------------")
-    for comment in COMMENTS:
-        print(repr(comment))
-    print("Number of singleline comments: " +
-          str(count_singleline_java_comments(JAVA_STRING)))
-
-    print("Ratio of singleline comments to total Java source code lines: " +
-          str(get_ratio_of_singleline_comments_to_source_code(JAVA_STRING)))
-
-    COMMENTS = list_multiline_java_comments(JAVA_STRING)
-    print("\nMultiline comments\n------------------")
-    for comment in COMMENTS:
-        print(repr(comment))
-    print("Number of multiline comments: " +
-          str(count_multiline_java_comments(JAVA_STRING)))
-
-    print("Ratio of multiline comments to total Java source code lines: " +
-          str(get_ratio_of_multiline_comments_to_source_code(JAVA_STRING)))
->>>>>>> origin/master

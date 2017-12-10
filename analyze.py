@@ -5,10 +5,12 @@ import analyze_sentiment
 import parse_comments
 import get_reflection
 import get_list_of_commits
+import analyze_java
 
 def analyze_source():
     """ analyze source code """
     print("SOURCE")
+    
     
 def analyze_comments():
     """ analyze comments """
@@ -37,7 +39,6 @@ str(parse_comments.get_ratio_of_multiline_comments_to_source_code(JAVA_STRING)))
 
 def analyze_commits(out):
     """ analyze commits """
-    print("COMMITS")
     repo_list = next(os.walk("./" + str(out)))[1]
     for repo in repo_list:
         print("\nCommits for "+str(repo)+": ")
