@@ -24,15 +24,6 @@ pip3 install --upgrade pip
 pip3 install -r requirements.txt
 ```
 
-## Initial Setup
-
-Ensure that you have installed gspread and oauth2client is installed in the root
-directory of the repository. In the terminal use the command:
-
-```shell
-python3 -m pip install --user gspread oauth2client
-```
-
 ## Config.ini
 
 Default Variables. Do not place the variables inside of "".
@@ -45,12 +36,6 @@ any repositories. These values can be edited from the command line with the comm
 ```
 config edit
 ```
-
-### Token
-
-GitHub token allows the program to pull the repositories.
-Once done, paste the token in token section. Must specify a project but PREFIX
-is optional, and out defaults to current directory.
 
 ### Project
 
