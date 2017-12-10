@@ -73,6 +73,9 @@ Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
 token entered into the command line after --token. A token must be entered each
 time the program is started for security reasons.
 
+Enter project name? (y/n) ->- y
+Enter project name
+
 ### Commands
 
 Download the project(named in Config.ini or given with the config command).
