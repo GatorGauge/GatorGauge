@@ -23,6 +23,8 @@ if __name__ == "__main__":
     defined_commands = {"help", "get", "config", "list", "analyze", "quit"}
     fSet = frozenset(defined_commands)
     specifiers = ('source', 'comments', 'commits', 'reflection')
+    defined_responses = {"y", "Y", "n", "N"}
+    dSet = frozenset(defined_responses)
 
     command = str(input('>>> '))
     args = []
@@ -58,6 +60,16 @@ if __name__ == "__main__":
                     str(keywords) +
                     " in their name and place in directory '" +
                     out + "' (Y/N): "))
+            while ask_prefix not in dSet:
+                print("You must enter y or n.")
+                ask_prefix = str(
+                    input(
+                        "Download all repositories in " +
+                        project +
+                        " that have " +
+                        str(keywords) +
+                        " in their name and place in directory '" +
+                        out + "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(
                     token, project, keywords, out)

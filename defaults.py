@@ -1,6 +1,9 @@
 import configparser
 import os
 
+defined_responses = {"y", "Y", "n", "N"}
+fSet = frozenset(defined_responses)
+
 config = configparser.ConfigParser(allow_no_value=True)
 if os.path.exists("./config.ini"):
     config.read("config.ini")
@@ -38,6 +41,13 @@ def edit_config():
             "Current Project: '" +
             str(PROJECT) +
             "'\nWould you like to edit the Project name?\n(Y/N): "))
+    while ask_prefix not in fSet:
+        print("You must enter y or n.")
+        ask_prefix = str(
+            input(
+                "Current Project: '" +
+                str(PROJECT) +
+                "'\nWould you like to edit the Project name?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
         project = ask_prefix = str(input("Enter new Project name: "))
     else:
@@ -48,6 +58,13 @@ def edit_config():
             "Current Prefix: '" +
             str(KEYWORDS) +
             "'\nWould you like to edit the Keywords?\n(Y/N): "))
+    while ask_prefix not in fSet:
+        print("You must enter y or n.")
+        ask_prefix = str(
+            input(
+                "Current Prefix: '" +
+                str(KEYWORDS) +
+                "'\nWould you like to edit the Keywords?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
         keywords = ask_prefix = str(
             input("Enter new Keywords (seperated by ','): "))
@@ -59,6 +76,13 @@ def edit_config():
             "Current Out: '" +
             str(OUT) +
             "'\nWould you like to edit the Out directory?\n(Y/N): "))
+    while ask_prefix not in fSet:
+        print("You must enter y or n.")
+        ask_prefix = str(
+            input(
+                "Current Out: '" +
+                str(OUT) +
+                "'\nWould you like to edit the Out directory?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
         out = ask_prefix = str(input("Enter new Out directory: "))
     else:
@@ -66,7 +90,10 @@ def edit_config():
 
     ask_prefix = str(
         input("Would you like to save these changes in config.ini?\n(Y/N): "))
-
+    while ask_prefix not in fSet:
+        print("You must enter y or n.")
+        ask_prefix = str(
+            input("Would you like to save these changes in config.ini?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
         config.set('Project', '; Project to pull')
         config.set('Project', 'PROJECT', project)
