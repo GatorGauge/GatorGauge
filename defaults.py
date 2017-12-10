@@ -75,6 +75,7 @@ def edit_config_keywords():
         keywords = KEYWORDS
     return str(keywords).split(',')
 
+
 def edit_config_directory():
     ask_prefix = str(
         input(
@@ -93,6 +94,7 @@ def edit_config_directory():
     else:
         out = OUT
     return out
+
 
 def edit_config_changes():
     ask_prefix = str(

@@ -18,7 +18,11 @@ def get_avg_sentiment(list_of_comments):
     """Return average compound, negative, neutral, and positive sentiment of comments in a list."""
 
     if not list_of_comments or list_of_comments == []:
-        zero_dict = {COMPOUND_KEY: 0, NEGATIVE_KEY: 0, NEUTRAL_KEY: 0, POSITIVE_KEY: 0}
+        zero_dict = {
+            COMPOUND_KEY: 0,
+            NEGATIVE_KEY: 0,
+            NEUTRAL_KEY: 0,
+            POSITIVE_KEY: 0}
         return zero_dict
 
     comment_counter = 0
