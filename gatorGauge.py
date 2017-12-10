@@ -19,7 +19,6 @@ if __name__ == "__main__":
     # if there is no config.ini file, create one
     if not os.path.exists("./config.ini"):
         defaults.new_config()
-        defaults.edit_config()
     defined_commands = {"help", "get", "config", "list", "analyze", "quit"}
     fSet = frozenset(defined_commands)
     specifiers = ('source', 'comments', 'commits', 'reflection')
@@ -31,9 +30,9 @@ if __name__ == "__main__":
     arg1 = ""
     arg2 = ""
     fileName = ""
-    project = defaults.PROJECT
-    keywords = str(defaults.KEYWORDS).split(',')
-    out = defaults.OUT
+    project = defaults.get_project()
+    keywords = str(defaults.get_keywords()).split(',')
+    out = defaults.get_out()
     while command != "quit":
         args = command.rsplit()
         command = args[0]
@@ -53,9 +52,9 @@ if __name__ == "__main__":
             while project is "":
                 print("You must enter a project name.")
                 project = defaults.edit_config_project()
-            keywords = defaults.edit_config_keywords()
-            out = defaults.edit_config_directory()
-            defaults.edit_config_changes()
+            #keywords = defaults.edit_config_keywords()
+            #out = defaults.edit_config_directory()
+            #defaults.edit_config_changes()
             ask_prefix = str(
                 input(
                     "Download all repositories in " +

@@ -5,16 +5,20 @@ defined_responses = {"y", "Y", "n", "N"}
 fSet = frozenset(defined_responses)
 
 config = configparser.ConfigParser(allow_no_value=True)
-if os.path.exists("./config.ini"):
-    config.read("config.ini")
-    PROJECT = config.get('Project', 'project')
-    KEYWORDS = config.get('Keywords', 'keywords')
-    OUT = config.get('Out', 'out')
-else:
-    PROJECT = ""
-    KEYWORDS = ""
-    OUT = "repos/"
+config.read("config.ini")
+PROJECT = ""
+KEYWORDS = ""
+OUT = "repos/"
 
+def get_project():
+    PROJECT = config.get('Project', 'project')
+    return PROJECT
+def get_keywords():
+    KEYWORDS = config.get('Keywords', 'keywords')
+    return KEYWORDS
+def get_out():
+    OUT = config.get('Out', 'out')
+    return OUT
 
 def new_config():
     """Create a blank config file if one does not exist. """
@@ -29,9 +33,14 @@ def new_config():
     config.add_section('Out')
     config.set('Out', '; default: repos/')
     config.set('Out', 'OUT', "repos/")
+    config.add_section('Setup')
 
     with open('./config.ini', 'w') as config_file:
         config.write(config_file)
+    project = edit_config_project()
+    keywords = edit_config_keywords()
+    out = edit_config_directory()
+    save_config_changes(project, keywords, out)
 
 
 def edit_config_project():
@@ -58,7 +67,7 @@ def edit_config_project():
 def edit_config_keywords():
     ask_prefix = str(
         input(
-            "Current Prefix: '" +
+            "Current keywords: '" +
             str(KEYWORDS) +
             "'\nWould you like to edit the Keywords?\n(Y/N): "))
     while ask_prefix not in fSet:
@@ -73,7 +82,7 @@ def edit_config_keywords():
             input("Enter new Keywords (seperated by ','): "))
     else:
         keywords = KEYWORDS
-    return str(keywords).split(',')
+    return keywords
 
 def edit_config_directory():
     ask_prefix = str(
@@ -94,13 +103,17 @@ def edit_config_directory():
         out = OUT
     return out
 
-def edit_config_changes():
-    ask_prefix = str(
-        input("Would you like to save these changes in config.ini?\n(Y/N): "))
-    while ask_prefix not in fSet:
-        print("You must enter y or n.")
+def save_config_changes(project, keywords, out):
+    if config.has_section('Setup'):
+        config.remove_section('Setup')
+        ask_prefix = "Y"
+    else:
         ask_prefix = str(
             input("Would you like to save these changes in config.ini?\n(Y/N): "))
+        while ask_prefix not in fSet:
+            print("You must enter y or n.")
+            ask_prefix = str(
+                input("Would you like to save these changes in config.ini?\n(Y/N): "))
     if ask_prefix is "Y" or ask_prefix is "y":
         config.set('Project', '; Project to pull')
         config.set('Project', 'PROJECT', project)
@@ -113,3 +126,7 @@ def edit_config_changes():
 
         with open('./config.ini', 'w') as config_file:
             config.write(config_file)
+        config.read("config.ini")
+        PROJECT = config.get('Project', 'project')
+        KEYWORDS = config.get('Keywords', 'keywords')
+        OUT = config.get('Out', 'out')
