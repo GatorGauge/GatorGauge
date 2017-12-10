@@ -11,8 +11,7 @@ import java_parser
 
 FILE_SEPARATOR = "/"
 JAVADOC_COMMENT_RE = r'\/\**([\s\S]*?)\*+\/'
-# MULTILINE_COMMENT_RE = r'\/\*([\s\S]*?)\*+\/'
-MULTILINE_COMMENT_RE = r'\/\*(?!\2)([\s\S]*?)\*+\/'
+MULTILINE_COMMENT_RE = r'\/\*([\s\S]*?)\*+\/'
 SINGLELINE_COMMENT_RE_JAVA = \
     r'^(?:[^"/\\]|\"(?:[^\"\\]|\\.)*\"|/(?:[^/"\\]|\\.)|/\"(?:[^\"\\]|\\.)*\"|\\.)*//(.*)$'
 
