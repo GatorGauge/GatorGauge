@@ -76,6 +76,7 @@ time the program is started for security reasons.
 
 When users first run the program these questions will be asked if a new config
 file is generated:
+
 ```
 Enter project name? (y/n)
 
