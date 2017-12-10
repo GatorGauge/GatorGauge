@@ -80,7 +80,7 @@ When users first run the program these questions will be asked:
 a comma.
 * Enter our directory? (y/n), directory where everything will get downloaded it.
 * Enter new directory name (repos is the default)
-
+* Save changes (y/n) --> y
 
 
 ### Commands
