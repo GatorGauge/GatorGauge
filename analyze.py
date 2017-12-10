@@ -6,11 +6,33 @@ import parse_comments
 import get_reflection
 import get_list_of_commits
 import analyze_java
+import java_to_string
 
-def analyze_source():
+def analyze_source(out):
     """ analyze source code """
-    print("SOURCE")
+    java_files = analyze_java.get_file_paths(".java", out)
+    repoDict = dict()
+    for f in java_files:
+        # The second replace is so that code doesn't break on windows
+        currFile = f.replace(out, "").replace("\\", "/")
+        repo = currFile.split("/")[1]
+        if repo in repoDict:
+            continue
+        files = []
+        for javaFile in java_files:
+            if repo in javaFile:
+                files.append(javaFile)
+        repoDict[repo] = files
+
+    java_strings = []
+
+    for key, values in repoDict.items():
+        java_string = []
+        for value in values:
+            java_string.append(java_to_string.read_and_convert(value))
+        java_strings.append(' '.join(java_string))
     
+    analyze_java.analyze_java(java_strings)
     
 def analyze_comments():
     """ analyze comments """
@@ -37,6 +59,9 @@ def analyze_comments():
     print("Ratio of multiline comments to total Java source code lines: " +
 str(parse_comments.get_ratio_of_multiline_comments_to_source_code(JAVA_STRING)))
 
+    #TODO: sentiment analysis on single and multiline
+    #TODO: topic analysis on Java Docstrings
+
 def analyze_commits(out):
     """ analyze commits """
     repo_list = next(os.walk("./" + str(out)))[1]
@@ -46,6 +71,9 @@ def analyze_commits(out):
         print(*commits,end="\n")
         print("\nSentiment Analysis for "+str(repo)+": ")
         print(analyze_sentiment.get_sentence_sentiment(str(commits)))
+    
+    #TODO: topic analysis
+    
 
 def analyze_reflection(out):
     """ analyze reflections """
@@ -63,6 +91,6 @@ def analyze_reflection(out):
         print(response)
         print(analyze_sentiment.get_sentence_sentiment(response))
         responses.append(response)
-    # for res in responses:
-        # print(res)
+    
+    #TODO: topic analysis
 

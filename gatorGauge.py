@@ -104,7 +104,7 @@ if __name__ == "__main__":
                 print("You must enter a specifier " + str(specifiers) + ".")
                 arg1 = str(input('Specifier: '))
             if arg1 == "source":
-                analyze.analyze_source()
+                analyze.analyze_source(out)
             elif arg1 == "comments":
                 analyze.analyze_comments()
             elif arg1 == "commits":

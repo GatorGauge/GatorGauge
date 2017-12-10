@@ -3,33 +3,6 @@ import java_parser as p
 import statistics
 import os
 
-
-def get_java_strings(out):
-    java_files = get_file_paths(".java", out)
-    repoDict = dict()
-    for f in java_files:
-        # The second replace is so that code doesn't break on windows
-        currFile = f.replace(out, "").replace("\\", "/")
-        repo = currFile.split("/")[1]
-        if repo in repoDict:
-            continue
-        files = []
-        for javaFile in java_files:
-            if repo in javaFile:
-                files.append(javaFile)
-        repoDict[repo] = files
-
-    java_strings = []
-
-    for key, values in repoDict.items():
-        java_string = []
-        for value in values:
-            java_string.append(j.read_and_convert(value))
-        java_strings.append(' '.join(java_string))
-
-    return java_strings
-
-
 def analyze_java(java_strings):
     variableList = []
     methodList = []

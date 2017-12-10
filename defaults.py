@@ -13,7 +13,7 @@ if os.path.exists("./config.ini"):
 else:
     PROJECT = ""
     KEYWORDS = ""
-    OUT = ""
+    OUT = "repos/"
 
 
 def new_config():
