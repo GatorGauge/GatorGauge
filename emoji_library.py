@@ -14,7 +14,9 @@ def emoji_counter(s):
     emoticon9 = re.findall(":raisedHands:",s)
     emoticon10 = re.findall(":smilingImp:",s)
 
-    print("emojies: "+str(emoticon1)+str(emoticon2)+str(emoticon4))
+    emojies = len(emoticon1)+len(emoticon2)+len(emoticon3)+len(emoticon4)+len(emoticon5)+len(emoticon6)+len(emoticon7)+len(emoticon8)+len(emoticon9)+len(emoticon10)
+
+    print("Total Emojies: ", emojies)
     print("SmileyFaces: ", len(emoticon1))
     print("RageFaces: ", len(emoticon2))
     print("Confused: ", len(emoticon3))
