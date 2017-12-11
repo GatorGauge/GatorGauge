@@ -45,7 +45,8 @@ def list_multiline_java_comments(java_string):
 def list_javadoc_comments(java_string):
     """Count the number of javadoc comments in the java_string."""
     pattern = re.compile(JAVADOC_COMMENT_RE, re.MULTILINE)
-    multiline_comments = pattern.findall(java_string)
+    tag_nixed_string = nix_javadoc_tags(java_string)
+    multiline_comments = pattern.findall(tag_nixed_string)
     trimmed_comments = []
     for comment in multiline_comments:
         trimmed_comments.append(comment.strip().strip('* '))
