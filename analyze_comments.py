@@ -68,29 +68,29 @@ def analyze_comments(out):
     # format results for terminal printing
     string_buffer = "\n" + \
         "Singleline Comments\n" + \
-        "\tAverage Count: " + avg_count_singleline + \
-        "\tAverage Ratio: " + avg_ratio_singleline + \
+        "\tAverage Count: " + str(avg_count_singleline) + \
+        "\tAverage Ratio: " + str(avg_ratio_singleline) + \
         "Multiline Comments\n" + \
-        "\tAverage Count: " + avg_count_multiline + \
-        "\tAverage Ratio: " + avg_ratio_multiline + \
+        "\tAverage Count: " + str(avg_count_multiline) + \
+        "\tAverage Ratio: " + str(avg_ratio_multiline) + \
         "JavaDoc Comments\n" + \
-        "\tAverage Count: " + avg_count_javadoc + \
-        "\tAverage Ratio: " + avg_ratio_javadoc + \
-        "Average Sentiment: " + avg_sentiment
+        "\tAverage Count: " + str(avg_count_javadoc) + \
+        "\tAverage Ratio: " + str(avg_ratio_javadoc) + \
+        "Average Sentiment: " + str(avg_sentiment)
     print(string_buffer)  # ... and print them
 
     # format results for HTML embedding
     html_buffer = "<br>" + \
         "<b>Singleline Comments</b><ul>" + \
-        "<li>Average Count: " + avg_count_singleline + "</li>" + \
-        "<li>Average Ratio: " + avg_ratio_singleline + "</li>" + \
+        "<li>Average Count: " + str(avg_count_singleline) + "</li>" + \
+        "<li>Average Ratio: " + str(avg_ratio_singleline) + "</li>" + \
         "</ul><b>Multiline Comments</b><ul>" + \
-        "<li>Average Count: " + avg_count_multiline + "</li>" + \
-        "<li>Average Ratio: " + avg_ratio_multiline + "</li>" + \
+        "<li>Average Count: " + str(avg_count_multiline) + "</li>" + \
+        "<li>Average Ratio: " + str(avg_ratio_multiline) + "</li>" + \
         "</ul><b>JavaDoc Comments</b><ul>" + \
-        "<li>Average Count: " + avg_count_javadoc + "</li>" + \
-        "<li>Average Ratio: " + avg_ratio_javadoc + "</li></ul>" + \
-        "<b>Average Sentiment</b>: " + avg_sentiment
+        "<li>Average Count: " + str(avg_count_javadoc) + "</li>" + \
+        "<li>Average Ratio: " + str(avg_ratio_javadoc) + "</li></ul>" + \
+        "<b>Average Sentiment</b>: " + str(avg_sentiment)
 
     # ... and embed them
     # FIXME: append html_buffer to gensim html page
