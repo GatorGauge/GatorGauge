@@ -20,7 +20,7 @@ def test_display_get_help():
 
 
 def test_display_config_help():
-    expected_config_help = """\x1b[1mconfig\n----\x1b[0m\nCommand: config\nDescription: show the values in the config file\nArguments: None\n\nCommand: config edit\nDescription: Edit or reset the values in the config file\nArguments: <option>\n"""
+    expected_config_help = """\x1b[1mconfig\n----\x1b[0m\nCommand: config\nDescription: show the values in the config file\nArguments: None\n\nCommand: config <option>\nDescription: Edit or reset the values in the config file\nArguments: <option>\n"""
     config_help = display.display_config_help()
     assert repr(config_help) == repr(expected_config_help)
 
