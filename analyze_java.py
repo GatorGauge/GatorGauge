@@ -49,7 +49,7 @@ def analyze_java(java_strings):
     list_list["methods"] = methodList
     list_list["classes"] = classList
     list_list["lines"] = lineList
-    statistics.printStatistics(list_list)
+    statistics.print_statistics(list_list)
 
 
 def get_file_paths(Type, location):
