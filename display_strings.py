@@ -11,7 +11,8 @@ commands_list.append(
      "List verbose description of <command> and show valid arguments for <command>"))
 # add get info
 commands_list.append(
-    ("get", "Downloads repositories from Project with specified Prefix to directory Out"))
+    ("get",
+     "Downloads repositories from Project with specified Prefix to directory Out"))
 # add config info
 commands_list.append(("config", "Print the values in the config file"))
 commands_list.append(
@@ -23,7 +24,8 @@ commands_list.append(
     ("list <repo name>", "Lists all files in the inputted repository"))
 # add analyze info
 commands_list.append(
-    ("analyze <target>", "Performs analysis for specified target ('source','comments','commits','reflection')"))
+    ("analyze <target>",
+     "Performs analysis for specified target ('source','comments','commits','reflection')"))
 # add quit info
 commands_list.append(("quit", "Exit the program"))
 
@@ -53,7 +55,7 @@ CONFIG_COMMAND_ONE = "config"
 CONFIG_DESCRIPTION_ONE = "show the values in the config file"
 CONFIG_ARGUMENTS_ONE = "None"
 
-CONFIG_COMMAND_TWO = "config edit"
+CONFIG_COMMAND_TWO = "config <option>"
 CONFIG_DESCRIPTION_TWO = "Edit or reset the values in the config file"
 CONFIG_ARGUMENTS_TWO = "<option>"
 

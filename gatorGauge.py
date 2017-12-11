@@ -4,11 +4,10 @@ import os
 # local imports
 import github_clone_all
 import defaults
-import get_reflection
 import file_list
 import display
-import get_reflection
 import parse_args
+import analyze
 
 if __name__ == "__main__":
     print("Welcome to GatorGauge!")
@@ -20,20 +19,20 @@ if __name__ == "__main__":
     # if there is no config.ini file, create one
     if not os.path.exists("./config.ini"):
         defaults.new_config()
-        defaults.edit_config()
     defined_commands = {"help", "get", "config", "list", "analyze", "quit"}
     fSet = frozenset(defined_commands)
     specifiers = ('source', 'comments', 'commits', 'reflection')
+    defined_responses = {"y", "Y", "n", "N"}
+    dSet = frozenset(defined_responses)
 
     command = str(input('>>> '))
     args = []
-    # added 2 more args for taking in project, prefix, token,
     arg1 = ""
     arg2 = ""
     fileName = ""
-    project = defaults.PROJECT
-    keywords = str(defaults.KEYWORDS).split(',')
-    out = defaults.OUT
+    project = defaults.get_project()
+    keywords = str(defaults.get_keywords()).split(',')
+    out = defaults.get_out()
     while command != "quit":
         args = command.rsplit()
         command = args[0]
@@ -51,7 +50,11 @@ if __name__ == "__main__":
             arg2 = args[2]
         if command == "get":
             while project is "":
-                project, keywords, out = defaults.edit_config()
+                print("You must enter a project name.")
+                project = defaults.edit_config_project()
+            #keywords = defaults.edit_config_keywords()
+            #out = defaults.edit_config_directory()
+            # defaults.edit_config_changes()
             ask_prefix = str(
                 input(
                     "Download all repositories in " +
@@ -60,6 +63,16 @@ if __name__ == "__main__":
                     str(keywords) +
                     " in their name and place in directory '" +
                     out + "' (Y/N): "))
+            while ask_prefix not in dSet:
+                print("You must enter y or n.")
+                ask_prefix = str(
+                    input(
+                        "Download all repositories in " +
+                        project +
+                        " that have " +
+                        str(keywords) +
+                        " in their name and place in directory '" +
+                        out + "' (Y/N): "))
             if ask_prefix == "Y" or ask_prefix == "y":
                 github_clone_all.get_repositories(
                     token, project, keywords, out)
@@ -67,48 +80,46 @@ if __name__ == "__main__":
         elif command == "config":
             # reset values with inputted values
             if arg1 == "edit":
-                project, keywords, out = defaults.edit_config()
+                project = defaults.edit_config_project()
+                keywords = defaults.edit_config_keywords()
+                out = defaults.edit_config_directory()
+                defaults.save_config_changes(project, keywords, out)
             elif arg1 == "reset":
                 print("Config values reset")
-                project = defaults.PROJECT
-                keywords = str(defaults.KEYWORDS).split(',')
-                out = defaults.OUT
+                project = defaults.get_project()
+                keywords = str(defaults.get_keywords()).split(',')
+                out = defaults.get_out()
             else:
                 print("Project: " + str(project))
                 print("Keywords: " + str(keywords))
                 print("Out: " + str(out))
         elif command == "list":
-            rep = "all"
-            if arg1 is not "":
-                rep = arg1
-            # list of repositories or files in specified repository returned
-            repo = file_list.list_files(rep, out)
-            for r in repo:
-                print(r)
+            if not os.path.exists("./" + str(out)):
+                print(
+                    "ERROR: Folder " +
+                    str(out) +
+                    " does not exist, please run get command")
+            else:
+                rep = "all"
+                if arg1 is not "":
+                    rep = arg1
+                # list of repositories or files in specified repository
+                # returned
+                repo = file_list.list_files(rep, out)
+                for r in repo:
+                    print(r)
         elif command == "analyze":
             while arg1 not in specifiers:
                 print("You must enter a specifier " + str(specifiers) + ".")
                 arg1 = str(input('Specifier: '))
             if arg1 == "source":
-                print("SOURCE")
+                analyze.analyze_source(out)
             elif arg1 == "comments":
-                print("COMMENTS")
+                analyze.analyze_comments()
             elif arg1 == "commits":
-                print("COMMITS")
+                analyze.analyze_commits(out)
             elif arg1 == "reflection":
-                listFiles = list()
-                for subdir, dirs, files in os.walk("./" + str(out)):
-                    for file in files:
-                        if file.endswith("reflection.md"):
-                            listFiles.append(os.path.join(subdir, file))
-                if len(listFiles) == 0:
-                    print("ERROR: File 'reflection.md' does not exist")
-                responses = list()
-                for File in listFiles:
-                    response = get_reflection.get_reflection(File)
-                    responses.append(response)
-                for res in responses:
-                    print(res)
+                analyze.analyze_reflection(out)
         elif command == "help":
             if arg1 == "":
                 print(display.display_help())

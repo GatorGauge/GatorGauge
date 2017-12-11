@@ -99,7 +99,10 @@ def display_quit_help():
 
 
 def format_command_description(
-        command_one_tuple, command_two_tuple=None, command_three_tuple=None, command_four_tuple=None):
+        command_one_tuple,
+        command_two_tuple=None,
+        command_three_tuple=None,
+        command_four_tuple=None):
     logging.info("Formatting first command")
     header = bold(command_one_tuple[0])
     command_one = command_one_tuple[1]
