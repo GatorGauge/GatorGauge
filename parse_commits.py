@@ -9,7 +9,7 @@ def number_of_commits(commit_str):
     commit_str = import_commits_as_string("../GatorGaugeSampleRepo")
     commit_list = commit_str.split(
         "--------------------------------------------------")
-    commit_count = len(commit_list)-1
+    commit_count = len(commit_list) - 1
     print(commit_count)
     return commit_count
 
