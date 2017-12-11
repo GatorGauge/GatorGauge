@@ -42,19 +42,19 @@ HELP_ARGUMENTS_ONE = "None"
 
 HELP_COMMAND_TWO = "help <command>"
 HELP_DESCRIPTION_TWO = \
-        "Show verbose description of usage " + \
-        "and show valid arguments for <command>"
+    "Show verbose description of usage " + \
+    "and show valid arguments for <command>"
 HELP_ARGUMENTS_TWO = \
-        "<command>: Command to show description " + \
-        "and valid arguments for.\nCan be any of the following:\n\t" + \
-        "\n\t".join(COMMANDS)
+    "<command>: Command to show description " + \
+    "and valid arguments for.\nCan be any of the following:\n\t" + \
+    "\n\t".join(COMMANDS)
 
 # get help info, preparing to add other arguments
 GET_HEADER = "get\n----"
 GET_COMMAND_ONE = "get"
 GET_DESCRIPTION_ONE = \
-        "Downloads repositories from Project " + \
-        "with specified Prefix to directory Out"
+    "Downloads repositories from Project " + \
+    "with specified Prefix to directory Out"
 GET_ARGUMENTS_ONE = "None"
 
 # config help info
@@ -81,8 +81,8 @@ LIST_ARGUMENTS_TWO = "<repo name>"
 ANALYZE_HEADER = "analyze\n----"
 ANALYZE_COMMAND_ONE = "analyze <target>"
 ANALYZE_DESCRIPTION_ONE = \
-        "Performs analysis for specified target " + \
-        "('source','comments','commits','reflection')"
+    "Performs analysis for specified target " + \
+    "('source','comments','commits','reflection')"
 ANALYZE_ARGUMENTS_ONE = "<target>"
 
 # quit help info
