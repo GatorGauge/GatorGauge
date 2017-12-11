@@ -1,8 +1,10 @@
+""" default parameters """
+
 import configparser
 
-config = configparser.ConfigParser()
-config.read("config.ini")
-PROJECT = config.get('Project', 'PROJECT')
-PREFIX = config.get('Prefix', 'PREFIX')
-TOKEN = config.get('Token', 'TOKEN')
-OUT = config.get('Out', 'OUT')
+CONFIG = configparser.ConfigParser()
+CONFIG.read("config.ini")
+PROJECT = CONFIG.get('Project', 'PROJECT')
+PREFIX = CONFIG.get('Prefix', 'PREFIX')
+TOKEN = CONFIG.get('Token', 'TOKEN')
+OUT = CONFIG.get('Out', 'OUT')
