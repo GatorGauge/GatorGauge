@@ -137,6 +137,6 @@ def show_vis(vis):
     # Removing name of module from path so that the path only includes up to the
     # directory where the HTML file is located.
     PATH_TO_HTML = PATH_TO_MODULE[:-len(MODULE_NAME)]
-    webbrowser.open("file:///" + PATH_TO_HTML + vis_html_file_name, new=2)
+    webbrowser.open("file:///" + PATH_TO_HTML + "e/" + vis_html_file_name, new=2)
     logging.info("Gensim visualization has been displayed.")
     return

@@ -7,6 +7,7 @@ import get_reflection
 import get_list_of_commits
 import analyze_java
 import java_to_string
+import gg_gensim
 
 
 def analyze_source(out):
@@ -100,5 +101,6 @@ def analyze_reflection(out):
         print(response)
         print(analyze_sentiment.get_sentence_sentiment(response))
         responses.append(response)
+        gg_gensim.gensim_analysis(response)
 
     # TODO: topic analysis
