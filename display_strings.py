@@ -72,13 +72,13 @@ LIST_ARGUMENTS_TWO = "<repo name>"
 # gensim help info (started, will finish with integration with repl)
 ANALYZE_HEADER = "analyze\n----"
 ANALYZE_COMMAND_ONE = "analyze <target>"
-ANALYZE_DESCRIPTION_ONE = "Performs analysis for specified target ('source','comments','commits','reflection')"
-ANALYZE_ARGUMENTS_ONE = "<target>"
+ANALYZE_DESCRIPTION_ONE = "Performs analysis for specified target "
+ANALYZE_ARGUMENTS_ONE = "<target>: 'source', 'comments', 'commits', or 'reflection'"
 
 # quit help info
 QUIT_HEADER = "quit\n----"
 QUIT_COMMAND = "quit"
-QUIT_DESCRIPTION = "Quits the Accelegator program"
+QUIT_DESCRIPTION = "Quits GatorGauge"
 QUIT_ARGUMENTS = "None"
 
 COMMAND_LABEL = "Command: "

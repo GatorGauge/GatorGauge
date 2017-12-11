@@ -134,4 +134,3 @@ def save_config_changes(project, keywords, out):
         with open('./config.ini', 'w') as config_file:
             config.write(config_file)
         config.read("config.ini")
-

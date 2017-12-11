@@ -38,6 +38,8 @@ def analyze_source(out):
 
 def analyze_comments():
     """ analyze comments """
+    # TODO: make analyze_comments go through folders in lab5 (for testing) and
+    # analyze those comments
     with open('./java/HelloWorld.java', 'r') as java_file:
         JAVA_STRING = java_file.read()
 
