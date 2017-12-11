@@ -99,6 +99,6 @@ def ratio_of_multiline_comments(java_string):
 def ratio_of_javadoc_comments(java_string):
     """Get the ratio of javadoc comments to the
         number of lines in the Java source code."""
-    total_number_of_lines = java_parser.getNumberOfLines(java_string)
+    total_number_of_lines = java_parser.get_number_of_lines(java_string)
     number_of_javadoc_comments = count_javadoc_java_comments(java_string)
     return float(number_of_javadoc_comments / total_number_of_lines)
