@@ -61,7 +61,7 @@ a directory named 'repos' which will be created upon running the get command.
 
 ## Execution
 
-### Run GatorGage
+### Run GatorGauge
 
 Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
 token entered into the command line after --token. A token must be entered each
