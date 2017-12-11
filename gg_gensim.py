@@ -19,41 +19,44 @@ import time
 
 def list_of_lists(content):
     """Makes a list of lists for gensim"""
+    gensim_list = []
     for line in content:
         # if filePath.endswith('README.md'): # formats README.md output, uncomment if needed
             # line = re.sub(r'(?s)(#)(.*?)(  )', '', line).strip()  # annoying
             # line, removes section headers from README.md files
         nextLine = list()
         if not line == '' and '#' not in line:  # removes unnecessary lines and headers
-            nextLine.append(line)
-            gensim_list.append(nextLine)
+            line = line.split('. ')
+            gensim_list.append(line)
+    #print(gensim_list)
     return gensim_list  # list of lists
 
-def flip_responses(gensim_list):
-    """Switch rows and columns in a list of lists."""
-    if gensim_list == []:
-        logging.error("Empty list given. No rows and columns to flip. Returning empty list.")
-        return []
-
-    if gensim_list is None:
-        logging.error("No list given to flip. Returning None.")
-        return None
-
-    # get the number of fields in each response to create that many lists
-    num_of_fields = len(gensim_list[0])
-
-    list_of_field_responses = [[] for i in repeat(None, num_of_fields)]
-    for response in gensim_list:
-        for field_index, field in enumerate(response):
-            list_of_field_responses[field_index].append(field)
-
-    print(list_of_field_responses)
-    return list_of_field_responses
+# def flip_responses(gensim_list):
+#     """Switch rows and columns in a list of lists."""
+#     if gensim_list == []:
+#         logging.error("Empty list given. No rows and columns to flip. Returning empty list.")
+#         return []
+#
+#     if gensim_list is None:
+#         logging.error("No list given to flip. Returning None.")
+#         return None
+#
+#     # get the number of fields in each response to create that many lists
+#     num_of_fields = len(gensim_list[0])
+#
+#     list_of_field_responses = [[] for i in repeat(None, num_of_fields)]
+#     for response in gensim_list:
+#         for field_index, field in enumerate(response):
+#             list_of_field_responses[field_index].append(field)
+#
+#     print(list_of_field_responses)
+#     return list_of_field_responses
 
 
 def gensim_analysis(list_responses):
     """Complete the analysis for each answer."""
     warnings.filterwarnings('ignore')
+    list_responses = list_of_lists(list_responses)
     tokens = create_tokens(list_responses)
     dictionary = dictionary_create(tokens)
     corpus = [dictionary.doc2bow(token) for token in tokens]
@@ -70,20 +73,17 @@ def create_tokens(list_responses):
     stoplist = get_stop_words('en')
     tokens = []
     for res in list_responses:
-        temp = []
         for word in res:
+            temp = []
             word = word.split()
-            #print(word)
             for word in word:
                 word = word.lower()
                 if not isinstance(word, int):
                     if not profanity.contains_profanity(word):
                         if word not in stoplist:
                             if word != "I":
-                                #print(word)
                                 temp.append(word)
-                                #print(temp)
-        tokens.append(temp)
+            tokens.append(temp)
 
     #print(tokens)
     return tokens
