@@ -1,38 +1,30 @@
-import emoji
-from emoji_data_python import emoji_data
-from .emoji_char import EmojiChar
+import re
 
-def emoji_counter(commit_str):
-    emoticon1 = re.finditer(ru'[:smile:]', s)
-    smileFace = sum(1 for _ in commit_str)
 
-    emoticon2 = re.finditer(ru'[:rage:]', s)
-    rageFace = sum(1 for _ in commit_str)
+def emoji_counter(s):
 
-    emoticon3 = re.finditer(ru'[:confused:]', s)
-    confusedFace = sum(1 for _ in commit_str)
+    emoticon1 = re.findall(":smile:",s)
+    emoticon2 = re.findall(":rage:",s)
+    emoticon3= re.findall(":confused:",s)
+    emoticon4 = re.findall(":thumbsdown:",s)
+    emoticon5 = re.findall(":hourglass:",s)
+    emoticon6 = re.findall(":sob:",s)
+    emoticon7 = re.findall(":neutral:",s)
+    emoticon8 = re.findall(":sunglasses:",s)
+    emoticon9 = re.findall(":raisedHands:",s)
+    emoticon10 = re.findall(":smilingImp:",s)
 
-    emoticon4 = re.finditer(ru'[:thumbsdown:]', s)
-    thumbsdown = sum(1 for _ in commit_str)
+    print("emojies: "+str(emoticon1)+str(emoticon2)+str(emoticon4))
+    print("SmileyFaces: ", len(emoticon1))
+    print("RageFaces: ", len(emoticon2))
+    print("Confused: ", len(emoticon3))
+    print("thumbsdown: ", len(emoticon4))
+    print("TimeConsuming: ", len(emoticon5))
+    print("Sad: ", len(emoticon6))
+    print("Neutral: ", len(emoticon7))
+    print("Cool: ", len(emoticon8))
+    print("RaisedHands: ", len(emoticon9))
+    print("SmilingImp: ", len(emoticon10))
 
-    emoticon5 = re.finditer(ru'[:hourglass:]', s)
-    hourglass = sum(1 for _ in commit_str)
-
-    emoticon6 = re.finditer(ru'[:sob:]', s)
-    sobFace = sum(1 for _ in commit_str)
-
-    emoticon7 = re.finditer(ru'[:neutral_face:]', s)
-    neutralFace = sum(1 for _ in commit_str)
-
-    emoticon8 = re.finditer(ru'[:sunglasses:]', s)
-    sunglassesFace = sum(1 for _ in commit_str)
-
-    emoticon9 = re.finditer(ru'[:raised_hands:]', s)
-    raisedHands = sum(1 for _ in commit_str)
-
-    emoticon10 = re.finditer(ru'[:smiling_imp:]', s)
-    smilingImp = sum(1 for _ in commit_str)
-
-    emojiData = ["smileFace", "rageFace", "confusedFace", "thumbsdown", "hourglass", "sobFace", "neutralFace", "sunglassesFace", "raisedHands", "smilingImp" ]
-
-    return emojiData
+if __name__ == "__main__":
+    emoji_counter()

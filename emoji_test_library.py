@@ -1,43 +1,33 @@
 import re
 
+
 def emoji_counter():
 
-    teststr = ["Lorem ipsum dolor sit amet, :smile:  :smile:  :rage:  consectetur :thumbsdown: adipiscing elit"]
+    teststr = "Lorem ipsum dolor sit amet, :smile:  :smile:  :rage:  consectetur :thumbsdown: adipiscing elit"
+    smileFace = 0
 
-    emoticon1 = enumerate(re.findall(":smile:"))
-    smileFace = sum(1 for _ in teststr)
+    emoticon1 = re.findall(":smile:",teststr)
+    emoticon2 = re.findall(":rage:",teststr)
+    emoticon3 = re.findall(":confused:",teststr)
+    emoticon4 = re.findall(":thumbsdown:",teststr)
+    emoticon5 = re.findall(":hourglass:",teststr)
+    emoticon6 = re.findall(":sob:",teststr)
+    emoticon7 = re.findall(":neutral:",teststr)
+    emoticon8 = re.findall(":sunglasses:",teststr)
+    emoticon9 = re.findall(":raisedHands:",teststr)
+    emoticon10 = re.findall(":smilingImp:",teststr)
 
-    
+    print("emojies: "+str(emoticon1)+str(emoticon2)+str(emoticon4))
+    print("SmileyFaces: ", len(emoticon1))
+    print("RageFaces: ", len(emoticon2))
+    print("Confused: ", len(emoticon3))
+    print("thumbsdown: ", len(emoticon4))
+    print("TimeConsuming: ", len(emoticon5))
+    print("Sad: ", len(emoticon6))
+    print("Neutral: ", len(emoticon7))
+    print("Cool: ", len(emoticon8))
+    print("RaisedHands: ", len(emoticon9))
+    print("SmilingImp: ", len(emoticon10))
 
-    emoticon2 = re.finditer(ru[:rage:], s)
-    rageFace = sum(1 for _ in teststr)
-
-    emoticon3 = re.finditer(ru[:confused:], s)
-    confusedFace = sum(1 for _ in teststr)
-
-    emoticon4 = re.finditer(ru[:thumbsdown:], s)
-    thumbsdown = sum(1 for _ in teststr)
-
-    emoticon5 = re.finditer(ru[:hourglass:], s)
-    hourglass = sum(1 for _ in teststr)
-
-    emoticon6 = re.finditer(ru[:sob:], s)
-    sobFace = sum(1 for _ in teststr)
-
-    emoticon7 = re.finditer(ru[:neutral_face:], s)
-    neutralFace = sum(1 for _ in teststr)
-
-    emoticon8 = re.finditer(ru[:sunglasses:], s)
-    sunglassesFace = sum(1 for _ in teststr)
-
-    emoticon9 = re.finditer(ru[:raised_hands:], s)
-    raisedHands = sum(1 for _ in teststr)
-
-    emoticon10 = re.finditer(ru[:smiling_imp:], s)
-    smilingImp = sum(1 for _ in teststr)
-
-    emojiData = [smileFace, "rageFace", "confusedFace", "thumbsdown", "hourglass", "sobFace", "neutralFace", "sunglassesFace", "raisedHands", "smilingImp" ]
-
-    print (emoticon1)
-    print (smileFace)
-    return emojiData
+if __name__ == "__main__":
+    emoji_counter()
