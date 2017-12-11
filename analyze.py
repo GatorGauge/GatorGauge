@@ -69,6 +69,7 @@ def analyze_comments():
         parse_comments.list_multiline_java_comments(JAVA_STRING)))
 
     # TODO: topic analysis on Java Docstrings
+    gg_gensim.gensim_analysis(COMMENTS)
 
 
 def analyze_commits(out):
@@ -82,7 +83,7 @@ def analyze_commits(out):
         print("\nSentiment Analysis for " + str(repo) + ": ")
         print(analyze_sentiment.get_sentence_sentiment(str(commits)))
 
-    # TODO: topic analysis
+    gg_gensim.gensim_analysis(commits)
 
 
 def analyze_reflection(out):
@@ -101,5 +102,3 @@ def analyze_reflection(out):
         responses.append(response)
     print(analyze_sentiment.get_sentence_sentiment(responses[0]))
     gg_gensim.gensim_analysis(responses)
-
-    # TODO: topic analysis
