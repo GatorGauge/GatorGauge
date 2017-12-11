@@ -80,24 +80,31 @@ if __name__ == "__main__":
         elif command == "config":
             # reset values with inputted values
             if arg1 == "edit":
-                project, keywords, out = defaults.edit_config()
+                project = defaults.edit_config_project()
+                keywords = defaults.edit_config_keywords()
+                out = defaults.edit_config_directory()
+                defaults.save_config_changes(project, keywords, out)
             elif arg1 == "reset":
                 print("Config values reset")
-                project = defaults.PROJECT
-                keywords = str(defaults.KEYWORDS).split(',')
-                out = defaults.OUT
+                project = defaults.get_project()
+                keywords = str(defaults.get_keywords()).split(',')
+                out = defaults.get_out()
             else:
                 print("Project: " + str(project))
                 print("Keywords: " + str(keywords))
                 print("Out: " + str(out))
         elif command == "list":
-            if not os.path.exists("./"+str(out)):
-                print("ERROR: Folder "+str(out)+" does not exist, please run get command")
+            if not os.path.exists("./" + str(out)):
+                print(
+                    "ERROR: Folder " +
+                    str(out) +
+                    " does not exist, please run get command")
             else:
                 rep = "all"
                 if arg1 is not "":
                     rep = arg1
-                # list of repositories or files in specified repository returned
+                # list of repositories or files in specified repository
+                # returned
                 repo = file_list.list_files(rep, out)
                 for r in repo:
                     print(r)
