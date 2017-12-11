@@ -39,10 +39,10 @@ def analyze_java(java_strings):
     for java_string in java_strings:
         java_string = j.remove_comments(java_string)
         try:
-            variableList.append(p.getNumberOfVariables(java_string))
-            methodList.append(p.getNumberOfMethods(java_string))
-            classList.append(p.getNumberOfClasses(java_string))
-            lineList.append(p.getNumberOfLines(java_string))
+            variableList.append(p.get_number_of_variables(java_string))
+            methodList.append(p.get_number_of_methods(java_string))
+            classList.append(p.get_number_of_classes(java_string))
+            lineList.append(p.get_number_of_lines(java_string))
         except(Exception):
             pass
     list_list["variables"] = variableList
