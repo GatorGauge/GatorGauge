@@ -60,7 +60,7 @@ pip3 install --user -r requirements.txt
 
 ### Basic Execution
 
-Type ```python3 gatorGauge.py```, will cause errors if there are no values in
+Type ```python3 gator_gauge.py```, will cause errors if there are no values in
 config.ini for Token and Project or if they are not supplied with the command
 line arguments.
 
@@ -110,7 +110,7 @@ Location to place downloaded repositories
 
 ## Usage
 
-GatorGage analyzes Computer Science 111 - Introduction to Computer Science I -
+GatorGauge analyzes Computer Science 111 - Introduction to Computer Science I -
 students' labs and practicals, gaining information on what was most difficult
 how long it took, and so on. Natural language processing is used in order to
 create visual displays for professors and future students to gain information
