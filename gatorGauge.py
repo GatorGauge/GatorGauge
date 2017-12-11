@@ -91,13 +91,16 @@ if __name__ == "__main__":
                 print("Keywords: " + str(keywords))
                 print("Out: " + str(out))
         elif command == "list":
-            rep = "all"
-            if arg1 is not "":
-                rep = arg1
-            # list of repositories or files in specified repository returned
-            repo = file_list.list_files(rep, out)
-            for r in repo:
-                print(r)
+            if not os.path.exists("./"+str(out)):
+                print("ERROR: Folder "+str(out)+" does not exist, please run get command")
+            else:
+                rep = "all"
+                if arg1 is not "":
+                    rep = arg1
+                # list of repositories or files in specified repository returned
+                repo = file_list.list_files(rep, out)
+                for r in repo:
+                    print(r)
         elif command == "analyze":
             while arg1 not in specifiers:
                 print("You must enter a specifier " + str(specifiers) + ".")
