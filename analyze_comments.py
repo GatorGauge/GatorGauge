@@ -6,9 +6,8 @@ from analyze_sentiment import get_avg_sentiment
 import parse_comments as pc
 
 
-def analyze_comments(out):
-    """ produce cohesive analysis output regarding comments """
-    java_source = get_java_strings(out)
+def calculate_averages(java_source):
+    """ calculate average comment counts and ratios """
 
     # accumulator vars
     sum_count_javadoc = 0
@@ -37,13 +36,34 @@ def analyze_comments(out):
     avg_ratio_multiline = sum_ratio_multiline / count_tracker
     avg_ratio_singleline = sum_ratio_singleline / count_tracker
 
+    return (
+        avg_count_javadoc,
+        avg_count_multiline,
+        avg_count_singleline,
+        avg_ratio_javadoc,
+        avg_ratio_multiline,
+        avg_ratio_singleline)
+
+
+def analyze_comments(out):
+    """ produce cohesive analysis output regarding comments """
+    java_source = get_java_strings(out)
+
+    # calculate averages
+    (avg_count_javadoc,
+     avg_count_multiline,
+     avg_count_singleline,
+     avg_ratio_javadoc,
+     avg_ratio_multiline,
+     avg_ratio_singleline) = \
+        calculate_averages(java_source)
+
     # handle sentiment analysis
-    (singleline_comments, multiline_comments, javadoc_comments) = \
-        pc.get_all_comments(java_source)
-    avg_sentiment = get_avg_sentiment(singleline_comments + multiline_comments)
+    (singleline, multiline, javadoc) = pc.get_all_comments(java_source)
+    avg_sentiment = get_avg_sentiment(singleline + multiline)
 
     # FIXME: handle gensim analysis
-    gensim_analysis(javadoc_comments)
+    gensim_analysis(javadoc)
 
     # format results for terminal printing
     string_buffer = "\n" + \
@@ -73,7 +93,5 @@ def analyze_comments(out):
         "<b>Average Sentiment</b>: " + avg_sentiment
 
     # ... and embed them
-
-    # FIXME: append html_buffer to generated LDA html page
-
-    # FIXME: automatically open gensim LDA html page?
+    # FIXME: append html_buffer to gensim html page
+    # FIXME: automatically open gensim html page
