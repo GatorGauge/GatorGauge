@@ -98,9 +98,8 @@ def analyze_reflection(out):
     for File in listFiles:
         response = get_reflection.get_reflection(File)
         # perform and print sentiment analysis
-        print(response)
-        print(analyze_sentiment.get_sentence_sentiment(response))
         responses.append(response)
-        gg_gensim.gensim_analysis(response)
+    print(analyze_sentiment.get_sentence_sentiment(responses[0]))
+    gg_gensim.gensim_analysis(responses)
 
     # TODO: topic analysis
