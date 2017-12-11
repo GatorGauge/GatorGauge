@@ -55,7 +55,7 @@ CONFIG_COMMAND_ONE = "config"
 CONFIG_DESCRIPTION_ONE = "show the values in the config file"
 CONFIG_ARGUMENTS_ONE = "None"
 
-CONFIG_COMMAND_TWO = "config edit"
+CONFIG_COMMAND_TWO = "config <option>"
 CONFIG_DESCRIPTION_TWO = "Edit or reset the values in the config file"
 CONFIG_ARGUMENTS_TWO = "<option>"
 
