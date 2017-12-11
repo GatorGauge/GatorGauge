@@ -128,7 +128,7 @@ def display_help():
     help_string = ""
 
     for current_index, command_tuple in enumerate(
-            display_strings.commands_list):
+            display_strings.COMMANDS_LIST):
         left = command_tuple[0]
         right = command_tuple[1]
         if current_index is 0:
