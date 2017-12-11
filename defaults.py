@@ -1,3 +1,5 @@
+""" configuration defaults and modifications """
+
 import configparser
 import os
 
@@ -26,7 +28,7 @@ def new_config():
     with open('./config.ini', 'w') as config_file:
         config.write(config_file)
 
-        
+
 def edit_config():
     """Allow user to edit each value in the config file."""
     ask_prefix = str(
