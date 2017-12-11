@@ -17,7 +17,7 @@ commands_list.append(
 commands_list.append(("config", "Print the values in the config file"))
 commands_list.append(
     ("config <option>",
-     "Edit or reset the values in the config file"))
+     "Edit or refresh the values in the config file, type 'help config' for more details"))
 # add list info
 commands_list.append(("list", "Lists all files"))
 commands_list.append(
@@ -56,8 +56,8 @@ CONFIG_DESCRIPTION_ONE = "show the values in the config file"
 CONFIG_ARGUMENTS_ONE = "None"
 
 CONFIG_COMMAND_TWO = "config <option>"
-CONFIG_DESCRIPTION_TWO = "Edit or reset the values in the config file"
-CONFIG_ARGUMENTS_TWO = "<option>"
+CONFIG_DESCRIPTION_TWO = "Edit or refresh the values in the config file"
+CONFIG_ARGUMENTS_TWO = "<option>: 'edit'- modify the values in the config or 'refresh'- reset the values (used if the values are not saved into the config or the config is manually updated)"
 
 # list help info
 LIST_HEADER = "list\n----"

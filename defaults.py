@@ -5,22 +5,22 @@ fSet = frozenset(defined_responses)
 
 config = configparser.ConfigParser(allow_no_value=True)
 config.read("config.ini")
-#PROJECT = ""
-#KEYWORDS = ""
-#OUT = "repos/"
 
 
 def get_project():
+    config.read("config.ini")
     PROJECT = config.get('Project', 'project')
     return PROJECT
 
 
 def get_keywords():
+    config.read("config.ini")
     KEYWORDS = config.get('Keywords', 'keywords')
     return KEYWORDS
 
 
 def get_out():
+    config.read("config.ini")
     OUT = config.get('Out', 'out')
     return OUT
 
@@ -134,6 +134,4 @@ def save_config_changes(project, keywords, out):
         with open('./config.ini', 'w') as config_file:
             config.write(config_file)
         config.read("config.ini")
-        #PROJECT = config.get('Project', 'project')
-        #KEYWORDS = config.get('Keywords', 'keywords')
-        #OUT = config.get('Out', 'out')
+

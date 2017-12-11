@@ -84,8 +84,8 @@ if __name__ == "__main__":
                 keywords = defaults.edit_config_keywords()
                 out = defaults.edit_config_directory()
                 defaults.save_config_changes(project, keywords, out)
-            elif arg1 == "reset":
-                print("Config values reset")
+            elif arg1 == "refresh":
+                print("Config values refreshed")
                 project = defaults.get_project()
                 keywords = str(defaults.get_keywords()).split(',')
                 out = defaults.get_out()
