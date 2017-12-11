@@ -6,11 +6,16 @@ import github_clone_all
 import parse_args
 import defaults
 import read_file
+import file_list
 
 if __name__ == "__main__":
     ARGS = parse_args.parse_args(sys.argv[1:])
     # checks if the required information is entered
-    if ARGS.token == "" and defaults.TOKEN == "" and ARGS.get is True and defaults.PROJECT == "" and ARGS.project == "":
+    if ARGS.token == "" \
+            and defaults.TOKEN == "" \
+            and ARGS.get is True \
+            and defaults.PROJECT == "" \
+            and ARGS.project == "":
         print("\tERROR: A Github token is required for the system to run." +
               " Please enter one in either config.ini or in the command line" +
               " with the --token flag")
@@ -32,7 +37,7 @@ if __name__ == "__main__":
         github_clone_all.get_repositories(
             ARGS.project, ARGS.prefix, ARGS.token, ARGS.out)
     # read inputed file
-    if ARGS.read is not "":
+    if ARGS.read:
         LIST_OF_FILES = list()
         for subdir, dirs, files in os.walk(ARGS.out):
             for file in files:
