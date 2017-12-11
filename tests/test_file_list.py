@@ -10,6 +10,7 @@ def test_list_files():
     assert len(folder_list) == expected_folder_size
     assert all(folder in folder_list for folder in expected_folder_list)
 
+
 def test_list_files_one():
     repo = "testFolder1"
     out = "tests/fileListTestFolder"
