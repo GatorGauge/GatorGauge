@@ -1,45 +1,34 @@
 # GatorGauge
 
-GatorGauge is a tool made for professors to easily gain information on
-abs and practicals completed by their classes. GatorGauge enables professors
-to download and analyze the information in student repositories in order to
-gain knowledge on how long the projects took, the average number of commits,
-where students had the most difficulty. GatorGauge analyzes README files,
-commits, source code and source code comments. This tool can be used by
-future students as well, allowing them to gain the same information about
-the course work.
+GatorGauge is a tool that allows professors to easily gain information on
+practicals and laboratory assignments completed by their students. GatorGauge
+enables professors to download and analyze the information in student
+repositories in order to gain knowledge on how long the projects took, the
+average number of commits, and where students had the most difficulty.
+GatorGauge analyzes README files, commits, source code and comments. This tool
+can be used by future students as well, allowing them to gain the same
+information about the course work.
 
 ## Installation
 
-GatorGauge is a python 3 program and, therefore, uses
-[pip](https://pip.pypa.io/en/stable/installing/) for installation. Type the
-following commands before running the program:
+GatorGauge is a python 3 program and, therefore, uses [pip][1] for handling
+dependencies. The following commands must be executed before running the
+system:
+
+[1]: https://pip.pypa.io/en/stable/installing/
 
 ```
 pip3 install --upgrade pip
-
-```
-
-```
 pip3 install --user -r requirements.txt
-
-```
-
-To support sentiment analysis, also run the following commands.
-
-```
-python3
->>> import nltk
->>> nltk.download("vader_lexicon")
 ```
 
 ## Config.ini
 
-Default Variables. Do not place the variables inside of "".
-The program will automatically create one for you upon first execution
-and prompt you to fill in the values.Project must receive valid
-inputs in order for the program to download any repositories. This
-values can be edited from the command line with the command:
+Default Variables. Do not place the variables inside of "". The program will
+automatically create one for you upon first execution and prompt you to fill in
+the values.Project must receive valid inputs in order for the program to
+download any repositories. This values can be edited from the command line with
+the command:
 
 ```
 config edit
@@ -56,16 +45,16 @@ the repository.
 
 ### Out
 
-Folder to place all of the downloaded repositories inside of. Defaults to
-a directory named 'repos' which will be created upon running the get command.
+Folder to place all of the downloaded repositories inside of. Defaults to a
+directory named 'repos' which will be created upon running the get command.
 
 ## Execution
 
 ### Run GatorGauge
 
-Type ```python3 gator_gauge.py --token``` into the terminal with a Github access
-token entered into the command line after --token. A token must be entered each
-time the program is started for security reasons.
+Type `python3 gator_gauge.py --token` into the terminal with a Github
+access token entered into the command line after --token. A token must be
+entered each time the program is started for security reasons.
 
 When users first run the program these questions will be asked if a new config
 file is generated:
@@ -87,11 +76,10 @@ Save changes (y/n) --> should be yes for first run
 
 ### Commands
 
-Download the project(named in Config.ini or given with the config command).
-
 #### REPL commands
 
-`get` downloads the project (named in Config.ini or given with the config command).
+`get` downloads the project (named in `Config.ini` or given with the config
+command).
 
 `config` prints the values in the config file or temporarily change the config
 values or if the second config command is used the user can either edit the
@@ -114,29 +102,28 @@ and future students to gain information on the work.
 
 ### Process
 
-GatorGauge should retrieve the entirety of a specified repository's commit logs,
-as well as all current files, and then analyze the comments, code, and commit
-logs as follows.
+GatorGauge should retrieve the entirety of a specified repository's commit
+logs, as well as all current files, and then analyze the comments, code, and
+commit logs as follows.
 
 #### Comments
 
 GatorGauge will, across all downloaded repositories, analyze and return to the
 viewer a refined list for each single-line and multi-line comments for all
 program files in the given repository, as well as count an average number of
-single-line and multi-line comments per file. It will also calculate the average
-ratios between lines of each and lines of source code.
-Finally, comments analysis will provide Gensim sentiment analysis for
-single-line comments and topic analysis for multi-line comments.
+single-line and multi-line comments per file. It will also calculate the
+average ratios between lines of each and lines of source code.  Finally,
+comments analysis will provide Gensim sentiment analysis for single-line
+comments and topic analysis for multi-line comments.
 
 #### Code
 
-GatorGauge will calculate the average number of and standard deviation of each
-of:
+GatorGauge will calculate the average number of and standard deviation of:
 
-Variables
-Methods
-Classes
-Lines
+* Variables
+* Methods
+* Classes
+* Lines
 
 #### Commit Logs
 
@@ -165,10 +152,10 @@ python3 -m pytest tests
 
 ### Automatic Linting
 
-The linting automatically checks to ensure code is up to pep8 standards. If
-linting errors occur, run the following command to perform automatic linting. If
-there are errors that the tool cannot fix, the test suite will tell you where
-and what the errors are so that you may go to the location and fix them.
+The linting automatically checks to ensure code is up to PEP8 standards. If
+linting errors occur, run the following command to perform automatic linting.
+If there are errors that the tool cannot fix, the test suite will tell you
+where and what the errors are so that you may go to the location and fix them.
 
 ```
 autopep8 --in-place --aggressive *.py
@@ -176,16 +163,16 @@ autopep8 --in-place --aggressive *.py
 
 ### Test Coverage
 
-Test coverage is being addressed by Coveralls so that when Travis-CI runs, it can
-evaluate the coverage of the test suite. When testing Gensim, the weight of the
-topics of related words could not be tested. This is because randomness it built
-into Gensim and thus the answers would not be consistent.
+Test coverage is being addressed by Coveralls so that when Travis-CI runs, it
+can evaluate the coverage of the test suite. When testing Gensim, the weight of
+the topics of related words could not be tested. This is because Gensim
+intentionally adds some degree of randomness, and thus the results would not be
+consistent.
 
 ### Activating Travis-CI
 
-Travis can only be implemented by admin accounts. Admin users can activate Travis
-by creating a travis.yml in the project's root
-directory.
+Travis can only be implemented by admin accounts. Admin users can activate
+Travis by creating a `travis.yml` in the project's root directory.
 
 ## Questions or Comments
 
