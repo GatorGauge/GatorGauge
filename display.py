@@ -107,16 +107,16 @@ def display_quit_help():
 
 
 def format_command_description(
-<<<<<<< HEAD
+
         command_one_tuple,
         command_two_tuple=None,
         command_three_tuple=None,
         command_four_tuple=None):
-=======
-        command_one_tuple, command_two_tuple=None,
-        command_three_tuple=None, command_four_tuple=None):
-    """ format command descriptions """
->>>>>>> origin/master
+
+   #     command_one_tuple, command_two_tuple=None,
+   #     command_three_tuple=None, command_four_tuple=None):
+   # """ format command descriptions """
+
     logging.info("Formatting first command")
     header = bold(command_one_tuple[0])
     command_one = command_one_tuple[1]

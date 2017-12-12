@@ -51,7 +51,7 @@ def analyze_comments():
           str(parse_comments.count_singleline_java_comments(JAVA_STRING)))
 
     print("Ratio of singleline comments to total Java source code lines: " +
-          str(parse_comments.get_ratio_of_singleline_comments_to_source_code(JAVA_STRING)))
+          str(parse_comments.ratio_of_singleline_comments_to_source_code(JAVA_STRING)))
 
     COMMENTS = parse_comments.list_multiline_java_comments(JAVA_STRING)
     print("\nMultiline comments\n------------------")
@@ -61,7 +61,7 @@ def analyze_comments():
           str(parse_comments.count_multiline_java_comments(JAVA_STRING)))
 
     print("Ratio of multiline comments to total Java source code lines: " +
-          str(parse_comments.get_ratio_of_multiline_comments_to_source_code(JAVA_STRING)))
+          str(parse_comments.ratio_of_multiline_comments_to_source_code(JAVA_STRING)))
     print("Sentiment analysis on single-line comments:")
     print(analyze_sentiment.get_avg_sentiment(
         parse_comments.list_singleline_java_comments(JAVA_STRING)))
@@ -88,19 +88,19 @@ def analyze_commits(out):
 
 def analyze_reflection(out):
     """ analyze reflections """
-    listFiles = list()
+    LISTFILES = list()
     for subdir, dirs, files in os.walk("./" + str(out)):
         for file in files:
             if file.endswith("reflection.md"):
-                listFiles.append(os.path.join(subdir, file))
-    if len(listFiles) == 0:
+                LISTFILES.append(os.path.join(subdir, file))
+    if not LISTFILES:
         print("ERROR: File 'reflection.md' does not exist")
-    responses = list()
-    for File in listFiles:
+    RESPONSES = list()
+    for File in LISTFILES:
         response = get_reflection.get_reflection(File)
         # perform and print sentiment analysis
         print(response)
         print(analyze_sentiment.get_sentence_sentiment(response))
-        responses.append(response)
+        RESPONSES.append(response)
 
     # TODO: topic analysis

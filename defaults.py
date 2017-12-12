@@ -50,11 +50,7 @@ def new_config():
     save_config_changes(project, keywords, out)
 
 
-<<<<<<< HEAD
 def edit_config_project():
-=======
-def edit_config():
->>>>>>> origin/master
     """Allow user to edit each value in the config file."""
     ask_prefix = str(
         input(
@@ -91,6 +87,7 @@ def edit_config_keywords():
     if ask_prefix is "Y" or ask_prefix is "y":
         keywords = ask_prefix = str(
             input("Enter new Keywords (seperated by ','): "))
+        keywords = keywords.replace(" ", "")
     else:
         keywords = config.get('Keywords', 'keywords')
     return keywords

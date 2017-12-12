@@ -12,15 +12,9 @@ COMMANDS_LIST.append(
     ("help <command>", "List verbose description of <command> " +
      "and show valid arguments for <command>"))
 # add get info
-<<<<<<< HEAD
-commands_list.append(
-    ("get",
-     "Downloads repositories from Project with specified Prefix to directory Out"))
-=======
 COMMANDS_LIST.append(
     ("get", "Downloads repositories from Project " +
      "with specified Prefix to directory Out"))
->>>>>>> origin/master
 # add config info
 COMMANDS_LIST.append(("config", "Print the values in the config file"))
 COMMANDS_LIST.append(
@@ -31,15 +25,9 @@ COMMANDS_LIST.append(("list", "Lists all files"))
 COMMANDS_LIST.append(
     ("list <repo name>", "Lists all files in the inputted repository"))
 # add analyze info
-<<<<<<< HEAD
-commands_list.append(
-    ("analyze <target>",
-     "Performs analysis for specified target ('source','comments','commits','reflection')"))
-=======
 COMMANDS_LIST.append(
     ("analyze <target>", "Performs analysis for specified target " +
      "('source','comments','commits','reflection')"))
->>>>>>> origin/master
 # add quit info
 COMMANDS_LIST.append(("quit", "Exit the program"))
 
@@ -92,15 +80,8 @@ LIST_ARGUMENTS_TWO = "<repo name>"
 # gensim help info (started, will finish with integration with repl)
 ANALYZE_HEADER = "analyze\n----"
 ANALYZE_COMMAND_ONE = "analyze <target>"
-<<<<<<< HEAD
 ANALYZE_DESCRIPTION_ONE = "Performs analysis for specified target "
 ANALYZE_ARGUMENTS_ONE = "<target>: 'source', 'comments', 'commits', or 'reflection'"
-=======
-ANALYZE_DESCRIPTION_ONE = \
-    "Performs analysis for specified target " + \
-    "('source','comments','commits','reflection')"
-ANALYZE_ARGUMENTS_ONE = "<target>"
->>>>>>> origin/master
 
 # quit help info
 QUIT_HEADER = "quit\n----"
