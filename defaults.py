@@ -50,7 +50,6 @@ def new_config():
     save_config_changes(project, keywords, out)
 
 
-
 def edit_config():
     """Allow user to edit each value in the config file."""
     ask_prefix = str(
