@@ -118,6 +118,13 @@ GatorGauge should retrieve the entirety of a specified repository's commit logs,
 as well as all current files, and then analyze the comments, code, and commit
 logs as follows.
 
+#### Reflections
+
+GatorGauge analyzes student reflections from downloaded repositories. It does
+Gensim analysis on relevant topics within the reflection documents. Sentiment
+analysis is also implemented in the system in order to obtain the overall
+feeling on all the reflections on the labs or practicals.
+
 #### Comments
 
 GatorGauge will, across all downloaded repositories, analyze and return to the
