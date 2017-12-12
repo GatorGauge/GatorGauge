@@ -18,8 +18,6 @@ def analyze_commits(out):
     #print("Number of commits: " + str(len(return_list)))
     write_string += "Number of commits: " + str(len(return_list)) + "\n"
 
-    
-
     sentiment = get_avg_sentiment(return_list)
     for key, value in sentiment.items():
         #print(key, value)
