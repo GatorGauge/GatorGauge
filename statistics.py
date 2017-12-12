@@ -15,7 +15,10 @@ def get_statistics(numerical_list):
     return stat_string
 
 
-def print_statistics(dictionary):
+def combine_statistics(dictionary):
     """ pretty-print statistics dictionary """
+    stat_string = ""
     for key, values in dictionary.items():
-        print(key + "\n" + get_statistics(values))
+        curr_stat = key + "\n" + get_statistics(values)
+        stat_string = stat_string + "\n" + curr_stat + "\n"
+    return stat_string
