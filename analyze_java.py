@@ -4,6 +4,7 @@ import os
 import statistics
 import java_to_string as j
 import java_parser as p
+import WriteToFile as wtf
 
 
 def get_file_paths(filetype, location):
@@ -68,5 +69,5 @@ def analyze_java(out):
     stat_dictionary = get_source_code_values(java_strings)
     stat_string = statistics.combine_statistics(stat_dictionary)
     print(stat_string)
-    fileName = input("What would you like the file name to be called?")
-    WriteToExistingFile(stat_string, FileName)
+    fileName = input("What would you like the file name to be called? ")
+    wtf.WriteToExistingFile(stat_string, fileName)
