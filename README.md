@@ -53,7 +53,7 @@ directory named 'repos' which will be created upon running the get command.
 ### Run GatorGauge
 
 Type `python3 gator_gauge.py --token` into the terminal with a Github
-access token entered into the command line after --token. A token must be
+access token entered into the command line after `--token`. A token must be
 entered each time the program is started for security reasons.
 
 When users first run the program these questions will be asked if a new config
