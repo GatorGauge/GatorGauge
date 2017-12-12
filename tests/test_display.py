@@ -20,7 +20,7 @@ def test_display_get_help():
 
 
 def test_display_config_help():
-    expected_config_help = """\x1b[1mconfig\n----\x1b[0m\nCommand: config\nDescription: show the values in the config file\nArguments: None\n\nCommand: config <option>\nDescription: Edit or reset the values in the config file\nArguments: <option>\n"""
+    expected_config_help = """\x1b[1mconfig\n----\x1b[0m\nCommand: config\nDescription: show the values in the config file\nArguments: None\n\nCommand: config <option>\nDescription: Edit or refresh the values in the config file\nArguments: <option>: 'edit'- modify the values in the config or 'refresh'- reset the values (used if the values are not saved into the config or the config is manually updated)\n"""
     config_help = display.display_config_help()
     assert repr(config_help) == repr(expected_config_help)
 
@@ -32,12 +32,12 @@ def test_display_list_help():
 
 
 def test_display_analyze_help():
-    expected_analyze_help = """\x1b[1manalyze\n----\x1b[0m\nCommand: analyze <target>\nDescription: Performs analysis for specified target ('source','comments','commits','reflection')\nArguments: <target>\n"""
+    expected_analyze_help = """\x1b[1manalyze\n----\x1b[0m\nCommand: analyze <target>\nDescription: Performs analysis for specified target \nArguments: <target>: 'source', 'comments', 'commits', or 'reflection'\n"""
     analyze_help = display.display_analyze_help()
     assert repr(analyze_help) == repr(expected_analyze_help)
 
 
 def test_display_quit_help():
-    expected_quit_help = """\x1b[1mquit\n----\x1b[0m\nCommand: quit\nDescription: Quits the Accelegator program\nArguments: None\n"""
+    expected_quit_help = """\x1b[1mquit\n----\x1b[0m\nCommand: quit\nDescription: Quits GatorGauge\nArguments: None\n"""
     quit_help = display.display_quit_help()
     assert repr(quit_help) == repr(expected_quit_help)

@@ -42,8 +42,7 @@ def calculate_averages(java_source):
 
 def analyze_comments(out):
     """ produce cohesive analysis output regarding comments """
-    java_source = get_java_strings(out)
-
+    java_source = get_java_strings("./" + out)
     # calculate averages
     (avg_count_javadoc,
      avg_count_multiline,

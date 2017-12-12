@@ -4,29 +4,29 @@ import configparser
 
 GENSIM_OUTPUT_FILENAME = "vis.html"
 
+GENSIM_HTML_OUT = "vis.html"
+
 defined_responses = {"y", "Y", "n", "N"}
 fSet = frozenset(defined_responses)
 
 config = configparser.ConfigParser(allow_no_value=True)
 config.read("config.ini")
-#PROJECT = ""
-#KEYWORDS = ""
-#OUT = "repos/"
-
-GENSIM_HTML_OUT = "vis.html"
 
 
 def get_project():
+    config.read("config.ini")
     PROJECT = config.get('Project', 'project')
     return PROJECT
 
 
 def get_keywords():
+    config.read("config.ini")
     KEYWORDS = config.get('Keywords', 'keywords')
     return KEYWORDS
 
 
 def get_out():
+    config.read("config.ini")
     OUT = config.get('Out', 'out')
     return OUT
 
@@ -42,8 +42,8 @@ def new_config():
         '; keyword list, filters down repositories exclusively')
     config.set('Keywords', 'KEYWORDS', "")
     config.add_section('Out')
-    config.set('Out', '; default: repos/')
-    config.set('Out', 'OUT', "repos/")
+    config.set('Out', '; default: repos')
+    config.set('Out', 'OUT', "repos")
     config.add_section('Setup')
 
     with open('./config.ini', 'w') as config_file:
@@ -54,7 +54,7 @@ def new_config():
     save_config_changes(project, keywords, out)
 
 
-def edit_config():
+def edit_config_project():
     """Allow user to edit each value in the config file."""
     ask_prefix = str(
         input(
@@ -91,6 +91,7 @@ def edit_config_keywords():
     if ask_prefix is "Y" or ask_prefix is "y":
         keywords = ask_prefix = str(
             input("Enter new Keywords (seperated by ','): "))
+        keywords = keywords.replace(" ", "")
     else:
         keywords = config.get('Keywords', 'keywords')
     return keywords
@@ -134,12 +135,9 @@ def save_config_changes(project, keywords, out):
             'Keywords',
             '; keyword list, filters down repositories exclusively')
         config.set('Keywords', 'KEYWORDS', keywords)
-        config.set('Out', '; default: repos/')
+        config.set('Out', '; default: repos')
         config.set('Out', 'OUT', out)
 
         with open('./config.ini', 'w') as config_file:
             config.write(config_file)
         config.read("config.ini")
-        #PROJECT = config.get('Project', 'project')
-        #KEYWORDS = config.get('Keywords', 'keywords')
-        #OUT = config.get('Out', 'out')
