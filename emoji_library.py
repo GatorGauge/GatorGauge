@@ -8,16 +8,16 @@ def get_emojis_count(list_of_commits):
         neutral = sunglasses = raisedHands = smilingImp = 0
 
     for commit in list_of_commits:
-        smile += len(re.findall(":smile:", list_of_commits))
-        rage += len(re.findall(":rage:", list_of_commits))
-        confused += len(re.findall(":confused:", list_of_commits))
-        thumbsdown += len(re.findall(":thumbsdown:", list_of_commits))
-        hourglass += len(re.findall(":hourglass:", list_of_commits))
-        sob += len(re.findall(":sob:", list_of_commits))
-        neutral += len(re.findall(":neutral:", list_of_commits))
-        sunglasses += len(re.findall(":sunglasses:", list_of_commits))
-        raisedHands += len(re.findall(":raisedHands:", list_of_commits))
-        smilingImp += len(re.findall(":smilingImp:", list_of_commits))
+        smile += len(re.findall(":smile:", commit))
+        rage += len(re.findall(":rage:", commit))
+        confused += len(re.findall(":confused:", commit))
+        thumbsdown += len(re.findall(":thumbsdown:", commit))
+        hourglass += len(re.findall(":hourglass:", commit))
+        sob += len(re.findall(":sob:", commit))
+        neutral += len(re.findall(":neutral:", commit))
+        sunglasses += len(re.findall(":sunglasses:", commit))
+        raisedHands += len(re.findall(":raisedHands:", commit))
+        smilingImp += len(re.findall(":smilingImp:", commit))
 
     emojis_count = {"smile": smile,
                     "rage": rage,
