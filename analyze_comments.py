@@ -10,9 +10,6 @@ def calculate_averages(java_source):
     """ calculate average comment counts and ratios """
 
     # accumulator vars
-    sum_count_javadoc = 0
-    sum_count_multiline = 0
-    sum_count_singleline = 0
     sum_ratio_javadoc = 0
     sum_ratio_multiline = 0
     sum_ratio_singleline = 0
@@ -20,9 +17,6 @@ def calculate_averages(java_source):
 
     # accumulate counts and ratios
     for java_string in java_source:
-        sum_count_javadoc += pc.count_javadoc_java_comments(java_string)
-        sum_count_multiline += pc.count_multiline_java_comments(java_string)
-        sum_count_singleline += pc.count_singleline_java_comments(java_string)
         ratios = pc.get_ratios_of_comments(java_string)
         sum_ratio_javadoc += ratios["javadoc"]
         sum_ratio_multiline += ratios["multiline"]
@@ -30,17 +24,15 @@ def calculate_averages(java_source):
         count_tracker += 1  # track how many we've summed thus far
 
     # convert summations to averages
-    avg_count_javadoc = sum_count_javadoc / count_tracker
-    avg_count_multiline = sum_count_multiline / count_tracker
-    avg_count_singleline = sum_count_singleline / count_tracker
     avg_ratio_javadoc = sum_ratio_javadoc / count_tracker
     avg_ratio_multiline = sum_ratio_multiline / count_tracker
     avg_ratio_singleline = sum_ratio_singleline / count_tracker
+    avg_counts = pc.get_avg_nums_of_comments(java_source)
 
     return (
-        avg_count_javadoc,
-        avg_count_multiline,
-        avg_count_singleline,
+        avg_counts["javadoc"],
+        avg_counts["multiline"],
+        avg_counts["singleline"],
         avg_ratio_javadoc,
         avg_ratio_multiline,
         avg_ratio_singleline)
