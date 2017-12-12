@@ -70,5 +70,6 @@ def analyze_java(out):
     stat_dictionary = get_source_code_values(java_strings)
     stat_string = statistics.combine_statistics(stat_dictionary)
     print(stat_string)
-    fileName = input("What would you like the file name to be called? ")
+    fileName = input("What would you like the file name to be called? ") \
+        + ".txt"
     wtf.WriteToExistingFile(stat_string, fileName)
