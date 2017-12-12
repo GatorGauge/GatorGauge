@@ -24,11 +24,11 @@ pip3 install --user -r requirements.txt
 
 ## Config.ini
 
-Default Variables. Do not place the variables inside of "". The program will
+Default Variables. Do not wrap variables in quotes. The program will
 automatically create one for you upon first execution and prompt you to fill in
-the values.Project must receive valid inputs in order for the program to
-download any repositories. This values can be edited from the command line with
-the command:
+the values. Project must receive valid inputs in order for the program to
+download any repositories. These values can be edited from the command line
+with the command:
 
 ```
 config edit
