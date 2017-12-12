@@ -12,8 +12,8 @@ def get_statistics(numerical_list):
         str(np.max(numerical_list)) + " mean: " + \
         str(np.mean(numerical_list)) + " StdDev: " + \
         str(np.std(numerical_list)) + " iqr: " + \
-        str(iqr) + " total: " + str(np.sum(numerical_list))
-    return stat_string
+        str(iqr) + " total: " + str(np.sum(numerical_list)) #converts min, max, mean, standard deviation, and iqr to string
+    return stat_string # returns string containing min, max, mean, standard deviation, and iqr
 
 
 def combine_statistics(dictionary):
@@ -22,4 +22,4 @@ def combine_statistics(dictionary):
     for key, values in dictionary.items():
         curr_stat = key + "\n" + get_statistics(values)
         stat_string = stat_string + "\n" + curr_stat + "\n"
-    return stat_string
+    return stat_string #neatly prints out values from get_statistics function
