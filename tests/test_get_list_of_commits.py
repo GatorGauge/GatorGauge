@@ -1,4 +1,4 @@
-from get_list_of_commits import get_list_of_commits
+from analyze_commits import get_list_of_commits
 from dulwich.repo import Repo
 from pathlib import Path
 from os import mkdir
@@ -26,7 +26,7 @@ def setup():
 def test_get_list_of_commits():
     """Test the functionality of getting_list_of_commits"""
     list = []
-    list = (get_list_of_commits("SampleRepo"))
+    list = (get_list_of_commits("./SampleRepo"))
     assert len(list) == 3
     assert "Initial commit" in list
     assert "added lab3" in list

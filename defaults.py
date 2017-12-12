@@ -4,13 +4,13 @@ import configparser
 
 GENSIM_OUTPUT_FILENAME = "vis.html"
 
+GENSIM_HTML_OUT = "vis.html"
+
 defined_responses = {"y", "Y", "n", "N"}
 fSet = frozenset(defined_responses)
 
 config = configparser.ConfigParser(allow_no_value=True)
 config.read("config.ini")
-
-GENSIM_HTML_OUT = "vis.html"
 
 
 def get_project():

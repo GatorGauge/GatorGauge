@@ -11,7 +11,7 @@ import parse_args
 import analyze_commits
 import analyze_java
 import analyze_comments
-import analyze
+import analyze_reflection
 
 
 if __name__ == "__main__":
@@ -106,7 +106,7 @@ if __name__ == "__main__":
             elif ARG1 == "commits":
                 analyze_commits.analyze_commits(OUT)
             elif ARG1 == "reflection":
-                analyze.analyze_reflection(OUT)
+                analyze_reflection.analyze_reflection(OUT)
         elif COMMAND == "help":
             if ARG1 == "":
                 print(display.display_help())
