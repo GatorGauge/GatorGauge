@@ -23,9 +23,10 @@ def calculate_averages(java_source):
         sum_count_javadoc += pc.count_javadoc_java_comments(java_string)
         sum_count_multiline += pc.count_multiline_java_comments(java_string)
         sum_count_singleline += pc.count_singleline_java_comments(java_string)
-        sum_ratio_javadoc += pc.ratio_of_javadoc_comments(java_string)
-        sum_ratio_multiline += pc.ratio_of_multiline_comments(java_string)
-        sum_ratio_singleline += pc.ratio_of_singleline_comments(java_string)
+        ratios = pc.get_ratios_of_comments(java_string)
+        sum_ratio_javadoc += ratios["javadoc"]
+        sum_ratio_multiline += ratios["multiline"]
+        sum_ratio_singleline += ratios["singleline"]
         count_tracker += 1  # track how many we've summed thus far
 
     # convert summations to averages
