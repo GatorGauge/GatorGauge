@@ -19,13 +19,15 @@ install:
   - pip3 install pytest-flake8
   - pip3 install autopep8
   - pip3 install gspread oauth2client
+  - pip3 install ansicolors
   - pip3 install coveralls
 
 script:
   - mdl README.md
-  #- pytest tests
-  #- coverage run --source tests -m py.test
-  #- coverage report
+  - python3 download_vader_lexicon.py
+  - pytest tests
+  - coverage run --source tests -m py.test
+  - coverage report
 
 after_success:
-  #coveralls
+  coveralls
