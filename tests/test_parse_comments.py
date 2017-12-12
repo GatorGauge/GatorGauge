@@ -33,6 +33,10 @@ comment_19
 /*
  * comment_20
  */
+
+/**
+ * javadoc
+ */
 """
 
 
@@ -100,5 +104,25 @@ def test_count_comments():
     """ check all comments are caught """
     singleline_comments = pc.list_singleline_java_comments(JAVA_SOURCE)
     multiline_comments = pc.list_multiline_java_comments(JAVA_SOURCE)
+    javadoc_comments = pc.list_javadoc_comments(JAVA_SOURCE)
     assert len(singleline_comments) == 13
     assert len(multiline_comments) == 6
+    assert len(javadoc_comments) == 1
+
+
+def test_javadoc_comments():
+    """ check that javadoc comments are caught """
+    assert "javadoc" not in pc.list_multiline_java_comments(JAVA_SOURCE)
+    assert "javadoc" not in pc.list_singleline_java_comments(JAVA_SOURCE)
+    assert "javadoc" in pc.list_javadoc_comments(JAVA_SOURCE)
+
+
+def test_get_all_comments():
+    """ check that destructured get_all_comments parts are correct """
+    singleline_comments = pc.list_singleline_java_comments(JAVA_SOURCE)
+    multiline_comments = pc.list_multiline_java_comments(JAVA_SOURCE)
+    javadoc_comments = pc.list_javadoc_comments(JAVA_SOURCE)
+    assert pc.get_all_comments(JAVA_SOURCE) == (
+        singleline_comments,
+        multiline_comments,
+        javadoc_comments)

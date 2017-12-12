@@ -1,13 +1,15 @@
-"""Format and return strings to display.  Used the format from Accelegator for this file"""
-from colors import bold
+"""Format and return strings to display.  Used the format from Accelegator for
+this file"""
+
 import logging
 import textwrap
-# local import
+from colors import bold
 import display_strings
 
 
 def display_help_with_command(command):
-    """Return a string with verbose description and valid arguments for a command."""
+    """Return a string with verbose description and valid arguments for a
+    command."""
     command_functions = {
         "help": display_help_help,
         "get": display_get_help,
@@ -21,6 +23,7 @@ def display_help_with_command(command):
 
 
 def display_help_help():
+    """ display help for the help command """
     command_one_tuple = (display_strings.HELP_HEADER,
                          display_strings.HELP_COMMAND_ONE,
                          display_strings.HELP_DESCRIPTION_ONE,
@@ -36,6 +39,7 @@ def display_help_help():
 
 
 def display_get_help():
+    """ display help for the get command """
     command_tuple = (display_strings.GET_HEADER,
                      display_strings.GET_COMMAND_ONE,
                      display_strings.GET_DESCRIPTION_ONE,
@@ -47,6 +51,7 @@ def display_get_help():
 
 
 def display_config_help():
+    """ display help for the config command """
     command_one_tuple = (display_strings.CONFIG_HEADER,
                          display_strings.CONFIG_COMMAND_ONE,
                          display_strings.CONFIG_DESCRIPTION_ONE,
@@ -64,6 +69,7 @@ def display_config_help():
 
 
 def display_list_help():
+    """ display help for the list command """
     command_one_tuple = (display_strings.LIST_HEADER,
                          display_strings.LIST_COMMAND_ONE,
                          display_strings.LIST_DESCRIPTION_ONE,
@@ -80,6 +86,7 @@ def display_list_help():
 
 
 def display_analyze_help():
+    """ display help for the analyze command """
     command_one_tuple = (display_strings.ANALYZE_HEADER,
                          display_strings.ANALYZE_COMMAND_ONE,
                          display_strings.ANALYZE_DESCRIPTION_ONE,
@@ -90,6 +97,7 @@ def display_analyze_help():
 
 
 def display_quit_help():
+    """ display help for the quit command """
     command_tuple = (display_strings.QUIT_HEADER,
                      display_strings.QUIT_COMMAND,
                      display_strings.QUIT_DESCRIPTION,
@@ -99,39 +107,44 @@ def display_quit_help():
 
 
 def format_command_description(
+<<<<<<< HEAD
         command_one_tuple,
         command_two_tuple=None,
         command_three_tuple=None,
         command_four_tuple=None):
+=======
+        command_one_tuple, command_two_tuple=None,
+        command_three_tuple=None, command_four_tuple=None):
+    """ format command descriptions """
+>>>>>>> origin
     logging.info("Formatting first command")
     header = bold(command_one_tuple[0])
     command_one = command_one_tuple[1]
     description_one = command_one_tuple[2]
     arguments_one = command_one_tuple[3]
-    command_one_string = header + "\n" + display_strings.COMMAND_LABEL + command_one + "\n" + \
-        display_strings.DESCRIPTION_LABEL + description_one + "\n" + \
-        display_strings.ARGUMENTS_LABEL + arguments_one + "\n"
-
+    command_one_string = header + "\n" + display_strings.COMMAND_LABEL + \
+        command_one + "\n" + display_strings.DESCRIPTION_LABEL + \
+        description_one + "\n" + display_strings.ARGUMENTS_LABEL + \
+        arguments_one + "\n"
     if command_two_tuple is not None:
         logging.info("Formatting second command")
         command_two = command_two_tuple[0]
         description_two = command_two_tuple[1]
         arguments_two = command_two_tuple[2]
-        command_two_string = display_strings.COMMAND_LABEL + command_two + "\n" + display_strings.DESCRIPTION_LABEL + \
-            description_two + "\n" + display_strings.ARGUMENTS_LABEL + arguments_two + "\n"
+        command_two_string = display_strings.COMMAND_LABEL + command_two + \
+            "\n" + display_strings.DESCRIPTION_LABEL + \
+            description_two + "\n" + display_strings.ARGUMENTS_LABEL + \
+            arguments_two + "\n"
         return command_one_string + "\n" + command_two_string
-    else:
-        return command_one_string
+    return command_one_string
 
 
 def display_help():
     """Return a string with a list of commands and their brief descriptions."""
     logging.info("Creating help string")
-
     help_string = ""
-
     for current_index, command_tuple in enumerate(
-            display_strings.commands_list):
+            display_strings.COMMANDS_LIST):
         left = command_tuple[0]
         right = command_tuple[1]
         if current_index is 0:
@@ -148,17 +161,16 @@ def display_help():
                     description_line = "\t" + description_line
                     help_string += "{:<30s}{:<40s}".format(
                         empty_space, description_line) + "\n"
-
     return help_string
 
 
 def align(left, right, is_negative_timestamp=False):
-    """Return string with "left" aligned to the left and "right" aligned to the right."""
+    """Return string with "left" aligned to the left and "right" aligned to the
+    right."""
     if is_negative_timestamp:
         logging.debug(
             "Moving right over 8 characters to account for ansi sequence")
         # adjust right alignment of inverted timestamp to account for ansi
         # sequence
         return "{:<40s}{:>48s}".format(left, right)
-    else:
-        return "{:<40s}{:>40s}".format(left, right)
+    return "{:<40s}{:>40s}".format(left, right)
