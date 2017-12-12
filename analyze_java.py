@@ -67,7 +67,7 @@ def get_source_code_values(java_strings):
 
 def analyze_java(out):
     if out.endswith('/'):
-        out = out[:len(out)-1]
+        out = out[:len(out) - 1]
     java_strings = get_java_strings(out)
     stat_dictionary = get_source_code_values(java_strings)
     stat_string = statistics.combine_statistics(stat_dictionary)
