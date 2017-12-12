@@ -17,4 +17,4 @@ def get_reflection(file_path):
             # removes special characters
             content = re.sub(r'[^a-zA-Z0-9\*\^\(\)\'\-\n\.]', ' ', content)
             content.split('. ')
-    return content  # list of lists
+    return content  # list
