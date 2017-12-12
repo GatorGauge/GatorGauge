@@ -17,6 +17,7 @@ import inspect
 import os
 import time
 
+
 def list_of_lists(content):
     """Makes a list of lists for gensim"""
     gensim_list = []
@@ -28,7 +29,7 @@ def list_of_lists(content):
         if not line == '' and '#' not in line:  # removes unnecessary lines and headers
             line = line.split('. ')
             gensim_list.append(line)
-    #print(gensim_list)
+    # print(gensim_list)
     return gensim_list  # list of lists
 
 # def flip_responses(gensim_list):
@@ -60,7 +61,7 @@ def gensim_analysis(list_responses):
     tokens = create_tokens(list_responses)
     dictionary = dictionary_create(tokens)
     corpus = [dictionary.doc2bow(token) for token in tokens]
-    #print(corpus)
+    # print(corpus)
     vis = corp_eval(dictionary, tokens, corpus)
     show_vis(vis)
     time.sleep(1)
@@ -85,7 +86,7 @@ def create_tokens(list_responses):
                                 temp.append(word)
             tokens.append(temp)
 
-    #print(tokens)
+    # print(tokens)
     return tokens
 
 
@@ -137,6 +138,11 @@ def show_vis(vis):
     # Removing name of module from path so that the path only includes up to the
     # directory where the HTML file is located.
     PATH_TO_HTML = PATH_TO_MODULE[:-len(MODULE_NAME)]
-    webbrowser.open("file:///" + PATH_TO_HTML + "e/" + vis_html_file_name, new=2)
+    webbrowser.open(
+        "file:///" +
+        PATH_TO_HTML +
+        "e/" +
+        vis_html_file_name,
+        new=2)
     logging.info("Gensim visualization has been displayed.")
     return
