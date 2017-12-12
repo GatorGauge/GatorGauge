@@ -17,20 +17,7 @@ following commands before running the program:
 
 ```
 pip3 install --upgrade pip
-
-```
-
-```
 pip3 install --user -r requirements.txt
-
-```
-
-To support sentiment analysis, also run the following commands.
-
-```
-python3
->>> import nltk
->>> nltk.download("vader_lexicon")
 ```
 
 ## Config.ini
