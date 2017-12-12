@@ -1,40 +1,44 @@
-""" parse commit messages """
+"""Parse commit messages."""
+import os
 
-import pprint
-from import_commits_as_string import import_commits_as_string
-
-
-def number_of_commits(commit_str):
-    """ return count of the number of commits """
-    commit_str = import_commits_as_string("../GatorGaugeSampleRepo")
-    commit_list = commit_str.split(
-        "--------------------------------------------------")
-    commit_count = len(commit_list) - 1
-    print(commit_count)
-    return commit_count
+from contextlib import redirect_stdout
+from io import StringIO
+from dulwich.repo import Repo
+from dulwich import porcelain
 
 
-def parse_commits(commit_str):
-    """Breaks commit string into list"""
-    commit_str = import_commits_as_string("../GatorGaugeSampleRepo")
-    commit_parse_commits = commit_str.split("\n")
-    commit_parse_commits[:] = [
-        item for item in commit_parse_commits if item != '']
-    commit_parse_commits[:] = [
-        item for item in commit_parse_commits
-        if item != '--------------------------------------------------']
-    pprint.pprint(commit_parse_commits)
-    return commit_parse_commits
+def get_commits_for_all_repos(out):
+    """Get commits as strings for all repos."""
+    names_of_repos = next(os.walk(out))[1]
+    commits = []
+
+    for repo in names_of_repos:
+        new_outstream = StringIO()
+        repository = Repo(repo)
+        with redirect_stdout(new_outstream):
+            porcelain.log(repository, outstream=new_outstream)
+
+        commits.append(new_outstream.getvalue())
+
+    return commits
 
 
-def create_commit_list(commit_parse_commits, commit_count):
-    """ return list of commits """
-    number_commits = commit_count
-    commit_commit_list = commit_parse_commits.append(number_commits)
-    print(commit_commit_list)
-    return commit_commit_list
+def get_list_of_each_commit(list_of_commit_strings):
+    """Split each string in list on each commit and append to list of each commit."""
+    list_of_each_commit = []
+    for commit_string in list_of_commit_strings:
+        commits = commit_string.split("\n")
+        commits[:] = [
+            item for item in commits if item != '']
+        commits[:] = [
+            item for item in commits
+            if item != '--------------------------------------------------']
+        for commit in commits:
+            list_of_each_commit.append(commit)
+
+    return list_of_each_commit
 
 
-create_commit_list(parse_commits("../GatorGaugeSampleRepo"), 5)
-# parse_commits("../GatorGaugeSampleRepo",5)
-# number_of_commits("../GatorGaugeSampleRepo")
+def get_list_of_commits(out):
+    """Return list of commits for all repos."""
+    return get_list_of_each_commit(get_commits_for_all_repos(out))
