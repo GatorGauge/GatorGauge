@@ -3,6 +3,7 @@
 
 from analyze_java import get_java_strings
 from analyze_sentiment import get_avg_sentiment
+from gg_gensim import gensim_analysis
 import parse_comments as pc
 
 
@@ -55,7 +56,7 @@ def analyze_comments(out):
     (singleline, multiline, javadoc) = pc.get_all_comments(java_source)
     avg_sentiment = get_avg_sentiment(singleline + multiline)
 
-    # FIXME: handle gensim analysis
+    # handle gensim analysis
     gensim_analysis(javadoc)
 
     # format results for terminal printing
