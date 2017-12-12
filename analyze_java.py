@@ -66,11 +66,15 @@ def get_source_code_values(java_strings):
 
 
 def analyze_java(out):
-    java_strings = get_java_strings(".")
+    if out.endswith('/'):
+        out = out[:len(out) - 1]
+    java_strings = get_java_strings(out)
     stat_dictionary = get_source_code_values(java_strings)
     stat_string = statistics.combine_statistics(stat_dictionary)
     print(stat_string)
-    file_name = input("What would you like the file name to be called? ") \
-        + ".txt"
-    file_name = file_name.replace(" ", "_")
-    wtf.write_to_existing_file(stat_string, file_name)
+    answer = input("Would you like to save these results to a file? (y/n) ")
+    if answer.lower() == 'y':
+        fileName = input("What would you like the file name to be called? ") \
+            + ".txt"
+        fileName = fileName.replace(" ", "_")
+        wtf.write_to_existing_file(stat_string, fileName)
