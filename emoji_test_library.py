@@ -7,8 +7,6 @@ def get_emojis_count(list_of_commits):
     smile = rage = confused = thumbsdown = hourglass = sob = \
         neutral = sunglasses = raisedHands = smilingImp = 0
 
-    """with open('emojies.txt') as emojies:"""
-
     for commit in list_of_commits:
         smile += len(re.findall(":smile:", commit))
         rage += len(re.findall(":rage:", commit))
@@ -21,15 +19,6 @@ def get_emojis_count(list_of_commits):
         raisedHands += len(re.findall(":raisedHands:", commit))
         smilingImp += len(re.findall(":smilingImp:", commit))
 
-    emojis_count = {"smile": smile,
-                    "rage": rage,
-                    "confused": confused,
-                    "thumbsdown": thumbsdown,
-                    "hourglass": hourglass,
-                    "sob": sob,
-                    "neutral": neutral,
-                    "sunglasses": sunglasses,
-                    "raisedHands": raisedHands,
-                    "smilingImp": smilingImp}
-
-    return emojis_count
+    emojies_count = {emojies.txt}
+    print(emojies_count)
+    return emojies_count
