@@ -13,6 +13,8 @@ config.read("config.ini")
 #KEYWORDS = ""
 #OUT = "repos/"
 
+GENSIM_HTML_OUT = "vis.html"
+
 
 def get_project():
     PROJECT = config.get('Project', 'project')
