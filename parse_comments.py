@@ -88,9 +88,9 @@ def get_avg_nums_of_comments(java_string):
         counts["singleline"] += count_singleline_java_comments(string)
         counts["multiline"] += count_multiline_java_comments(string)
         counts["javadoc"] += count_javadoc_java_comments(string)
-    counts["singleline"] = counts["singleline"] / len(java_string)
-    counts["multiline"] = counts["multiline"] / len(java_string)
-    counts["javadoc"] = counts["javadoc"] / len(java_string)
+    counts["singleline"] = round(counts["singleline"] / len(java_string), 2)
+    counts["multiline"] = round(counts["multiline"] / len(java_string), 2)
+    counts["javadoc"] = round(counts["javadoc"] / len(java_string), 2)
     return counts
 
 
