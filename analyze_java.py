@@ -17,14 +17,6 @@ def get_file_paths(filetype, location):
     return list_of_files
 
 
-<<<<<<< HEAD
-def analyze_java(java_strings):
-    variableList = []
-    methodList = []
-    classList = []
-    lineList = []
-    list_list = dict()
-=======
 def get_java_strings(out):
     """ return java source code strings """
     java_files = get_file_paths(".java", out)
@@ -56,7 +48,6 @@ def get_source_code_values(java_strings):
     class_list = []
     line_list = []
     stat_dictionary = dict()
->>>>>>> origin
     for java_string in java_strings:
         java_string = j.remove_comments(java_string)
         try:
@@ -73,11 +64,7 @@ def get_source_code_values(java_strings):
     return stat_dictionary
 
 
-<<<<<<< HEAD
-# analyze_java(get_java_strings("."))
-=======
 # java_strings = get_java_strings(".")
 # stat_dictionary = get_source_code_values(java_strings)
 # stat_string = statistics.combine_statistics(stat_dictionary)
 # print(stat_string)
->>>>>>> origin
