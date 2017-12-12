@@ -11,7 +11,8 @@ def get_statistics(numerical_list):
         str(np.min(numerical_list)) + " max: " + \
         str(np.max(numerical_list)) + " mean: " + \
         str(np.mean(numerical_list)) + " StdDev: " + \
-        str(np.std(numerical_list)) + " iqr: " + str(iqr)
+        str(np.std(numerical_list)) + " iqr: " + \
+        str(iqr) + " total: " + str(np.sum(numerical_list))
     return stat_string
 
 
