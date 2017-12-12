@@ -6,6 +6,33 @@ import java_to_string as j
 import java_parser as p
 
 
+def analyze_java(out):
+    """ analyze source code """
+    java_files = get_file_paths(".java", out)
+    repoDict = dict()
+    for f in java_files:
+        # The second replace is so that code doesn't break on windows
+        currFile = f.replace(out, "").replace("\\", "/")
+        repo = currFile.split("/")[1]
+        if repo in repoDict:
+            continue
+        files = []
+        for javaFile in java_files:
+            if repo in javaFile:
+                files.append(javaFile)
+        repoDict[repo] = files
+
+    java_strings = []
+
+    for key, values in repoDict.items():
+        java_string = []
+        for value in values:
+            java_string.append(j.read_and_convert(value))
+        java_strings.append(' '.join(java_string))
+
+    values = get_source_code_values(java_strings)
+    print(values)
+
 def get_file_paths(filetype, location):
     """ return list of filepaths """
     list_of_files = list()

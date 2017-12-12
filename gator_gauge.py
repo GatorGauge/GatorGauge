@@ -9,6 +9,8 @@ import file_list
 import display
 import parse_args
 import analyze
+import analyze_java
+import analyze_comments
 
 
 if __name__ == "__main__":
@@ -97,9 +99,9 @@ if __name__ == "__main__":
                 print("You must enter a specifier " + str(SPECIFIERS) + ".")
                 ARG1 = str(input('Specifier: '))
             if ARG1 == "source":
-                analyze.analyze_source(OUT)
+                analyze_java.analyze_java(OUT)
             elif ARG1 == "comments":
-                analyze.analyze_comments()
+                analyze_comments.analyze_comments(OUT)
             elif ARG1 == "commits":
                 analyze.analyze_commits(OUT)
             elif ARG1 == "reflection":

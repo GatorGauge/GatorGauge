@@ -48,7 +48,7 @@ def calculate_averages(java_source):
 def analyze_comments(out):
     """ produce cohesive analysis output regarding comments """
     java_source = get_java_strings(out)
-
+    print(java_source)
     # calculate averages
     (avg_count_javadoc,
      avg_count_multiline,
@@ -63,7 +63,7 @@ def analyze_comments(out):
     avg_sentiment = get_avg_sentiment(singleline + multiline)
 
     # FIXME: handle gensim analysis
-    gensim_analysis(javadoc)
+    #gensim_analysis(javadoc)
 
     # format results for terminal printing
     string_buffer = "\n" + \
