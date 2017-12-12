@@ -4,6 +4,7 @@
 from analyze_java import get_java_strings
 from analyze_sentiment import get_avg_sentiment
 from gg_gensim import gensim_analysis
+from defaults import GENSIM_HTML_OUT
 import parse_comments as pc
 
 
@@ -56,9 +57,6 @@ def analyze_comments(out):
     (singleline, multiline, javadoc) = pc.get_all_comments(java_source)
     avg_sentiment = get_avg_sentiment(singleline + multiline)
 
-    # handle gensim analysis
-    gensim_analysis(javadoc)
-
     # format results for terminal printing
     string_buffer = "\n" + \
         "Singleline Comments\n" + \
@@ -87,5 +85,16 @@ def analyze_comments(out):
         "<b>Average Sentiment</b>: " + str(avg_sentiment)
 
     # ... and embed them
-    # FIXME: append html_buffer to gensim html page
-    # FIXME: automatically open gensim html page
+    embed_stats_into_html(html_buffer)
+
+    # handle gensim analysis
+    gensim_analysis(javadoc)
+
+
+def embed_stats_into_html(stats):
+    """ embed the statistics html """
+    # warning: this has to happen before gensim adds to the file, if the stats
+    # portion is to be visible when the file is opened automatically by gensim.
+    file = open(GENSIM_HTML_OUT, "w")
+    file.write(stats)
+    file.close()
