@@ -4,7 +4,7 @@ import os
 import statistics
 import java_to_string as j
 import java_parser as p
-import WriteToFile as wtf
+import write_to_file as wtf
 
 
 def get_file_paths(filetype, location):
@@ -73,4 +73,4 @@ def analyze_java(out):
     fileName = input("What would you like the file name to be called? ") \
         + ".txt"
     fileName = fileName.replace(" ", "_")
-    wtf.WriteToExistingFile(stat_string, fileName)
+    wtf.write_to_existing_file(stat_string, fileName)
