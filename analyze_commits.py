@@ -11,19 +11,14 @@ def analyze_commits(out):
     return_list = []
     return_list = get_list_of_commits(out)
     write_string = ""
-    print("Number of commits: " + str(len(return_list)))
-    write_string += "Number of commits: " + str(len(return_list))
-
-    gg_gensim.gensim_analysis(return_list)
+    write_string += "Number of commits: " + str(len(return_list)) + "\n"
 
     sentiment = get_avg_sentiment(return_list)
     for key, value in sentiment.items():
-        print(key, value)
         write_string += str(key) + ", " + str(value) + "\n"
 
     emojis_count = get_emojis_count(return_list)
     for key, value in emojis_count.items():
-        print(key, value)
         write_string += str(key) + ", " + str(value) + "\n"
     print(write_string)
     embed_stats_into_html(write_string)
