@@ -8,7 +8,7 @@ import defaults
 import file_list
 import display
 import parse_args
-import analyze
+import analyze_commits
 import analyze_java
 import analyze_comments
 
@@ -103,7 +103,7 @@ if __name__ == "__main__":
             elif ARG1 == "comments":
                 analyze_comments.analyze_comments(OUT)
             elif ARG1 == "commits":
-                analyze.analyze_commits(OUT)
+                analyze_commits.analyze_commits(OUT)
             elif ARG1 == "reflection":
                 analyze.analyze_reflection(OUT)
         elif COMMAND == "help":

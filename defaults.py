@@ -38,8 +38,8 @@ def new_config():
         '; keyword list, filters down repositories exclusively')
     config.set('Keywords', 'KEYWORDS', "")
     config.add_section('Out')
-    config.set('Out', '; default: repos/')
-    config.set('Out', 'OUT', "repos/")
+    config.set('Out', '; default: repos')
+    config.set('Out', 'OUT', "repos")
     config.add_section('Setup')
 
     with open('./config.ini', 'w') as config_file:
@@ -131,7 +131,7 @@ def save_config_changes(project, keywords, out):
             'Keywords',
             '; keyword list, filters down repositories exclusively')
         config.set('Keywords', 'KEYWORDS', keywords)
-        config.set('Out', '; default: repos/')
+        config.set('Out', '; default: repos')
         config.set('Out', 'OUT', out)
 
         with open('./config.ini', 'w') as config_file:
