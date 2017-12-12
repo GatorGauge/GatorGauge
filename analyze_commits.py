@@ -6,6 +6,7 @@ from analyze_sentiment import get_avg_sentiment
 import parse_commits
 import gg_gensim
 from analyze_comments import embed_stats_into_html
+from dulwich import porcelain
 
 
 def analyze_commits(out):

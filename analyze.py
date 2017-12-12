@@ -10,8 +10,6 @@ import java_to_string
 import gg_gensim
 
 
-<<<<<<< HEAD
-=======
 def analyze_source(out):
     """ analyze source code """
     java_files = analyze_java.get_file_paths(".java", out)
@@ -39,7 +37,6 @@ def analyze_source(out):
     analyze_java.analyze_java(java_strings)
 
 
->>>>>>> origin/master
 def analyze_commits(out):
     """ analyze commits """
     repo_list = next(os.walk("./" + str(out)))[1]
@@ -67,6 +64,6 @@ def analyze_reflection(out):
     for File in LISTFILES:
         response = get_reflection.get_reflection(File)
         # perform and print sentiment analysis
-        responses.append(response)
-    print(analyze_sentiment.get_sentence_sentiment(responses[0]))
-    gg_gensim.gensim_analysis(responses)
+        RESPONSES.append(response)
+    print(analyze_sentiment.get_sentence_sentiment(RESPONSES[0]))
+    gg_gensim.gensim_analysis(RESPONSES)

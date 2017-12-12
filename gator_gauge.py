@@ -11,6 +11,7 @@ import parse_args
 import analyze_commits
 import analyze_java
 import analyze_comments
+import analyze
 
 
 if __name__ == "__main__":
@@ -54,7 +55,7 @@ if __name__ == "__main__":
             ARG2 = ARGS[2]
         if COMMAND == "get":
             while PROJECT is "":
-                PROJECT = defaults.edit_config_project() 
+                PROJECT = defaults.edit_config_project()
                 #KEYWORDS, OUT = defaults.edit_config()
             ASK_PREFIX = str(
                 input(
@@ -85,7 +86,7 @@ if __name__ == "__main__":
                 print("Project: " + str(PROJECT))
                 print("Keywords: " + str(KEYWORDS))
                 print("Out: " + str(OUT))
-        elif COMMAND == "list":           
+        elif COMMAND == "list":
             if ARG1:
                 REP = ARG1
             else:
