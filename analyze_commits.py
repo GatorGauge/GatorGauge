@@ -11,7 +11,7 @@ from dulwich import porcelain
 
 
 def analyze_commits(out):
-    """Execute analysis for commits."""   
+    """Execute analysis for commits."""
     return_list = []
     return_list = get_list_of_commits(out)
     write_string = ""
@@ -31,14 +31,14 @@ def analyze_commits(out):
         write_string += str(key) + ", " + str(value) + "\n"
     print(write_string)
     embed_stats_into_html(write_string)
-    
-    
+
+
 def get_list_of_commits(out):
     """Write a list of commit messages."""
     repo_list = next(os.walk("./" + str(out)))[1]
     return_list = []
     for repo in repo_list:
-        with porcelain.open_repo_closing("./" + str(out) + "/"+ str(repo)) as repo:
+        with porcelain.open_repo_closing("./" + str(out) + "/" + str(repo)) as repo:
             walker = repo.get_walker(reverse=True)
         for entry in walker:
             item = str(entry.commit.message.decode())

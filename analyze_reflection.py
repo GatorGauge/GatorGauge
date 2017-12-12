@@ -6,6 +6,7 @@ import analyze_sentiment
 import gg_gensim
 from analyze_comments import embed_stats_into_html
 
+
 def analyze_reflection(out):
     """ analyze reflections """
     LISTFILES = list()
@@ -24,7 +25,7 @@ def analyze_reflection(out):
     print(sentiment)
     embed_stats_into_html(str(sentiment))
     gg_gensim.gensim_analysis(RESPONSES)
-    
+
 
 def get_reflection(file_path):
     """ reads through and creates a list of lists from inputted file """
