@@ -1,7 +1,7 @@
 """Perform sentiment analysis on strings with the NLTK library."""
 
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 COMPOUND_KEY = "compound"
 NEGATIVE_KEY = "neg"
