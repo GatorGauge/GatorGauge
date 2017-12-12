@@ -72,4 +72,5 @@ def analyze_java(out):
     print(stat_string)
     fileName = input("What would you like the file name to be called? ") \
         + ".txt"
+    fileName = fileName.replace(" ", "_")
     wtf.WriteToExistingFile(stat_string, fileName)
