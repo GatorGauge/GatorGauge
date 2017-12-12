@@ -4,6 +4,7 @@ import os
 import statistics
 import java_to_string as j
 import java_parser as p
+import write_to_file as wtf
 
 
 def analyze_java(out):
@@ -91,7 +92,12 @@ def get_source_code_values(java_strings):
     return stat_dictionary
 
 
-# java_strings = get_java_strings(".")
-# stat_dictionary = get_source_code_values(java_strings)
-# stat_string = statistics.combine_statistics(stat_dictionary)
-# print(stat_string)
+def analyze_java(out):
+    java_strings = get_java_strings(".")
+    stat_dictionary = get_source_code_values(java_strings)
+    stat_string = statistics.combine_statistics(stat_dictionary)
+    print(stat_string)
+    fileName = input("What would you like the file name to be called? ") \
+        + ".txt"
+    fileName = fileName.replace(" ", "_")
+    wtf.write_to_existing_file(stat_string, fileName)

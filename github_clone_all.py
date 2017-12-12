@@ -82,7 +82,6 @@ def get_repositories(github_token, github_project, keywords, out_dir):
                for key in keywords)]
     print(str(len(filtered_repo_list)) + " of " +
           str(len(all_repos_list)) + " repos start with " + str(keywords))
-
     time.sleep(2)
     # before we start getting any repos, we need a directory to get them
     if out_dir != ".":

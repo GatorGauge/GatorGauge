@@ -7,6 +7,7 @@ import get_reflection
 import get_list_of_commits
 import analyze_java
 import java_to_string
+import gg_gensim
 
 
 def analyze_commits(out):
@@ -20,7 +21,7 @@ def analyze_commits(out):
         print("\nSentiment Analysis for " + str(repo) + ": ")
         print(analyze_sentiment.get_sentence_sentiment(str(commits)))
 
-    # TODO: topic analysis
+    gg_gensim.gensim_analysis(commits)
 
 
 def analyze_reflection(out):
@@ -36,8 +37,6 @@ def analyze_reflection(out):
     for File in LISTFILES:
         response = get_reflection.get_reflection(File)
         # perform and print sentiment analysis
-        print(response)
-        print(analyze_sentiment.get_sentence_sentiment(response))
-        RESPONSES.append(response)
-
-    # TODO: topic analysis
+        responses.append(response)
+    print(analyze_sentiment.get_sentence_sentiment(responses[0]))
+    gg_gensim.gensim_analysis(responses)
