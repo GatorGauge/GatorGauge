@@ -126,3 +126,11 @@ def test_get_all_comments():
         singleline_comments,
         multiline_comments,
         javadoc_comments)
+
+
+def test_get_avg_num_of_comments():
+    """ check that averages make sense """
+    avg_comments = pc.get_avg_nums_of_comments([JAVA_SOURCE, JAVA_SOURCE])
+    assert avg_comments["javadoc"] == 1.0
+    assert avg_comments["multiline"] == 6.0
+    assert avg_comments["singleline"] == 13.0
