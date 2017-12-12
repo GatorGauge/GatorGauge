@@ -10,6 +10,36 @@ import java_to_string
 import gg_gensim
 
 
+<<<<<<< HEAD
+=======
+def analyze_source(out):
+    """ analyze source code """
+    java_files = analyze_java.get_file_paths(".java", out)
+    repoDict = dict()
+    for f in java_files:
+        # The second replace is so that code doesn't break on windows
+        currFile = f.replace(out, "").replace("\\", "/")
+        repo = currFile.split("/")[1]
+        if repo in repoDict:
+            continue
+        files = []
+        for javaFile in java_files:
+            if repo in javaFile:
+                files.append(javaFile)
+        repoDict[repo] = files
+
+    java_strings = []
+
+    for key, values in repoDict.items():
+        java_string = []
+        for value in values:
+            java_string.append(java_to_string.read_and_convert(value))
+        java_strings.append(' '.join(java_string))
+
+    analyze_java.analyze_java(java_strings)
+
+
+>>>>>>> origin/master
 def analyze_commits(out):
     """ analyze commits """
     repo_list = next(os.walk("./" + str(out)))[1]

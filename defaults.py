@@ -10,6 +10,8 @@ fSet = frozenset(defined_responses)
 config = configparser.ConfigParser(allow_no_value=True)
 config.read("config.ini")
 
+GENSIM_HTML_OUT = "vis.html"
+
 
 def get_project():
     config.read("config.ini")

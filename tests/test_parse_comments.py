@@ -122,7 +122,7 @@ def test_get_all_comments():
     singleline_comments = pc.list_singleline_java_comments(JAVA_SOURCE)
     multiline_comments = pc.list_multiline_java_comments(JAVA_SOURCE)
     javadoc_comments = pc.list_javadoc_comments(JAVA_SOURCE)
-    assert pc.get_all_comments(JAVA_SOURCE) == (
+    assert pc.get_all_comments([JAVA_SOURCE]) == (
         singleline_comments,
         multiline_comments,
         javadoc_comments)

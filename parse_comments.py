@@ -53,11 +53,16 @@ def list_javadoc_comments(java_string):
     return trimmed_comments
 
 
-def get_all_comments(java_string):
-    """Return tuple of all comments in the java_string. """
-    return (list_singleline_java_comments(java_string),
-            list_multiline_java_comments(java_string),
-            list_javadoc_comments(java_string))
+def get_all_comments(java_strings):
+    """Return tuple of all comments in the java_strings. """
+    comments = {"javadoc": [], "multiline": [], "singleline": []}
+    for string in java_strings:
+        comments["singleline"] += list_singleline_java_comments(string)
+        comments["multiline"] += list_multiline_java_comments(string)
+        comments["javadoc"] += list_javadoc_comments(string)
+    return (comments["singleline"],
+            comments["multiline"],
+            comments["javadoc"])
 
 
 def count_singleline_java_comments(java_string):
