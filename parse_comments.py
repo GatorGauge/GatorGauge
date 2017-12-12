@@ -81,6 +81,19 @@ def count_javadoc_java_comments(java_string):
     return len(javadoc_comments)
 
 
+def get_avg_nums_of_comments(java_string):
+    """Return dictionary of comment counts in the java_string"""
+    counts = {"singleline": 0, "multiline": 0, "javadoc": 0}
+    for string in java_string:
+        counts["singleline"] += count_singleline_java_comments(string)
+        counts["multiline"] += count_multiline_java_comments(string)
+        counts["javadoc"] += count_javadoc_java_comments(string)
+    counts["singleline"] = counts["singleline"] / len(java_string)
+    counts["multiline"] = counts["multiline"] / len(java_string)
+    counts["javadoc"] = counts["javadoc"] / len(java_string)
+    return counts
+
+
 def ratio_of_singleline_comments(java_string):
     """Get the ratio of singleline comments to the
         number of lines in the Java source code."""
