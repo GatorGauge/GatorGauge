@@ -63,8 +63,10 @@ def get_source_code_values(java_strings):
     stat_dictionary["lines"] = line_list
     return stat_dictionary
 
-
-# java_strings = get_java_strings(".")
-# stat_dictionary = get_source_code_values(java_strings)
-# stat_string = statistics.combine_statistics(stat_dictionary)
-# print(stat_string)
+def analyze_java(out):
+    java_strings = get_java_strings(".")
+    stat_dictionary = get_source_code_values(java_strings)
+    stat_string = statistics.combine_statistics(stat_dictionary)
+    print(stat_string)
+    fileName = input("What would you like the file name to be called?")
+    WriteToExistingFile(stat_string, FileName)
