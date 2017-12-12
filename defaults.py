@@ -2,6 +2,8 @@
 
 import configparser
 
+GENSIM_OUTPUT_FILENAME = "vis.html"
+
 defined_responses = {"y", "Y", "n", "N"}
 fSet = frozenset(defined_responses)
 
