@@ -37,41 +37,6 @@ def analyze_source(out):
     analyze_java.analyze_java(java_strings)
 
 
-def analyze_comments():
-    """ analyze comments """
-    with open('./java/HelloWorld.java', 'r') as java_file:
-        JAVA_STRING = java_file.read()
-
-    COMMENTS = parse_comments.list_singleline_java_comments(JAVA_STRING)
-    print("\nSingleline comments\n-------------------")
-    for comment in COMMENTS:
-        print(repr(comment))
-    print("Number of singleline comments: " +
-          str(parse_comments.count_singleline_java_comments(JAVA_STRING)))
-
-    print("Ratio of singleline comments to total Java source code lines: " +
-          str(parse_comments.get_ratio_of_singleline_comments_to_source_code(JAVA_STRING)))
-
-    COMMENTS = parse_comments.list_multiline_java_comments(JAVA_STRING)
-    print("\nMultiline comments\n------------------")
-    for comment in COMMENTS:
-        print(repr(comment))
-    print("Number of multiline comments: " +
-          str(parse_comments.count_multiline_java_comments(JAVA_STRING)))
-
-    print("Ratio of multiline comments to total Java source code lines: " +
-          str(parse_comments.get_ratio_of_multiline_comments_to_source_code(JAVA_STRING)))
-    print("Sentiment analysis on single-line comments:")
-    print(analyze_sentiment.get_avg_sentiment(
-        parse_comments.list_singleline_java_comments(JAVA_STRING)))
-    print("Sentiment analysis on multi-line comments:")
-    print(analyze_sentiment.get_avg_sentiment(
-        parse_comments.list_multiline_java_comments(JAVA_STRING)))
-
-    # TODO: topic analysis on Java Docstrings
-    gg_gensim.gensim_analysis(COMMENTS)
-
-
 def analyze_commits(out):
     """ analyze commits """
     repo_list = next(os.walk("./" + str(out)))[1]
