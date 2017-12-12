@@ -17,39 +17,33 @@ following commands before running the program:
 
 ```
 pip3 install --upgrade pip
-```
 
 ```
-pip3 install -r requirements.txt
+
+```
+pip3 install --user -r requirements.txt
+
 ```
 
-## Initial Setup
+To support sentiment analysis, also run the following commands.
 
-Ensure that you have installed gspread and oauth2client is installed in the root
-directory of the repository. In the terminal use the command:
-
-```shell
-python3 -m pip install --user gspread oauth2client
+```
+python3
+>>> import nltk
+>>> nltk.download("vader_lexicon")
 ```
 
 ## Config.ini
 
 Default Variables. Do not place the variables inside of "".
-Since the config.ini file contains sensitive information due to the token,
-it is not supplied in this repository. However, the program will automatically
-create one for you upon first execution and prompt you to fill in the values.
-Token and Project must receive valid inputs in order for the program to download
-any repositories. These values can be edited from the command line with the command:
+The program will automatically create one for you upon first execution
+and prompt you to fill in the values.Project must receive valid
+inputs in order for the program to download any repositories. This
+values can be edited from the command line with the command:
 
 ```
 config edit
 ```
-
-### Token
-
-GitHub token allows the program to pull the repositories.
-Once done, paste the token in token section. Must specify a project but PREFIX
-is optional, and out defaults to current directory.
 
 ### Project
 
@@ -67,27 +61,33 @@ a directory named 'repos' which will be created upon running the get command.
 
 ## Execution
 
-### Requirements
+### Run GatorGauge
 
-To get requirements, use the command:
-
-```
-pip3 install --user -r requirements.txt
-```
-
-To support sentiment analysis, also run the following commands.
-
-```
-python3
->>> import nltk
->>> nltk.download("vader_lexicon")
-```
-
-### Run GatorGage
-
-Type ```python3 gatorGauge.py --token``` into the terminal with a Github access
+Type ```python3 gator_gauge.py --token``` into the terminal with a Github access
 token entered into the command line after --token. A token must be entered each
 time the program is started for security reasons.
+
+When users first run the program these questions will be asked if a new config
+file is generated:
+
+```
+Enter project name? (y/n)
+
+  If yes, enter the project name
+
+Enter keywords (y/n) --> optional, but if key words are entered separate with
+a comma.
+
+Enter out directory? (y/n), directory where everything will get downloaded to.
+
+  Enter new directory name (repos is the default)
+
+Save changes (y/n) --> should be yes for first run
+```
+
+### Commands
+
+Download the project(named in Config.ini or given with the config command).
 
 #### REPL commands
 
@@ -179,11 +179,11 @@ autopep8 --in-place --aggressive *.py
 Test coverage is being addressed by Coveralls so that when Travis-CI runs, it can
 evaluate the coverage of the test suite. When testing Gensim, the weight of the
 topics of related words could not be tested. This is because randomness it built
-into Gensim and thus the answers would not be consistant.
+into Gensim and thus the answers would not be consistent.
 
 ### Activating Travis-CI
 
-Travis can only be implamented by admin accounts. Admin users can activate Travis
+Travis can only be implemented by admin accounts. Admin users can activate Travis
 by creating a travis.yml in the project's root
 directory.
 
