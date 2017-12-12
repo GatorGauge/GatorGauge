@@ -102,3 +102,11 @@ def ratio_of_javadoc_comments(java_string):
     total_number_of_lines = java_parser.get_number_of_lines(java_string)
     number_of_javadoc_comments = count_javadoc_java_comments(java_string)
     return float(number_of_javadoc_comments / total_number_of_lines)
+
+
+def get_ratios_of_comments(java_string):
+    """Return dictionary of comment ratios in the java_string."""
+    return {
+        "singleline": round(ratio_of_singleline_comments(java_string), 2),
+        "multiline": round(ratio_of_multiline_comments(java_string), 2),
+        "javadoc": round(ratio_of_javadoc_comments(java_string), 2)}
