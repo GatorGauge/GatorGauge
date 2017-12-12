@@ -1,14 +1,17 @@
 """ main file in the GatorGauge system """
-
 import sys
 import os
 
+# local imports
 import github_clone_all
 import defaults
-import get_reflection
 import file_list
 import display
 import parse_args
+import analyze_commits
+import analyze_java
+import analyze_comments
+import analyze_reflection
 
 
 if __name__ == "__main__":
@@ -32,9 +35,9 @@ if __name__ == "__main__":
     ARG1 = ""
     ARG2 = ""
     FILENAME = ""
-    PROJECT = defaults.PROJECT
-    KEYWORDS = str(defaults.KEYWORDS).split(',')
-    OUT = defaults.OUT
+    PROJECT = defaults.get_project()
+    KEYWORDS = str(defaults.get_keywords()).split(',')
+    OUT = defaults.get_out()
     while COMMAND != "quit":
         ARGS = COMMAND.rsplit()
         COMMAND = ARGS[0]
@@ -52,7 +55,8 @@ if __name__ == "__main__":
             ARG2 = ARGS[2]
         if COMMAND == "get":
             while PROJECT is "":
-                PROJECT, KEYWORDS, OUT = defaults.edit_config()
+                PROJECT = defaults.edit_config_project()
+                #KEYWORDS, OUT = defaults.edit_config()
             ASK_PREFIX = str(
                 input(
                     "Download all repositories in " +
@@ -68,20 +72,25 @@ if __name__ == "__main__":
         elif COMMAND == "config":
             # reset values with inputted values
             if ARG1 == "edit":
-                PROJECT, KEYWORDS, OUT = defaults.edit_config()
-            elif ARG1 == "reset":
-                print("Config values reset")
-                PROJECT = defaults.PROJECT
-                KEYWORDS = str(defaults.KEYWORDS).split(',')
-                OUT = defaults.OUT
+                PROJECT = defaults.edit_config_project()
+                KEYWORDS = defaults.edit_config_keywords()
+                OUT = defaults.edit_config_directory()
+                defaults.save_config_changes(PROJECT, KEYWORDS, OUT)
+                KEYWORDS = KEYWORDS.split(',')
+            elif ARG1 == "refresh":
+                print("Config values refreshed")
+                PROJECT = defaults.get_project()
+                KEYWORDS = str(defaults.get_keywords()).split(',')
+                OUT = defaults.get_out()
             else:
                 print("Project: " + str(PROJECT))
                 print("Keywords: " + str(KEYWORDS))
                 print("Out: " + str(OUT))
         elif COMMAND == "list":
-            REP = "all"
             if ARG1:
                 REP = ARG1
+            else:
+                REP = "all"
             # list of repositories or files in specified repository returned
             REPO = file_list.list_files(REP, OUT)
             for r in REPO:
@@ -91,25 +100,13 @@ if __name__ == "__main__":
                 print("You must enter a specifier " + str(SPECIFIERS) + ".")
                 ARG1 = str(input('Specifier: '))
             if ARG1 == "source":
-                print("SOURCE")
+                analyze_java.analyze_java(OUT)
             elif ARG1 == "comments":
-                print("COMMENTS")
+                analyze_comments.analyze_comments(OUT)
             elif ARG1 == "commits":
-                print("COMMITS")
+                analyze_commits.analyze_commits(OUT)
             elif ARG1 == "reflection":
-                LISTFILES = list()
-                for subdir, dirs, files in os.walk("./" + str(OUT)):
-                    for file in files:
-                        if file.endswith("reflection.md"):
-                            LISTFILES.append(os.path.join(subdir, file))
-                if not LISTFILES:
-                    print("ERROR: File 'reflection.md' does not exist")
-                RESPONSES = list()
-                for file in LISTFILES:
-                    response = get_reflection.get_reflection(file)
-                    RESPONSES.append(response)
-                for res in RESPONSES:
-                    print(res)
+                analyze_reflection.analyze_reflection(OUT)
         elif COMMAND == "help":
             if ARG1 == "":
                 print(display.display_help())

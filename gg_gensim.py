@@ -127,7 +127,7 @@ def show_vis(vis):
           Style.RESET_ALL)
     vis_html_text = pyLDAvis.prepared_data_to_html(vis)
     vis_html_file_name = defaults.GENSIM_OUTPUT_FILENAME
-    vis_html_file = open(vis_html_file_name, "w")
+    vis_html_file = open(vis_html_file_name, "a")
     vis_html_file.write(vis_html_text)
 
     # Getting path to the refl_gensim.py module, which is in the same directory
