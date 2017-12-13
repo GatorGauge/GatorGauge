@@ -1,5 +1,6 @@
 """Perform sentiment analysis on strings with the NLTK library."""
 
+import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 COMPOUND_KEY = "compound"
@@ -11,6 +12,7 @@ POSITIVE_KEY = "pos"
 def get_sentence_sentiment(sentence):
     """Return dictionary with keys "compound", "neg", "neu", and "pos" whose
     values are the sentiment scores."""
+    nltk.data.path.append("./")
     sid = SentimentIntensityAnalyzer()
     sentiment_scores = sid.polarity_scores(sentence)
     return sentiment_scores
