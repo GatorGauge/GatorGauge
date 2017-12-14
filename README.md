@@ -41,8 +41,8 @@ Name of the project to be pulled down.
 
 ### Keywords
 
-Keywords used to filter for only repositories with the keywords in the name of
-the repository.
+Keywords are used as a filter only for repositories with the keywords in the
+name of the repository.
 
 ### Out
 
