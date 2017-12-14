@@ -16,6 +16,7 @@ import webbrowser
 import inspect
 import os
 import time
+from string import punctuation
 
 def list_of_lists(content):
     """Makes a list of lists for gensim"""
@@ -71,6 +72,8 @@ def create_tokens(list_responses):
     """Take in the list of responses and make each word a token."""
     logging.info("Creating tokens")
     stoplist = get_stop_words('en')
+    specialCharacter = set(punctuation)
+    #print(specialCharacter)
     tokens = []
     for res in list_responses:
         for word in res:
@@ -78,11 +81,15 @@ def create_tokens(list_responses):
             word = word.split()
             for word in word:
                 word = word.lower()
-                if not isinstance(word, int):
+                if not word.isdigit():
                     if not profanity.contains_profanity(word):
                         if word not in stoplist:
                             if word != "I":
-                                temp.append(word)
+                                for letter in word:
+                                    if letter in specialCharacter:
+                                        word=word.replace(letter, '')
+                                if word != '':
+                                    temp.append(word)
             tokens.append(temp)
 
     #print(tokens)
