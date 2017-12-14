@@ -122,10 +122,6 @@ How to read graphs
 
 ## Usage
 
-GatorGauge analyzes Computer Science students' labs and practicals. Natural
-language processing is used in order to create visual displays for professors
-and future students to gain information on the work.
-
 ### Process
 
 GatorGauge should retrieve the entirety of a specified repository's commit
