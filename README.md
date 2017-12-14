@@ -54,26 +54,28 @@ running the get command.
 
 ### Run GatorGauge
 
-Type `python3 gator_gauge.py --token` into the terminal with a Github
+Once everything is porperly installed, GatorGauge is ready to run. To begin,
+type `python3 gator_gauge.py --token` into the terminal with a Github
 access token entered into the command line after `--token`. A token must be
-entered each time the program is started for security reasons.
+entered each time the program is started - for security purposes.
 
-When users first run the program these questions will be asked if a new config
-file is generated:
+When users first run the program and a new config file needs to be generated
+these questions will be asked:
 
 ```
 Enter project name? (y/n)
 
   If yes, enter the project name
 
-Enter keywords (y/n) --> optional, but if key words are entered separate with
-a comma.
+Enter keywords (y/n) --> this is optional, but if key words are entered they
+must be separate with a comma.
 
-Enter out directory? (y/n), directory where everything will get downloaded to.
+Enter out directory? (y/n) --> directory where everything will get downloaded
+to.
 
   Enter new directory name (repos is the default)
 
-Save changes (y/n) --> should be yes for first run
+Save changes (y/n) --> should enter yes for the first run.
 ```
 
 ### Commands
