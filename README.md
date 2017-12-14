@@ -53,11 +53,23 @@ running the get command.
 ## Features
 
 GatorGauge is a fully featured program. Upon running a help menu will be
-provided for user convienience. Help commands include: ...
-GatorGauge allows users to download and analyze all labs, reflections, and
-practicals or select sets, including a specific student's work or specific
-labs, parcticals, and/or reflections. The analyzed information is displayed
-for users in an eary to read visual graph.
+provided for user convienience. GatorGauge allows users to download and
+analyze all labs, reflections, and practicals or select sets, including a
+specific student's work or specific labs, parcticals, and/or reflections.
+The analyzed information is displayed for users in an eary to read visual
+graph.
+
+### Help Menu
+
+Help commands include:
+
+### Repository Selection
+
+Users may select...
+
+### Visual Representation
+
+How to read graphs
 
 ## Execution
 
