@@ -124,9 +124,9 @@ How to read graphs
 
 ### Process
 
-GatorGauge should retrieve the entirety of a specified repository's commit
-logs, as well as all current files, and then analyze the comments, code, and
-commit logs as follows.
+GatorGauge retrieves the entirety of a specified repository's commit
+logs, as well as all current files. GatorGauge then analyze the comments,
+code, and commit logs.
 
 #### Reflections
 
