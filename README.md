@@ -82,21 +82,22 @@ Save changes (y/n) --> should enter yes for the first run.
 
 #### REPL commands
 
-`get` downloads the project (named in `Config.ini` or given with the config
-command).
+The command `get` downloads the project (named in `Config.ini` or given with
+the config command).
 
-`config` prints the values in the config file or temporarily change the config
-values or if the second config command is used the user can either edit the
-values in the config file or reset the values back to their original state
-assuming the user does not save the values after using config edit.
+The command `config` prints the values in the config file, temporarily
+changes the config values, or if the second config command is used,
+the user can either edit the values in the config file or reset the
+values back to their original state - assuming the user does not save
+the values after using config edit.
 
-`list` and `list <repo name>` lists all repositories if no arguments are given
-or all files in the given repository.
+The `list` command and the `list <repo name>` command lists all
+repositories if no arguments are given or all files in the given repository.
 
-`analyze <target>` performs sentiment analysis and gensim on the given target
-(source, comments, commits, reflection).
+The `analyze <target>` command performs sentiment analysis and gensim on the
+given target (source, comments, commits, reflection).
 
-`quit` quits the program.
+The `quit` command quits the program.
 
 ## Features
 
