@@ -25,11 +25,11 @@ pip3 install --user -r requirements.txt
 
 ## Config.ini
 
-Default Variables. Do not wrap variables in quotes. The program will
-automatically create one for you upon first execution and prompt you to fill in
-the values. Project must receive valid inputs in order for the program to
-download any repositories. These values can be edited from the command line
-with the command:
+GatorGauge uses default Variables. Do not wrap variables in quotes as the
+program will automatically create one for users upon its first execution and
+will prompt users to fill in the necissary values. GatorGauge must receive
+valid inputs in order for the program to download repositories. These values
+can be edited from the command line with the command:
 
 ```
 config edit
