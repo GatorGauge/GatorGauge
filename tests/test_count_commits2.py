@@ -12,9 +12,11 @@ def test_path():
     if path.is_dir():
         shutil.rmtree(path="SampleRepo", ignore_errors=Tree)
 
+    #sample repository used in testing
     mkdir(repo_path)
     repo = Repo.init(repo_path)
     repo = Repo(repo_path)
+    #sample commits withing repository that are going to be counted
     repo.do_commit(b"Intial commit for sample repository")
     repo.do_commit(b"Added README.md file for lab 3")
     repo.do_commit(b"Deleted function in lab 2")
@@ -22,6 +24,7 @@ def test_path():
     repo.do_commit(b"Random commit XD123")
 
 def test_commits():
+    """The sample commits above are being counted"""
     repo_commits = 5
     commits_in_repo = counted_num_commits("SampleRepo")
     assert commits_in_repo == counted_num_commits
