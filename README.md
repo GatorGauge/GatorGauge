@@ -50,6 +50,15 @@ There is a folder in which to place all of the downloaded repositories in.
 The folfer defaults to a directory named 'repos' which will be created upon
 running the get command.
 
+## Features
+
+GatorGauge is a fully featured program. Upon running a help menu will be
+provided for user convienience. Help commands include: ...
+GatorGauge allows users to download and analyze all labs, reflections, and
+practicals or select sets, including a specific student's work or specific
+labs, parcticals, and/or reflections. The analyzed information is displayed
+for users in an eary to read visual graph.
+
 ## Execution
 
 ### Run GatorGauge
