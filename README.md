@@ -130,10 +130,10 @@ code, and commit logs.
 
 #### Reflections
 
-GatorGauge analyzes student reflections from downloaded repositories. It does
+GatorGauge analyzes student reflections from downloaded repositories. It uses
 Gensim analysis on relevant topics within the reflection documents. Sentiment
-analysis is also implemented in the system in order to obtain the overall
-feeling on all the reflections on the labs or practicals.
+analysis is also implemented by the system in order to obtain the overall
+"feeling" in all the reflections on labs and/or practicals.
 
 #### Comments
 
