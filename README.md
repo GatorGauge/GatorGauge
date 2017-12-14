@@ -5,7 +5,7 @@ practicals and laboratory assignments completed by their students. GatorGauge
 does this by enabling professors to download and analyze the information in
 student repositories. In doing this information is gained on how long the
 projects took, the average number of commits, and where students had the most
-difficulty. GatorGauge gains this information by using natrul langusge
+difficulty. GatorGauge gains this information by using natural language
 processing to analyzes README files, commits, source code, and comments. This
 tool can be used by future students as well, allowing them to gain the same
 information about the course work.
@@ -27,7 +27,7 @@ pip3 install --user -r requirements.txt
 
 GatorGauge uses default Variables. Do not wrap variables in quotes as the
 program will automatically create one for users upon its first execution and
-will prompt users to fill in the necissary values. GatorGauge must receive
+will prompt users to fill in the necessary values. GatorGauge must receive
 valid inputs in order for the program to download repositories. These values
 can be edited from the command line with the command:
 
@@ -47,15 +47,15 @@ name of the repository.
 ### Out
 
 There is a folder in which to place all of the downloaded repositories in.
-The folfer defaults to a directory named 'repos' which will be created upon
+The folder defaults to a directory named 'repos' which will be created upon
 running the get command.
 
 ## Execution
 
 ### Run GatorGauge
 
-Once everything is porperly installed, GatorGauge is ready to run. To begin,
-type `python3 gator_gauge.py --token` into the terminal with a Github
+Once everything is properly installed, GatorGauge is ready to run. To begin,
+type `python3 gator_gauge.py --token` into the terminal with a GitHub
 access token entered into the command line after `--token`. A token must be
 entered each time the program is started - for security purposes.
 
@@ -94,7 +94,7 @@ the values after using config edit.
 The `list` command and the `list <repo name>` command lists all
 repositories if no arguments are given or all files in the given repository.
 
-The `analyze <target>` command performs sentiment analysis and gensim on the
+The `analyze <target>` command performs sentiment analysis and Gensim on the
 given target (source, comments, commits, reflection).
 
 The `quit` command quits the program.
@@ -102,10 +102,10 @@ The `quit` command quits the program.
 ## Features
 
 GatorGauge is a fully featured program. Upon running, a command menu will be
-provided for user convienience. GatorGauge allows users to download and
+provided for user convenience. GatorGauge allows users to download and
 analyze all labs, reflections, and practicals or select sets, including a
 specific student's work or specific labs, parcticals, and/or reflections.
-The analyzed information is displayed for users in an eary to read visual
+The analyzed information is displayed for users in an easy to read visual
 graph.
 
 ### Command Menu
