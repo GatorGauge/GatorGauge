@@ -80,7 +80,7 @@ Save changes (y/n) --> should enter yes for the first run.
 
 ### Commands
 
-#### REPL commands
+#### REPL Commands
 
 The command `get` downloads the project (named in `Config.ini` or given with
 the config command).
@@ -101,16 +101,16 @@ The `quit` command quits the program.
 
 ## Features
 
-GatorGauge is a fully featured program. Upon running a help menu will be
+GatorGauge is a fully featured program. Upon running, a command menu will be
 provided for user convienience. GatorGauge allows users to download and
 analyze all labs, reflections, and practicals or select sets, including a
 specific student's work or specific labs, parcticals, and/or reflections.
 The analyzed information is displayed for users in an eary to read visual
 graph.
 
-### Help Menu
+### Command Menu
 
-Help commands include:
+The commands are listed and explained above - under "REPL commands".
 
 ### Repository Selection
 
