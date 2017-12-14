@@ -46,8 +46,9 @@ name of the repository.
 
 ### Out
 
-Folder to place all of the downloaded repositories inside of. Defaults to a
-directory named 'repos' which will be created upon running the get command.
+There is a folder in which to place all of the downloaded repositories in.
+The folfer defaults to a directory named 'repos' which will be created upon
+running the get command.
 
 ## Execution
 
