@@ -13,8 +13,8 @@ information about the course work.
 ## Installation
 
 GatorGauge is a python 3 program and, therefore, uses [pip][1] for handling
-dependencies. The following commands must be executed before running the
-system:
+dependencies. The following commands must be executed in the terminal window
+before running the system:
 
 [1]: https://pip.pypa.io/en/stable/installing/
 
