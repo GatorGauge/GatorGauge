@@ -19,7 +19,6 @@ import time
 from string import punctuation
 
 
-
 def list_of_lists(content):
     """Makes a list of lists for gensim"""
     gensim_list = []
