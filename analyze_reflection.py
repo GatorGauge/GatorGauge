@@ -23,7 +23,8 @@ def analyze_reflection(out):
         RESPONSES.append(response)
     sentiment = analyze_sentiment.get_sentence_sentiment(RESPONSES[0])
     print(sentiment)
-    embed_stats_into_html(str(sentiment))
+    sentiment = "<b>Average Sentiment: </b>" + str(sentiment) + "<ul>"
+    embed_stats_into_html(sentiment)
     gg_gensim.gensim_analysis(RESPONSES)
 
 
