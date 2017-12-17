@@ -1,4 +1,4 @@
-# Not used in this feature, but keeping it so that it could be used in a future feature
+# Not used in this feature, but could be used for a future enhancement
 def write_to_default_file(stringToFile):
     f = open('default.txt', 'w')
     f.write(stringToFile)
