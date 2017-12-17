@@ -1,7 +1,7 @@
 """ main file in the GatorGauge system """
 import sys
 import os
-
+import time
 # local imports
 import github_clone_all
 import defaults
@@ -108,12 +108,16 @@ if __name__ == "__main__":
                 ARG1 = str(input('Specifier: '))
             if ARG1 == "source":
                 analyze_java.analyze_java(OUT)
+                time.sleep(1)
             elif ARG1 == "comments":
                 analyze_comments.analyze_comments(OUT)
+                time.sleep(1)
             elif ARG1 == "commits":
                 analyze_commits.analyze_commits(OUT)
+                time.sleep(1)
             elif ARG1 == "reflection":
                 analyze_reflection.analyze_reflection(OUT)
+                time.sleep(1)
         elif COMMAND == "help":
             if ARG1 == "":
                 print(display.display_help())
