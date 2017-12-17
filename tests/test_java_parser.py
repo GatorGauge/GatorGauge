@@ -1,8 +1,10 @@
-#command to run this from the test folder is python3 -m pytest test_java_parser.py
+# command to run this from the test folder is python3 -m pytest
+# test_java_parser.py
 
 
 import java_parser
 import javalang
+
 
 def test_get_number_of_classes():
     """ test if the function gets the correct number of classes"""
