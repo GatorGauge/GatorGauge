@@ -91,7 +91,6 @@ def edit_config_keywords():
     if ask_prefix is "Y" or ask_prefix is "y":
         keywords = ask_prefix = str(
             input("Enter new Keywords (seperated by ','): "))
-        keywords = keywords.replace(" ", "")
     else:
         keywords = config.get('Keywords', 'keywords')
     return keywords

@@ -17,9 +17,8 @@ def list_files(repo, out):
         return
     if repo is "all":
         # list of all directories inside of Out folder
-        for subdir, dirs, files in os.walk("./" + str(out)):
-            repo_list = dirs
-            break
+        for subdir, dirs, files in os.walk(out):
+            return os.listdir(out)
     else:
         for _subdir, _dirs, files in \
                 os.walk("./" + str(out) + "/" + str(repo)):

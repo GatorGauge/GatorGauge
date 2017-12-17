@@ -22,3 +22,4 @@ def analyze_commits(out):
         write_string += str(key) + ", " + str(value) + "\n"
     print(write_string)
     embed_stats_into_html(write_string)
+    gg_gensim.gensim_analysis(write_string)
