@@ -24,7 +24,6 @@ if __name__ == "__main__":
     # if there is no config.ini file, create one
     if not os.path.exists("./config.ini"):
         defaults.new_config()
-        defaults.edit_config()
     DEFINED_COMMANDS = {"help", "get", "config", "list", "analyze", "quit"}
     FSET = frozenset(DEFINED_COMMANDS)
     SPECIFIERS = ('source', 'comments', 'commits', 'reflection')
