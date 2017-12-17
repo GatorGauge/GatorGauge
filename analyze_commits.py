@@ -24,4 +24,4 @@ def analyze_commits(out):
     print(write_string)
 
     embed_stats_into_html(html_write_string)
-    gg_gensim.gensim_analysis(write_string)
+    gg_gensim.gensim_analysis(return_list)
