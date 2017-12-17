@@ -9,16 +9,16 @@ from dulwich import porcelain
 
 def get_commits_for_all_repos(out):
     """Get commits as strings for all repos."""
-    names_of_repos = next(os.walk(out))[1]
+    names_of_repos = next(os.walk("./" + str(out)))[1]
     commits = []
 
     for repo in names_of_repos:
-        new_outstream = StringIO()
-        repository = Repo(repo)
-        with redirect_stdout(new_outstream):
-            porcelain.log(repository, outstream=new_outstream)
-
-        commits.append(new_outstream.getvalue())
+        with porcelain.open_repo_closing("./" + str(out) + "/" + str(repo)) as repo:
+            walker = repo.get_walker(reverse=True)
+        for entry in walker:
+            item = str(entry.commit.message.decode())
+            item = item.replace("\n", "")
+            commits.append(item)
 
     return commits
 

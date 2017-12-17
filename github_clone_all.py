@@ -9,10 +9,6 @@ import time
 import requests
 
 
-# TODO: make keywords a list of keywords to search for in the name of the
-# github repositories
-
-
 def get_repositories(github_token, github_project, keywords, out_dir):
     #
     # local goodies (for my cron job)
@@ -84,20 +80,21 @@ def get_repositories(github_token, github_project, keywords, out_dir):
           str(len(all_repos_list)) + " repos start with " + str(keywords))
     time.sleep(2)
     # before we start getting any repos, we need a directory to get them
-    if out_dir != ".":
-        try:
-            os.makedirs(out_dir)
-        except OSError:
-            # directory probably already exists
-            print(
-                "Directory '" +
-                str(out_dir) +
-                "' already exists, please wait while directory is deleted\n")
-            # deletes out_dir folder if it already exists
-            command = 'rm -r -f ./' + str(out_dir)
-            os.system(command)
-            os.makedirs(out_dir)
-        os.chdir(out_dir)
+    # if out_dir != ".":
+    #    try:
+    #        os.makedirs(out_dir)
+    #    except OSError:
+    #        # directory probably already exists
+    #        print(
+    #            "Directory '" +
+    #            str(out_dir) +
+    #            "' already exists, please wait while directory is deleted\n")
+    # deletes out_dir folder if it already exists
+    #        command = 'rm -r -f ./' + str(out_dir)
+    #        os.system(command)
+    if not os.path.isdir("./" + out_dir):
+        os.makedirs(out_dir)
+    os.chdir(out_dir)
 
     # specific clone instructions here:
     # https://github.com/blog/1270-easier-builds-and-deployments-using-git-over-https-and-oauth
@@ -130,6 +127,7 @@ def get_repositories(github_token, github_project, keywords, out_dir):
         subprocess.call(["git", "pull", clone_url])
         os.chdir('..')
         repo_num += 1
+    os.chdir('..')
 
     #
     # leftover from an earlier emergency: if you want to make a repo be private, here's the code to do it

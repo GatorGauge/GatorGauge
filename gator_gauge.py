@@ -37,6 +37,10 @@ if __name__ == "__main__":
     FILENAME = ""
     PROJECT = defaults.get_project()
     KEYWORDS = str(defaults.get_keywords()).split(',')
+    for key in KEYWORDS:
+        if ' ' in key:
+            KEYWORDS[KEYWORDS.index(key)] = key.strip()
+        # print(key)
     OUT = defaults.get_out()
     while COMMAND != "quit":
         ARGS = COMMAND.rsplit()
@@ -81,12 +85,16 @@ if __name__ == "__main__":
                 print("Config values refreshed")
                 PROJECT = defaults.get_project()
                 KEYWORDS = str(defaults.get_keywords()).split(',')
+                for key in KEYWORDS:
+                    if ' ' in key:
+                        KEYWORDS[KEYWORDS.index(key)] = key.strip()
                 OUT = defaults.get_out()
             else:
                 print("Project: " + str(PROJECT))
                 print("Keywords: " + str(KEYWORDS))
                 print("Out: " + str(OUT))
         elif COMMAND == "list":
+            OUT = defaults.get_out()
             if ARG1:
                 REP = ARG1
             else:
