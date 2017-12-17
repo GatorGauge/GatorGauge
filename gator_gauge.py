@@ -30,7 +30,6 @@ if __name__ == "__main__":
 
     COMMAND = str(input('>>> '))
     ARGS = []
-    # added 2 more args for taking in project, prefix, token,
     ARG1 = ""
     ARG2 = ""
     FILENAME = ""
@@ -39,7 +38,6 @@ if __name__ == "__main__":
     for key in KEYWORDS:
         if ' ' in key:
             KEYWORDS[KEYWORDS.index(key)] = key.strip()
-        # print(key)
     OUT = defaults.get_out()
     while COMMAND != "quit":
         ARGS = COMMAND.rsplit()
@@ -59,7 +57,6 @@ if __name__ == "__main__":
         if COMMAND == "get":
             while PROJECT is "":
                 PROJECT = defaults.edit_config_project()
-                #KEYWORDS, OUT = defaults.edit_config()
             ASK_PREFIX = str(
                 input(
                     "Download all repositories in " +
@@ -108,15 +105,19 @@ if __name__ == "__main__":
                 ARG1 = str(input('Specifier: '))
             if ARG1 == "source":
                 analyze_java.analyze_java(OUT)
+                # pauses 1 sec to ensure >>> shows up after running analysis
                 time.sleep(1)
             elif ARG1 == "comments":
                 analyze_comments.analyze_comments(OUT)
+                # pauses 1 sec to ensure >>> shows up after running analysis
                 time.sleep(1)
             elif ARG1 == "commits":
                 analyze_commits.analyze_commits(OUT)
+                # pauses 1 sec to ensure >>> shows up after running analysis
                 time.sleep(1)
             elif ARG1 == "reflection":
                 analyze_reflection.analyze_reflection(OUT)
+                # pauses 1 sec to ensure >>> shows up after running analysis
                 time.sleep(1)
         elif COMMAND == "help":
             if ARG1 == "":
