@@ -181,6 +181,45 @@ consistent.
 Travis can only be implemented by admin accounts. Admin users can activate
 Travis by creating a `travis.yml` in the project's root directory.
 
+## Road Map of the system
+
+### Topic Modeling
+
+#### Usage of Topic Modeling
+
+The topic modeling for this project will be maintained by Nicholas Tocci. Topic
+modeling for GatorGauge begins when gensim_analysis is given a list of strings.
+Once this list is given it is then split of so that the list of strings given is
+now a list of lists. Each list in the list of lists contains all of the words in
+each specific sentence. This is then sent to the create_tokens function which
+then analyzes each word in the lists. If the word contains profanity, is a
+number, or is a very common word, the word is left out. If the word has any
+special characters in it, the special character is then removed. Next the list
+of tokens is made into a dictionary and a corpus using the Gensim library
+and visualized using pyLDAvis.
+
+#### Ways to achieve the best anlysis
+
+The best way to get the best analysis is on a larger data set. This means that
+the program should not be able to do a single student for a single lab. The LDA
+will not provide a strong analysis as the amount of tokens being passes to it is
+very small. The program should be outfitted so that the user can select that it
+is all students for all labs, or all students for one lab. If all of the
+students for one lab is selected, the user will have a very good understanding
+of how the lab was perceived by the students and the most important parts of
+that specific lab. If the user selects that analysis is done on all of the labs
+for every single student, then the user will have a good understanding of how
+hard the class is and what the largest topics are for the course.
+
+#### Plans for the future
+
+Plans for the future include instituting Word2Vec and Sense2Vec into the
+gensim_anlysis system. This will allow for the ability to visualize how related
+the words are. Sense2Vec will be used to help discern what the user means. I
+will be researching other systems that could be used to give a better
+visualization on the topic models. Lastly the system needs to be enhanced so
+that it is easier for the user to complete every lab for every student.
+
 ## Questions or Comments
 
 Any problems or suggestions regarding GatorGauge can be written in the issue
