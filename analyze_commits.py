@@ -14,7 +14,7 @@ def analyze_commits(out):
     num_commits = len(return_list)
 
     sentiment = get_avg_sentiment(return_list)
-    
+
     html_write_string = "<b>Average Sentiment:</b> " + str(sentiment) + \
                         "</br><b>Number of Commits:</b> " + str(num_commits)
     emojis_count = get_emojis_count(return_list)
@@ -22,6 +22,6 @@ def analyze_commits(out):
         write_string += str(key) + ": " + str(value) + "\n"
         html_write_string += "</br><b>" + str(key) + ":</b> " + str(value)
     print(write_string)
-    
+
     embed_stats_into_html(html_write_string)
     gg_gensim.gensim_analysis(write_string)
