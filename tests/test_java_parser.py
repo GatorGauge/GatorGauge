@@ -4,7 +4,7 @@
 import java_parser
 import javalang
 
-def test_getNumberOfClasses():
+def test_get_number_of_classes():
     """ test if the function gets the correct number of classes"""
     javaString = '''
         class Computer {
@@ -35,7 +35,7 @@ def test_getNumberOfClasses():
       }
     }
         '''
-    actualString = java_parser.getNumberOfClasses(javaString)
+    actualString = java_parser.get_number_of_classes(javaString)
     correctString = 2
     assert actualString == correctString
 
@@ -58,7 +58,7 @@ def test_getNumberOfLines():
         return result;
     }
     '''
-    actualString = java_parser.getNumberOfLines(javaString)
+    actualString = java_parser.get_number_of_lines(javaString)
     correctString = 14
     assert actualString == correctString
 
@@ -67,7 +67,7 @@ def test_getNumberofVariables():
     """ Test if the function gets the correct number of variables in a javaString """
     javaString = "public class testVars { public static void main(String[] args) {int x=3; int y=4;}}"
 
-    actualString = java_parser.getNumberOfVariables(javaString)
+    actualString = java_parser.get_number_of_variables(javaString)
     correctString = 2
     assert actualString == correctString
 
@@ -76,6 +76,6 @@ def test_getNumberofMethods():
     """ Test if the function gets the correct number of methods in a javaString """
     javaString = "public class testVars { public static void main(String[] args) {int x=3; int y=4;}}"
 
-    actualString = java_parser.getNumberOfMethods(javaString)
+    actualString = java_parser.get_number_of_methods(javaString)
     correctString = 1
     assert actualString == correctString
