@@ -59,7 +59,7 @@ type `python3 gator_gauge.py --token` into the terminal with a GitHub
 access token entered into the command line after `--token`. A token must be
 entered each time the program is started - for security purposes.
 
-The following warning message may apper when running GatorGauge:
+The following warning message may appear when running GatorGauge:
 
 ```
 UserWarning: The twython library has not been installed. Some functionality
@@ -67,7 +67,7 @@ from the twitter package will not be available.
   warnings.warn("The twython library has not been installed. "
 ```
 
-The package twython is an nltk dependency, but is not necessary for this
+The twython package is an nltk dependency, but is not necessary for this
 program.  You can disregard this warning message or you can install twython
 using pip.
 
