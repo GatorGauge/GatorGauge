@@ -21,4 +21,9 @@ def analyze_commits(out):
     for key, value in emojis_count.items():
         write_string += str(key) + ", " + str(value) + "\n"
     print(write_string)
-    embed_stats_into_html(write_string)
+
+    #format results for HTLM embedding
+    embed_string = "<b>Number of commits: </b>" + str(len(returnlist)) + \
+        "<b>Average Sentiment: </b>" + str(sentiment) + \
+        "<b>Emojis Count: </b>" + str(emojis_count)
+    embed_stats_into_html(embed_string)
