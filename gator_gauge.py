@@ -87,18 +87,24 @@ if __name__ == "__main__":
                 print("Keywords: " + str(KEYWORDS))
                 print("Out: " + str(OUT))
         elif COMMAND == "list":
-            if ARG1:
-                REP = ARG1
-            else:
-                REP = "all"
-            # list of repositories or files in specified repository returned
-            REPO = file_list.list_files(REP, OUT)
-            for r in REPO:
-                print(r)
+            try:
+                if ARG1:
+                    REP = ARG1
+                else:
+                    REP = "all"
+                    # list of repositories or files in specified repository returned
+                    REPO = file_list.list_files(REP, OUT)
+                    for r in REPO:
+                        print(r)
+            except TypeError:
+                print("Whoops...Type Error")
+
         elif COMMAND == "analyze":
             while ARG1 not in SPECIFIERS:
-                print("You must enter a specifier " + str(SPECIFIERS) + ".")
+                print("You must enter a specifier or type 'back' to end analysis" + str(SPECIFIERS) + ".")
                 ARG1 = str(input('Specifier: '))
+                if ARG1 == "back":
+                    break
             if ARG1 == "source":
                 analyze_java.analyze_java(OUT)
             elif ARG1 == "comments":
@@ -108,10 +114,14 @@ if __name__ == "__main__":
             elif ARG1 == "reflection":
                 analyze_reflection.analyze_reflection(OUT)
         elif COMMAND == "help":
-            if ARG1 == "":
-                print(display.display_help())
-            else:
-                print(display.display_help_with_command(ARG1))
+            try:
+                if ARG1 == "":
+                    print(display.display_help())
+                else:
+                    print(display.display_help_with_command(ARG1))
+            except KeyError:
+                print("Whoops...Key Error. Please, refer to list of commands")
+
         COMMAND = str(input('>>> '))
         ARG1 = ""
         ARG2 = ""
