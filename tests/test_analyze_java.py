@@ -4,7 +4,7 @@ import analyze_java as aj
 def test_get_file_paths():
     """Testing to ensure that the get_file_paths function returns the correct list of file paths"""
     path_list = aj.get_file_paths(".java", "test_repos")
-    correct_path = ['test_repos/test-repo-1/src/test.java', 'test_repos/test-repo-2/src/test.java', 'test_repos/test-repo-3/src/test.java']
+    correct_path = ['test_repos/test-repo-2/src/test.java', 'test_repos/test-repo-3/src/test.java', 'test_repos/test-repo-1/src/test.java']
     assert correct_path == path_list
 
 
