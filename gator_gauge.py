@@ -1,7 +1,7 @@
 """ main file in the GatorGauge system """
 import sys
 import os
-
+import time
 # local imports
 import github_clone_all
 import defaults
@@ -24,19 +24,20 @@ if __name__ == "__main__":
     # if there is no config.ini file, create one
     if not os.path.exists("./config.ini"):
         defaults.new_config()
-        defaults.edit_config()
     DEFINED_COMMANDS = {"help", "get", "config", "list", "analyze", "quit"}
     FSET = frozenset(DEFINED_COMMANDS)
     SPECIFIERS = ('source', 'comments', 'commits', 'reflection')
 
     COMMAND = str(input('>>> '))
     ARGS = []
-    # added 2 more args for taking in project, prefix, token,
     ARG1 = ""
     ARG2 = ""
     FILENAME = ""
     PROJECT = defaults.get_project()
     KEYWORDS = str(defaults.get_keywords()).split(',')
+    for key in KEYWORDS:
+        if ' ' in key:
+            KEYWORDS[KEYWORDS.index(key)] = key.strip()
     OUT = defaults.get_out()
     while COMMAND != "quit":
         ARGS = COMMAND.rsplit()
@@ -56,7 +57,6 @@ if __name__ == "__main__":
         if COMMAND == "get":
             while PROJECT is "":
                 PROJECT = defaults.edit_config_project()
-                #KEYWORDS, OUT = defaults.edit_config()
             ASK_PREFIX = str(
                 input(
                     "Download all repositories in " +
@@ -81,12 +81,16 @@ if __name__ == "__main__":
                 print("Config values refreshed")
                 PROJECT = defaults.get_project()
                 KEYWORDS = str(defaults.get_keywords()).split(',')
+                for key in KEYWORDS:
+                    if ' ' in key:
+                        KEYWORDS[KEYWORDS.index(key)] = key.strip()
                 OUT = defaults.get_out()
             else:
                 print("Project: " + str(PROJECT))
                 print("Keywords: " + str(KEYWORDS))
                 print("Out: " + str(OUT))
         elif COMMAND == "list":
+            OUT = defaults.get_out()
             if ARG1:
                 REP = ARG1
             else:
@@ -101,12 +105,20 @@ if __name__ == "__main__":
                 ARG1 = str(input('Specifier: '))
             if ARG1 == "source":
                 analyze_java.analyze_java(OUT)
+                # pauses 1 sec to ensure >>> shows up after running analysis
+                time.sleep(1)
             elif ARG1 == "comments":
                 analyze_comments.analyze_comments(OUT)
+                # pauses 1 sec to ensure >>> shows up after running analysis
+                time.sleep(1)
             elif ARG1 == "commits":
                 analyze_commits.analyze_commits(OUT)
+                # pauses 1 sec to ensure >>> shows up after running analysis
+                time.sleep(1)
             elif ARG1 == "reflection":
                 analyze_reflection.analyze_reflection(OUT)
+                # pauses 1 sec to ensure >>> shows up after running analysis
+                time.sleep(1)
         elif COMMAND == "help":
             if ARG1 == "":
                 print(display.display_help())
