@@ -22,6 +22,7 @@ def analyze_reflection(out):
         # perform and print sentiment analysis
         RESPONSES.append(response)
     sentiment = analyze_sentiment.get_sentence_sentiment(RESPONSES[0])
+    sentiment = "<br><b>Average Sentiment:</b> " + str(sentiment)
     print(sentiment)
     embed_stats_into_html(str(sentiment))
     gg_gensim.gensim_analysis(RESPONSES)
