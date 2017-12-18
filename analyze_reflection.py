@@ -1,4 +1,4 @@
-#import sys
+# import sys
 import os
 import re
 # local imports
@@ -24,7 +24,8 @@ def analyze_reflection(out):
     sentiment = analyze_sentiment.get_sentence_sentiment(RESPONSES[0])
     sentiment = "<br><b>Average Sentiment:</b> " + str(sentiment)
     print(sentiment)
-    embed_stats_into_html(str(sentiment))
+    sentiment = "<b>Average Sentiment: </b>" + str(sentiment) + "<ul>"
+    embed_stats_into_html(sentiment)
     gg_gensim.gensim_analysis(RESPONSES)
 
 
